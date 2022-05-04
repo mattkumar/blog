@@ -9,6 +9,10 @@ links:
   icon_pack: fab
   name: CRAN
   url: https://cran.r-project.org/web/packages/funnelR/index.html
+- icon: r-project
+  icon_pack: fab
+  name: R views Top 40
+  url: https://rviews.rstudio.com/2018/04/30/march-2018-top-40-new-package-picks/
 - icon: github
   icon_pack: fab
   name: View App
@@ -29,11 +33,11 @@ Ah yes, my first expedition into building an R package and having it submitted t
 
 >`install.packages('funnelR')`
 
-In retrospect, I've learned quite a bit since about package building, reproducibility and the need of tests. Many of which are *absent* here.
+In retrospect, I've learned quite a bit since about package building, reproducibility and the need for tests. Many of which are *absent* here.
 
-I've included this entry here as it served as a major milestone for personal development. 
+I've included this entry here as it served as a major milestone for personal development. It even made the [Top 40 New Package Picks]( https://rviews.rstudio.com/2018/04/30/march-2018-top-40-new-package-picks/) shortly after it was released. 
 
-I leave you with the vignettes to see what this package is all about. To give some context, in a previous role, and similar to forest plots, funnel plots were a staple of most statistical analyses involving our population-level data holdings.
+I leave you with the vignettes to see what this package is all about. To give some context, in a previous role funnel plots were a staple of most statistical analyses involving our population-level data holdings.
 
 >The `funnelR` package provides a flexible framework for creating funnel plots for proportion data. A funnel plot is a powerful visualization in the analysis of unit level performance relative to some criterion. It readily allows identification of units that are `In Control` or `Extreme` according to a benchmark at a specified level of confidence (e.g.95%).
 
