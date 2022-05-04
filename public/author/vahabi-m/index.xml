@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vahabi M | Matthew Kumar</title>
+    <link>https://academic-demo.netlify.app/author/vahabi-m/</link>
+      <atom:link href="https://academic-demo.netlify.app/author/vahabi-m/index.xml" rel="self" type="application/rss+xml" />
+    <description>Vahabi M</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 05 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <title>Vahabi M</title>
+      <link>https://academic-demo.netlify.app/author/vahabi-m/</link>
+    </image>
+    
+    <item>
+      <title>Breast cancer screening disparities among immigrant women by world region of origin - a population-based study in Ontario, Canada</title>
+      <link>https://academic-demo.netlify.app/publication/breast_immigrant/</link>
+      <pubDate>Sun, 05 Jul 2015 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/publication/breast_immigrant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Breast cancer screening disparities among urban immigrants - a population-based study in Ontario, Canada</title>
+      <link>https://academic-demo.netlify.app/publication/breast_urban/</link>
+      <pubDate>Wed, 01 Jul 2015 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/publication/breast_urban/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

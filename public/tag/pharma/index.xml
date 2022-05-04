@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pharma | Matthew Kumar</title>
+    <link>https://academic-demo.netlify.app/tag/pharma/</link>
+      <atom:link href="https://academic-demo.netlify.app/tag/pharma/index.xml" rel="self" type="application/rss+xml" />
+    <description>Pharma</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 21 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <title>Pharma</title>
+      <link>https://academic-demo.netlify.app/tag/pharma/</link>
+    </image>
+    
+    <item>
+      <title>Animated KM</title>
+      <link>https://academic-demo.netlify.app/project/tte_animations/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/tte_animations/</guid>
+      <description>&lt;p&gt;This was a neat experiment using the &lt;code&gt;{gganimate}&lt;/code&gt; package for storytelling purposes. In the Kaplan-Meier plot, animation serves as the vehicle to unravel chronological events in a fictitious Oncology clinical trial.&lt;/p&gt;
+&lt;p&gt;Some features include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Animation of the individual survival curves over time - here you can see how fast the probability of survival drops quite clearly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tracking of number of events and number at risk in real time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The use of stopping points to emphasize when the median survival time is achieved&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The use of stopping points to emphasize contextual information such as planned analyses dates and results of interim stats. Note: may or may not make actual sense given the data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;km&#34;
+           src=&#34;https://academic-demo.netlify.app/project/tte_animations/km.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;I also had a bit of fun to see where else this could potentially play a role. In the below graph, we compare theoretical versus observed values from a simulation study to see where across the axes the biggest differences lie.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;sim&#34;
+           src=&#34;https://academic-demo.netlify.app/project/tte_animations/curve.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;This was experiment sparked further discussion into how we can help our Stat colleagues during their round-table discussions. It was eventually spun off into a shiny app.&lt;/p&gt;
+&lt;p&gt;Good times.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Auto-Narratives</title>
+      <link>https://academic-demo.netlify.app/project/rmarkdown-reporting-engine/</link>
+      <pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/rmarkdown-reporting-engine/</guid>
+      <description>&lt;p&gt;I had recently learned about &lt;a href=&#34;https://drug-dev.com/patient-safety-narratives-clinical-trials-medical-writing-patient-safety-narratives/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;patient safety narratives&lt;/a&gt;, a key deliverable in clinical study reporting that is prepared on a per-patient basis. At the same time, I was also looking to extend my Rmarkdown knowledge to create automated workflows or &amp;ldquo;pipelines&amp;rdquo;. You can see where this is going right?&lt;/p&gt;
+&lt;p&gt;My aim was pretty clear: I wanted to create an Rmarkdown-based reporting engine, capable of automatically creating safety narratives for all participants in a clinical trial based on a single template.&lt;/p&gt;
+&lt;p&gt;For this example, I borrowed the clinical trial data from the PHUSE Github Repository, openly available &lt;a href=&#34;https://github.com/phuse-org/phuse-scripts/tree/master/data/adam/cdiscpilot01&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Next, I got to work in seeing what data elements I would want to pick out for my narratives. I was less concerned with what&amp;rsquo;s actually in a narrative and more interested in the process of automating their creation. Nevertheless, I picked some elements that I think are relevant such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patient Age/Sex/Race&lt;/li&gt;
+&lt;li&gt;Dates of first and last treatment&lt;/li&gt;
+&lt;li&gt;Adverse Events, including reported term, severity, outcome and associated dates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The technical part of this project was interesting to think about and research. I ultimately decided with the following approach:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a template or skeleton structure of a narrative that will be applied to each patients data&lt;/li&gt;
+&lt;li&gt;The template includes data wrangling steps that will be repeated for each subject. In here, I also include a table object just to test out variety.&lt;/li&gt;
+&lt;li&gt;Using Rmarkdown&amp;rsquo;s &lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/parameterized-reports.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;parameters&lt;/a&gt; (here each subject&amp;rsquo;s unique identifier), loop through the unique identifier list and have the corresponding report created.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This was great and I was able to get it to work almost immediately.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;However&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I wanted extend the current approach by providing a user interface to the engine. This is especially useful for non-programming colleagues (or colleagues not familiar with R or Rmarkdown). Enter Shiny.&lt;/p&gt;
+&lt;p&gt;Briefly, the user experience can be described as:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A list of patient identifiers are populated in a DataTable, and the user is instructed to select all or some of the patients they wish to generate a report for.&lt;/li&gt;
+&lt;li&gt;The user then has the option to select the format of their narratives: .docx, .html, or .pdf&lt;/li&gt;
+&lt;li&gt;Once selections are made, from here the process works similar to the above, but within the Shiny server context.&lt;/li&gt;
+&lt;li&gt;The last step involves collecting all generated reports, bundling them into a single zip file, and returning them to the user as a download. While this process happens in real time, a progress bar is provided to the user as feedback.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;That last part still amazes me.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve since taken this a few steps further, investigating even more approaches (e.g. parent-child reports) and conditional execution of narrative text based on values of users data and including graphics. I will likely update this repo to include those enhancements, but for now enjoy as is!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Survival Tables</title>
+      <link>https://academic-demo.netlify.app/project/surv_tables/</link>
+      <pubDate>Sun, 20 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/surv_tables/</guid>
+      <description>&lt;p&gt;The following project was an entry into the first R Studio table contest held in 2020.&lt;/p&gt;
+&lt;p&gt;It depicts a standard survival analysis using the Kaplan-Meier method. Accompanying the graph is an interactive Number at Risk (DT) table which can be clicked.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;NAR Table&#34; srcset=&#34;
+               /project/surv_tables/t1_hu115f7e56b7edb68c77d990046f66e7aa_42029_7ccfc8aca693c795dfbdcca2fd3e291a.webp 400w,
+               /project/surv_tables/t1_hu115f7e56b7edb68c77d990046f66e7aa_42029_74ae0797eaee4fe1d814d48d3646fc3d.webp 760w,
+               /project/surv_tables/t1_hu115f7e56b7edb68c77d990046f66e7aa_42029_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/surv_tables/t1_hu115f7e56b7edb68c77d990046f66e7aa_42029_7ccfc8aca693c795dfbdcca2fd3e291a.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;718&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Upon clicking a cell of the Number at Risk table, a second (Reactable) table is produced for those subjects.&lt;/p&gt;
+&lt;p&gt;In this table, contextual information is given for these subjects and an inline, interactive swimmer plot (Highcharter) is also produced.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Swimmer Table&#34; srcset=&#34;
+               /project/surv_tables/t2_hu2daaac5208347fb142655b02ef0e3d02_34684_13a00c72137e35a3b6b3e702ad6c6803.webp 400w,
+               /project/surv_tables/t2_hu2daaac5208347fb142655b02ef0e3d02_34684_99b60cee1f737c3e250fb08ed2ed9f5c.webp 760w,
+               /project/surv_tables/t2_hu2daaac5208347fb142655b02ef0e3d02_34684_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/surv_tables/t2_hu2daaac5208347fb142655b02ef0e3d02_34684_13a00c72137e35a3b6b3e702ad6c6803.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;650&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Sadly this table did not place in the contest, though parts of it have made it&amp;rsquo;s way into some of our team projects.&lt;/p&gt;
+&lt;p&gt;I learned a lot about JS and Reactable in this project, which has since become my display table package of choice within R :)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts | Matthew Kumar</title>
+    <link>https://academic-demo.netlify.app/post/</link>
+      <atom:link href="https://academic-demo.netlify.app/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 03 May 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <title>Posts</title>
+      <link>https://academic-demo.netlify.app/post/</link>
+    </image>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://academic-demo.netlify.app/post/hello-world/</link>
+      <pubDate>Tue, 03 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/post/hello-world/</guid>
+      <description>&lt;p&gt;Welcome to my new&amp;hellip; blog?&lt;/p&gt;
+&lt;p&gt;This was a long time coming. My &lt;a href=&#34;https://matt-kumar.shinyapps.io/portfolio&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;previous portfolio&lt;/a&gt; was getting cumbersome to maintain. I have no idea why I thought at the time it would be good to structure it as a shiny app. Whoopsies.&lt;/p&gt;
+&lt;p&gt;Anyway, if you&amp;rsquo;re reading this, this is my new digital home. I plan to share my thoughts and some of my work here going forward. I&amp;rsquo;ve started to back-port some of the previous stuff I&amp;rsquo;ve worked in as well as bring newer content directly here in the future.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re into R, Shiny, or statistics I think you&amp;rsquo;ll enjoy this place. I hope you stick around!&lt;/p&gt;
+&lt;p&gt;A special shoutout to Andreas Handel&amp;rsquo;s &lt;a href=&#34;https://www.andreashandel.com/posts/blogdown-website-1/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;guide&lt;/a&gt; for getting started with blogdown and Hugo.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

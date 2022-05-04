@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Visualization | Matthew Kumar</title>
+    <link>https://academic-demo.netlify.app/tag/data-visualization/</link>
+      <atom:link href="https://academic-demo.netlify.app/tag/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+    <description>Data Visualization</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 05 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <title>Data Visualization</title>
+      <link>https://academic-demo.netlify.app/tag/data-visualization/</link>
+    </image>
+    
+    <item>
+      <title>Linked TLFs</title>
+      <link>https://academic-demo.netlify.app/project/tplyr/</link>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/tplyr/</guid>
+      <description>&lt;h2&gt;Overview&lt;/h2&gt;
+On March 31, 2022 I had the pleasure of attending the CDISC Open Source Alliance (COSA) Spotlight where  from various CDISC community members shared exciting developments from their work. If you&#39;re interested in the recording, it can be viewed &lt;a href=&#34;https://www.cdisc.org/events/webinar/cdisc-open-source-alliance-spotlight&#34;&gt;here.&lt;/a&gt; 
+&lt;br&gt;
+&lt;br&gt;
+Among presenters were &lt;a href=&#34;https://www.linkedin.com/in/michael-s-stackhouse/&#34;&gt;Mike Stackhouse&lt;/a&gt; and &lt;a href=&#34;https://www.linkedin.com/in/eli-miller-90532a87/&#34;&gt;Eli Miller&lt;/a&gt; from &lt;a href=&#34;https://www.atorusresearch.com/&#34;&gt;Atorus&lt;/a&gt; demonstrating a new feature coming to &lt;code&gt;{Tplyr}&lt;/code&gt;: &lt;b&gt;the ability to to query and retrieve individual observations from a summary table using a metadata-driven approach.&lt;/b&gt;
+&lt;br&gt;
+&lt;br&gt;
+Imagine a generic table. Imagine clicking on a particular cell of that table. Imagine being able to easily identify patients that comprise that cell. Let that sink in for a second as I did. Pretty powerful stuff...
+&lt;h2&gt;An Example&lt;/h2&gt;
+Excited to give it a try, I spent the weekend coding up this example. It uses a demographics table as an anchor. Once a cell is selected, a variety of TLFs are &lt;b&gt;linked&lt;/b&gt; for the patients in that cell.
+&lt;/br&gt;
+&lt;/br&gt;
+Here is the anchor TLF. I&#39;ve clicked on the overall total cell for patients categorized as being &gt; 80 years of age. There are N = 77 such patients.  
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;anchor&#34; srcset=&#34;
+               /project/tplyr/t1_hud0f9c355be00ffbf55516980e7c03402_68375_0c95c0e0468d3f309507d0db1191fe2a.webp 400w,
+               /project/tplyr/t1_hud0f9c355be00ffbf55516980e7c03402_68375_5cacf636a8e0ff3b5e2ea314ccc7dbd4.webp 760w,
+               /project/tplyr/t1_hud0f9c355be00ffbf55516980e7c03402_68375_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/tplyr/t1_hud0f9c355be00ffbf55516980e7c03402_68375_0c95c0e0468d3f309507d0db1191fe2a.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;576&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Here is the first linked TLF. A simple listing of the N = 77 patients. In Tplyr, you can specify any additional columns you wish to have too.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;listing&#34; srcset=&#34;
+               /project/tplyr/t2_hub2aa4f4dd0f50af8aad19c52f1210e24_29694_d84f335c4a6db0c54a46a4bc5efef0d8.webp 400w,
+               /project/tplyr/t2_hub2aa4f4dd0f50af8aad19c52f1210e24_29694_7f824f4b050aa6f41cedf060f8a2aa38.webp 760w,
+               /project/tplyr/t2_hub2aa4f4dd0f50af8aad19c52f1210e24_29694_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/tplyr/t2_hub2aa4f4dd0f50af8aad19c52f1210e24_29694_d84f335c4a6db0c54a46a4bc5efef0d8.webp&#34;
+               width=&#34;424&#34;
+               height=&#34;638&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;I mentioned figures! Here is a safety figure and an efficacy figure for those N = 77 patients. Each of these figures are also interactive thanks to &lt;code&gt;{highcharter}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;figures&#34; srcset=&#34;
+               /project/tplyr/t3_hued9bccd0b40c21f207dcbcb72b66b4a6_61270_923ea559bc1feafdbb493019fd48bdd7.webp 400w,
+               /project/tplyr/t3_hued9bccd0b40c21f207dcbcb72b66b4a6_61270_13fb13383987b3630ef29e490962230e.webp 760w,
+               /project/tplyr/t3_hued9bccd0b40c21f207dcbcb72b66b4a6_61270_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/tplyr/t3_hued9bccd0b40c21f207dcbcb72b66b4a6_61270_923ea559bc1feafdbb493019fd48bdd7.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;398&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Lastly, here is a TLF from a completely separate section (i.e. safety) for those N = 77 patients. I&amp;rsquo;ve leveraged some of the neat features of &lt;code&gt;{reactable}&lt;/code&gt; to nest things.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;tlf2&#34; srcset=&#34;
+               /project/tplyr/t4_hu661b4305fbdc0509785935e60a5a364d_94981_925eb2975b88deec5721e76c49608dd0.webp 400w,
+               /project/tplyr/t4_hu661b4305fbdc0509785935e60a5a364d_94981_777df67d149219e193c4b64b479f2e72.webp 760w,
+               /project/tplyr/t4_hu661b4305fbdc0509785935e60a5a364d_94981_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/tplyr/t4_hu661b4305fbdc0509785935e60a5a364d_94981_925eb2975b88deec5721e76c49608dd0.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;446&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2&gt;Forward&lt;/h2&gt;
+Now take this impulse and multiply it by an entire catalog of TLFs and add to it Shiny&#39;s capabilities - what have you got? 
+&lt;/br&gt;
+&lt;/br&gt;
+A Swiss army knife of productivity capable of serving many functions. Think stat analysts, statisticians, medical writing and more...
+&lt;h2&gt;Access&lt;/h2&gt;
+You can try the app I created for this example &lt;a href=&#34;https://matt-kumar.shinyapps.io/linked_tlfs/&#34;&gt;here.&lt;/a&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+You can also access the specific build of `{Tplyr}` with these capabilities by going &lt;a href=&#34;https://github.com/atorus-research/Tplyr/tree/gh_issue_32&#34;&gt;here.&lt;/a&gt; 
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;remotes::install_github(&amp;quot;atorus-research/Tplyr@20beb73cd4c202308afbbb57c1f2b6e1590295b7&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I&amp;rsquo;ll definitely be keeping an eye on more developments and hope to share more with you here.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Visual MCMC</title>
+      <link>https://academic-demo.netlify.app/project/mcmc/</link>
+      <pubDate>Sun, 14 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/mcmc/</guid>
+      <description>&lt;p&gt;This project was a continuation into animation, using imposter syndrome as a motivation. Let me explain.&lt;/p&gt;
+&lt;p&gt;My educational background and training was in Biostatistics. Throughout my career, I&amp;rsquo;ve served many different roles, from statistician to programmer to epidemiologist to most recently, computational scientist. Over the last bit, I&amp;rsquo;ve kind of lost touch with my mathematical and statistical roots. Every so often, I will dive back into it to remind myself how it works and to a somewhat lesser extent, keep abreast of new developments.&lt;/p&gt;
+&lt;p&gt;Bayesian statistics was an interesting course in my graduate program. Unfortunately, I haven&amp;rsquo;t used it as much as I would have wished, but I am simply fascinated by the math. At the same time, it can be challenging to wrap your head around what&amp;rsquo;s going on underneath the hood in the estimation process. This is precisely why I made this post.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I&amp;rsquo;ll stop here to direct you towards the original (more comprehensive) post I made concerning this topic, which can be found &lt;a href=&#34;https://rpubs.com/matt-kumar/mcmc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In short, this project involved a few key activities that helped refresh my memory and deepen my understanding, all through using R, animation and visualization.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Simulating data arising from a statistical model with known parameters. Logistic regression was the use case.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fitting the model on simulated data to recover the known parameters, verifying the simulation worked.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Building an MCMC sampler (Random Walks Metropolis-Hastings) in order to fit a Bayesian-flavored version of the logistic regression model&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Understand exactly what the algorithm does at each step and visualize this via animation. Understand the impact of different priors, candidate distributions, and jump steps in the algorithm.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Compare results obtained through the MCMC sampler against what we previously obtained.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To this end, I prepared three visualizations I&amp;rsquo;d like to share.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;part&#34;
+           src=&#34;https://academic-demo.netlify.app/project/mcmc/part.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;This visualization shows the first 100 iterations of a single chain in estimating the parameters of the Bayesian logistic regression analysis. I&amp;rsquo;ve overlaid a table that shows the current and previous values, and the decision taken by the algorithim.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;full&#34;
+           src=&#34;https://academic-demo.netlify.app/project/mcmc/full.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;This visualization shows the full 10,000 iterations of the single chain. I&amp;rsquo;ve removed the table of estimates. Here it&amp;rsquo;s quite clear that the chain quickly settles into the area of the known parameter estimates.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;multi&#34;
+           src=&#34;https://academic-demo.netlify.app/project/mcmc/multi.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;The last visualization mixes things up a bit, by providing 4 chains, each with different starting or initialization values. In the end, they all converge. Kind of.&lt;/p&gt;
+&lt;p&gt;Hope you find it useful!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Animated KM</title>
+      <link>https://academic-demo.netlify.app/project/tte_animations/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/tte_animations/</guid>
+      <description>&lt;p&gt;This was a neat experiment using the &lt;code&gt;{gganimate}&lt;/code&gt; package for storytelling purposes. In the Kaplan-Meier plot, animation serves as the vehicle to unravel chronological events in a fictitious Oncology clinical trial.&lt;/p&gt;
+&lt;p&gt;Some features include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Animation of the individual survival curves over time - here you can see how fast the probability of survival drops quite clearly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tracking of number of events and number at risk in real time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The use of stopping points to emphasize when the median survival time is achieved&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The use of stopping points to emphasize contextual information such as planned analyses dates and results of interim stats. Note: may or may not make actual sense given the data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;km&#34;
+           src=&#34;https://academic-demo.netlify.app/project/tte_animations/km.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;I also had a bit of fun to see where else this could potentially play a role. In the below graph, we compare theoretical versus observed values from a simulation study to see where across the axes the biggest differences lie.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;sim&#34;
+           src=&#34;https://academic-demo.netlify.app/project/tte_animations/curve.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;This was experiment sparked further discussion into how we can help our Stat colleagues during their round-table discussions. It was eventually spun off into a shiny app.&lt;/p&gt;
+&lt;p&gt;Good times.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>frappe Charts</title>
+      <link>https://academic-demo.netlify.app/project/frappe/</link>
+      <pubDate>Sun, 13 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/frappe/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://frappe.io/charts&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Frappe charts&lt;/a&gt; is a modern, open source SVG charting library written in javascript.&lt;/p&gt;
+&lt;p&gt;I had been reading John Coene&amp;rsquo;s &lt;a href=&#34;https://javascript-for-r.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Javascript for R&lt;/a&gt;, an excellent exposition into building widgets for R, and was inspired to put my new-found knowledge to the test. I selected the Frappe charts library as my use case and wanted to see how far down the rabbit hole I could go.&lt;/p&gt;
+&lt;p&gt;I was successful in porting over some of the charts and put them (very crudely) into a few R functions for use in Shiny, Rmarkdown and the viewer in R Studio IDE. I probably won&amp;rsquo;t flesh this package out further as it was for educational purposes.&lt;/p&gt;
+&lt;p&gt;Below you can find a sample of what it can currently create:&lt;/p&gt;
+&lt;div&gt;
+&lt;iframe
+    src=&#34;https://rstudio-pubs-static.s3.amazonaws.com/781074_8197ded96dc34034b92dff8f87d28e8d.html&#34;
+    frameborder=&#34;0&#34;
+    style=&#34;overflow:hidden;height:1000;width:100%&#34;
+    height=&#34;1000&#34;
+    width=&#34;100%&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;Nothing earth-shattering, but very satisfying in being able to do some of this myself rather than waiting for someone else to.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>React Calendar</title>
+      <link>https://academic-demo.netlify.app/project/calendar/</link>
+      <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/calendar/</guid>
+      <description>&lt;p&gt;The following project was a second entry into the first R Studio table contest held in 2020.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t even know where to start with this one. I was looking at creative uses of a table and I landed on the idea of using a table as a calendar.&lt;/p&gt;
+&lt;p&gt;At the same time, I was really into figuring out how to incorporate custom CSS into shiny. I had found this awesome 8-bit inspired CSS library and immediately wanted to use it. You can view it &lt;a href=&#34;https://nostalgic-css.github.io/NES.css/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Building on my previous experience of the &lt;code&gt;reactable&lt;/code&gt; package (and custom JS), I kind of went HAM on this one:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In addition to the custom bezel, added animated gifs from the super mario games&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Added (borrwed) JS code to give the particle effect of snow falling (it was December afterall!)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Using JS, set custom modals on certain dates to mimic the feel of a calendar invite in Outlook. These are also stylized to match the overall aesthetic.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;NAR Table&#34;
+           src=&#34;https://academic-demo.netlify.app/project/calendar/screencap.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Survival Tables</title>
+      <link>https://academic-demo.netlify.app/project/surv_tables/</link>
+      <pubDate>Sun, 20 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/surv_tables/</guid>
+      <description>&lt;p&gt;The following project was an entry into the first R Studio table contest held in 2020.&lt;/p&gt;
+&lt;p&gt;It depicts a standard survival analysis using the Kaplan-Meier method. Accompanying the graph is an interactive Number at Risk (DT) table which can be clicked.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;NAR Table&#34; srcset=&#34;
+               /project/surv_tables/t1_hu115f7e56b7edb68c77d990046f66e7aa_42029_7ccfc8aca693c795dfbdcca2fd3e291a.webp 400w,
+               /project/surv_tables/t1_hu115f7e56b7edb68c77d990046f66e7aa_42029_74ae0797eaee4fe1d814d48d3646fc3d.webp 760w,
+               /project/surv_tables/t1_hu115f7e56b7edb68c77d990046f66e7aa_42029_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/surv_tables/t1_hu115f7e56b7edb68c77d990046f66e7aa_42029_7ccfc8aca693c795dfbdcca2fd3e291a.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;718&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Upon clicking a cell of the Number at Risk table, a second (Reactable) table is produced for those subjects.&lt;/p&gt;
+&lt;p&gt;In this table, contextual information is given for these subjects and an inline, interactive swimmer plot (Highcharter) is also produced.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Swimmer Table&#34; srcset=&#34;
+               /project/surv_tables/t2_hu2daaac5208347fb142655b02ef0e3d02_34684_13a00c72137e35a3b6b3e702ad6c6803.webp 400w,
+               /project/surv_tables/t2_hu2daaac5208347fb142655b02ef0e3d02_34684_99b60cee1f737c3e250fb08ed2ed9f5c.webp 760w,
+               /project/surv_tables/t2_hu2daaac5208347fb142655b02ef0e3d02_34684_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/surv_tables/t2_hu2daaac5208347fb142655b02ef0e3d02_34684_13a00c72137e35a3b6b3e702ad6c6803.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;650&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Sadly this table did not place in the contest, though parts of it have made it&amp;rsquo;s way into some of our team projects.&lt;/p&gt;
+&lt;p&gt;I learned a lot about JS and Reactable in this project, which has since become my display table package of choice within R :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>forestR</title>
+      <link>https://academic-demo.netlify.app/project/forestr/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/forestr/</guid>
+      <description>&lt;p&gt;In a previous role, creating forest plots were a routine task in almost any project that involved studying statistical associations between various exposures and outcomes using population-level data. These usually came in the form of logistic regression (odds ratios) or Cox models (hazard ratios) and needed to be visualized, often using a forest plot.&lt;/p&gt;
+&lt;p&gt;While that role (and organization) was very SAS-centric, no macro or PROC, to my knowledge, existed at the time that made this process painless. Often analysts would turn to Excel (cringe) and spend needless hours trying to &lt;del&gt;format&lt;/del&gt; shoehorn their results into a template.&lt;/p&gt;
+&lt;p&gt;To help overcome this, I created a forest plot in R and shared it with colleagues. As more and more wished to use it and adapt it, I realized this was a good candidate for a Shiny app. So, regardless of familiarity with R, all project members could craft a high-quality, publication ready forest plot for the journal article submission.&lt;/p&gt;
+&lt;p&gt;To help bridge the gap between SAS and R, I structured the input data set required by the shiny app around what PROC logistic or Lifetest would spit out via ODS (or something very near). This was also because at the time, most statistical analyses were &lt;em&gt;not&lt;/em&gt; done in R.&lt;/p&gt;
+&lt;p&gt;So, the app works like this.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;I provide you a template with some light conventions to follow. These mimic most SAS PROCS ODS outputs.&lt;/li&gt;
+&lt;li&gt;Fill in the template and upload it to the app.&lt;/li&gt;
+&lt;li&gt;I provide you a good deal of aesthetic control (color, log-scaling, custom breaks, text, etc) to customize your plot.&lt;/li&gt;
+&lt;li&gt;Download your plot as a high-res PDF.&lt;/li&gt;
+&lt;li&gt;???&lt;/li&gt;
+&lt;li&gt;Profit.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;There&amp;rsquo;s sample data in the app. You can edit it to your liking or just click &lt;strong&gt;Proceed&lt;/strong&gt;. Give it a shot.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Visual Abstracts</title>
+      <link>https://academic-demo.netlify.app/project/abstractr/</link>
+      <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/abstractr/</guid>
+      <description>&lt;p&gt;The idea of &amp;lsquo;Visual Abstracts&amp;rsquo; have recently become popular and are particularly efficient in distilling the main findings of original research.&lt;/p&gt;
+&lt;p&gt;I wanted to create an application that enabled users (or non programmers in general) to create nice visual summaries for their research projects they could share over social media. I&amp;rsquo;ve added a fair bit of control and customization in the application mostly related to layout and aesthetics.&lt;/p&gt;
+&lt;p&gt;This project was entered into the first ever (2019) Shiny Competition hosted by R Studio and received an honorable mention. You can view the original blog entry &lt;a href=&#34;https://www.rstudio.com/blog/first-shiny-contest-winners/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I also ended up turning this app into a package, which can be installed locally on your machine from &lt;a href=&#34;https://cran.rstudio.com/web/packages/abstractr/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CRAN.&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;install.packages(&amp;quot;abstractr&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>funnelR</title>
+      <link>https://academic-demo.netlify.app/project/funnelr/</link>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/funnelr/</guid>
+      <description>&lt;p&gt;Ah yes, my first expedition into building an R package and having it submitted to CRAN.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;install.packages(&#39;funnelR&#39;)&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In retrospect, I&amp;rsquo;ve learned quite a bit since about package building, reproducibility and the need of tests. Many of which are &lt;em&gt;absent&lt;/em&gt; here.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve included this entry here as it served as a major milestone for personal development.&lt;/p&gt;
+&lt;p&gt;I leave you with the vignettes to see what this package is all about. To give some context, in a previous role, and similar to forest plots, funnel plots were a staple of most statistical analyses involving our population-level data holdings.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The &lt;code&gt;funnelR&lt;/code&gt; package provides a flexible framework for creating funnel plots for proportion data. A funnel plot is a powerful visualization in the analysis of unit level performance relative to some criterion. It readily allows identification of units that are &lt;code&gt;In Control&lt;/code&gt; or &lt;code&gt;Extreme&lt;/code&gt; according to a benchmark at a specified level of confidence (e.g.95%).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Framed this way, a funnel plot can be applied to any number of fields of study to monitor and identify units that deviate from what is considered typical. For example, it could be used to differentiate schools that are high, average or low performing on a standardized test according to a National or State benchmark. From a quality improvement point of view, they might help identify which hospitals have extreme mortality or surgical complication rates relative to a benchmark prescribed by a government body.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The funnelR package provides many options to specify elements of a funnel plot including user defined: control limits, benchmarks, and estimation methods. It also has the capability to write scored results (i.e. a variable that records whether a unit is In Control or Extreme according to the specifications of the funnel plot) to your sample data set. This variable might then be included in further analysis such as cross-tabulations (e.g. stratification) or regression modeling (e.g. covariate).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;While many flavors of funnel plots exist (rates, ratios, etc.), the current package considers funnel plots assuming proportion data that is binomially distributed. The interested reader is referred to Spiegelhalter (2005) for further details.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you&amp;rsquo;re interested in a specific use case (the one highlighted in the banner), &lt;a href=&#34;https://github.com/mattkumar/mmr&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;I got you covered&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you want to see more flavors, I turn you to the &lt;a href=&#34;https://cran.r-project.org/web/packages/FunnelPlotR/readme/README.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;FunnelPlotR&lt;/a&gt; package which is more comprehensive in types of analyses covered and actively maintained.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

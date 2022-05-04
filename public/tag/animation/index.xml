@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Animation | Matthew Kumar</title>
+    <link>https://academic-demo.netlify.app/tag/animation/</link>
+      <atom:link href="https://academic-demo.netlify.app/tag/animation/index.xml" rel="self" type="application/rss+xml" />
+    <description>Animation</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 14 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <title>Animation</title>
+      <link>https://academic-demo.netlify.app/tag/animation/</link>
+    </image>
+    
+    <item>
+      <title>Visual MCMC</title>
+      <link>https://academic-demo.netlify.app/project/mcmc/</link>
+      <pubDate>Sun, 14 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/mcmc/</guid>
+      <description>&lt;p&gt;This project was a continuation into animation, using imposter syndrome as a motivation. Let me explain.&lt;/p&gt;
+&lt;p&gt;My educational background and training was in Biostatistics. Throughout my career, I&amp;rsquo;ve served many different roles, from statistician to programmer to epidemiologist to most recently, computational scientist. Over the last bit, I&amp;rsquo;ve kind of lost touch with my mathematical and statistical roots. Every so often, I will dive back into it to remind myself how it works and to a somewhat lesser extent, keep abreast of new developments.&lt;/p&gt;
+&lt;p&gt;Bayesian statistics was an interesting course in my graduate program. Unfortunately, I haven&amp;rsquo;t used it as much as I would have wished, but I am simply fascinated by the math. At the same time, it can be challenging to wrap your head around what&amp;rsquo;s going on underneath the hood in the estimation process. This is precisely why I made this post.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I&amp;rsquo;ll stop here to direct you towards the original (more comprehensive) post I made concerning this topic, which can be found &lt;a href=&#34;https://rpubs.com/matt-kumar/mcmc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In short, this project involved a few key activities that helped refresh my memory and deepen my understanding, all through using R, animation and visualization.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Simulating data arising from a statistical model with known parameters. Logistic regression was the use case.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fitting the model on simulated data to recover the known parameters, verifying the simulation worked.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Building an MCMC sampler (Random Walks Metropolis-Hastings) in order to fit a Bayesian-flavored version of the logistic regression model&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Understand exactly what the algorithm does at each step and visualize this via animation. Understand the impact of different priors, candidate distributions, and jump steps in the algorithm.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Compare results obtained through the MCMC sampler against what we previously obtained.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To this end, I prepared three visualizations I&amp;rsquo;d like to share.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;part&#34;
+           src=&#34;https://academic-demo.netlify.app/project/mcmc/part.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;This visualization shows the first 100 iterations of a single chain in estimating the parameters of the Bayesian logistic regression analysis. I&amp;rsquo;ve overlaid a table that shows the current and previous values, and the decision taken by the algorithim.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;full&#34;
+           src=&#34;https://academic-demo.netlify.app/project/mcmc/full.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;This visualization shows the full 10,000 iterations of the single chain. I&amp;rsquo;ve removed the table of estimates. Here it&amp;rsquo;s quite clear that the chain quickly settles into the area of the known parameter estimates.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;multi&#34;
+           src=&#34;https://academic-demo.netlify.app/project/mcmc/multi.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;The last visualization mixes things up a bit, by providing 4 chains, each with different starting or initialization values. In the end, they all converge. Kind of.&lt;/p&gt;
+&lt;p&gt;Hope you find it useful!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Animated KM</title>
+      <link>https://academic-demo.netlify.app/project/tte_animations/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/tte_animations/</guid>
+      <description>&lt;p&gt;This was a neat experiment using the &lt;code&gt;{gganimate}&lt;/code&gt; package for storytelling purposes. In the Kaplan-Meier plot, animation serves as the vehicle to unravel chronological events in a fictitious Oncology clinical trial.&lt;/p&gt;
+&lt;p&gt;Some features include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Animation of the individual survival curves over time - here you can see how fast the probability of survival drops quite clearly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tracking of number of events and number at risk in real time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The use of stopping points to emphasize when the median survival time is achieved&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The use of stopping points to emphasize contextual information such as planned analyses dates and results of interim stats. Note: may or may not make actual sense given the data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;km&#34;
+           src=&#34;https://academic-demo.netlify.app/project/tte_animations/km.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;I also had a bit of fun to see where else this could potentially play a role. In the below graph, we compare theoretical versus observed values from a simulation study to see where across the axes the biggest differences lie.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;sim&#34;
+           src=&#34;https://academic-demo.netlify.app/project/tte_animations/curve.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;This was experiment sparked further discussion into how we can help our Stat colleagues during their round-table discussions. It was eventually spun off into a shiny app.&lt;/p&gt;
+&lt;p&gt;Good times.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

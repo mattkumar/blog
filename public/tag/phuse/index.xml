@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PHUSE | Matthew Kumar</title>
+    <link>https://academic-demo.netlify.app/tag/phuse/</link>
+      <atom:link href="https://academic-demo.netlify.app/tag/phuse/index.xml" rel="self" type="application/rss+xml" />
+    <description>PHUSE</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 27 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <title>PHUSE</title>
+      <link>https://academic-demo.netlify.app/tag/phuse/</link>
+    </image>
+    
+    <item>
+      <title>Auto-Narratives</title>
+      <link>https://academic-demo.netlify.app/project/rmarkdown-reporting-engine/</link>
+      <pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/rmarkdown-reporting-engine/</guid>
+      <description>&lt;p&gt;I had recently learned about &lt;a href=&#34;https://drug-dev.com/patient-safety-narratives-clinical-trials-medical-writing-patient-safety-narratives/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;patient safety narratives&lt;/a&gt;, a key deliverable in clinical study reporting that is prepared on a per-patient basis. At the same time, I was also looking to extend my Rmarkdown knowledge to create automated workflows or &amp;ldquo;pipelines&amp;rdquo;. You can see where this is going right?&lt;/p&gt;
+&lt;p&gt;My aim was pretty clear: I wanted to create an Rmarkdown-based reporting engine, capable of automatically creating safety narratives for all participants in a clinical trial based on a single template.&lt;/p&gt;
+&lt;p&gt;For this example, I borrowed the clinical trial data from the PHUSE Github Repository, openly available &lt;a href=&#34;https://github.com/phuse-org/phuse-scripts/tree/master/data/adam/cdiscpilot01&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Next, I got to work in seeing what data elements I would want to pick out for my narratives. I was less concerned with what&amp;rsquo;s actually in a narrative and more interested in the process of automating their creation. Nevertheless, I picked some elements that I think are relevant such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patient Age/Sex/Race&lt;/li&gt;
+&lt;li&gt;Dates of first and last treatment&lt;/li&gt;
+&lt;li&gt;Adverse Events, including reported term, severity, outcome and associated dates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The technical part of this project was interesting to think about and research. I ultimately decided with the following approach:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a template or skeleton structure of a narrative that will be applied to each patients data&lt;/li&gt;
+&lt;li&gt;The template includes data wrangling steps that will be repeated for each subject. In here, I also include a table object just to test out variety.&lt;/li&gt;
+&lt;li&gt;Using Rmarkdown&amp;rsquo;s &lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/parameterized-reports.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;parameters&lt;/a&gt; (here each subject&amp;rsquo;s unique identifier), loop through the unique identifier list and have the corresponding report created.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This was great and I was able to get it to work almost immediately.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;However&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I wanted extend the current approach by providing a user interface to the engine. This is especially useful for non-programming colleagues (or colleagues not familiar with R or Rmarkdown). Enter Shiny.&lt;/p&gt;
+&lt;p&gt;Briefly, the user experience can be described as:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A list of patient identifiers are populated in a DataTable, and the user is instructed to select all or some of the patients they wish to generate a report for.&lt;/li&gt;
+&lt;li&gt;The user then has the option to select the format of their narratives: .docx, .html, or .pdf&lt;/li&gt;
+&lt;li&gt;Once selections are made, from here the process works similar to the above, but within the Shiny server context.&lt;/li&gt;
+&lt;li&gt;The last step involves collecting all generated reports, bundling them into a single zip file, and returning them to the user as a download. While this process happens in real time, a progress bar is provided to the user as feedback.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;That last part still amazes me.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve since taken this a few steps further, investigating even more approaches (e.g. parent-child reports) and conditional execution of narrative text based on values of users data and including graphics. I will likely update this repo to include those enhancements, but for now enjoy as is!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Booth G | Matthew Kumar</title>
+    <link>https://academic-demo.netlify.app/author/booth-g/</link>
+      <atom:link href="https://academic-demo.netlify.app/author/booth-g/index.xml" rel="self" type="application/rss+xml" />
+    <description>Booth G</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 08 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <title>Booth G</title>
+      <link>https://academic-demo.netlify.app/author/booth-g/</link>
+    </image>
+    
+    <item>
+      <title>Validation of a type 1 diabetes algorithm using electronic medical records and administrative healthcare data to study the population incidence and prevalence of type 1 diabetes in Ontario, Canada</title>
+      <link>https://academic-demo.netlify.app/publication/type2diabetes/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/publication/type2diabetes/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

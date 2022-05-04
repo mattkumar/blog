@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shiny | Matthew Kumar</title>
+    <link>https://academic-demo.netlify.app/tag/shiny/</link>
+      <atom:link href="https://academic-demo.netlify.app/tag/shiny/index.xml" rel="self" type="application/rss+xml" />
+    <description>Shiny</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 05 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <title>Shiny</title>
+      <link>https://academic-demo.netlify.app/tag/shiny/</link>
+    </image>
+    
+    <item>
+      <title>Linked TLFs</title>
+      <link>https://academic-demo.netlify.app/project/tplyr/</link>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/tplyr/</guid>
+      <description>&lt;h2&gt;Overview&lt;/h2&gt;
+On March 31, 2022 I had the pleasure of attending the CDISC Open Source Alliance (COSA) Spotlight where  from various CDISC community members shared exciting developments from their work. If you&#39;re interested in the recording, it can be viewed &lt;a href=&#34;https://www.cdisc.org/events/webinar/cdisc-open-source-alliance-spotlight&#34;&gt;here.&lt;/a&gt; 
+&lt;br&gt;
+&lt;br&gt;
+Among presenters were &lt;a href=&#34;https://www.linkedin.com/in/michael-s-stackhouse/&#34;&gt;Mike Stackhouse&lt;/a&gt; and &lt;a href=&#34;https://www.linkedin.com/in/eli-miller-90532a87/&#34;&gt;Eli Miller&lt;/a&gt; from &lt;a href=&#34;https://www.atorusresearch.com/&#34;&gt;Atorus&lt;/a&gt; demonstrating a new feature coming to &lt;code&gt;{Tplyr}&lt;/code&gt;: &lt;b&gt;the ability to to query and retrieve individual observations from a summary table using a metadata-driven approach.&lt;/b&gt;
+&lt;br&gt;
+&lt;br&gt;
+Imagine a generic table. Imagine clicking on a particular cell of that table. Imagine being able to easily identify patients that comprise that cell. Let that sink in for a second as I did. Pretty powerful stuff...
+&lt;h2&gt;An Example&lt;/h2&gt;
+Excited to give it a try, I spent the weekend coding up this example. It uses a demographics table as an anchor. Once a cell is selected, a variety of TLFs are &lt;b&gt;linked&lt;/b&gt; for the patients in that cell.
+&lt;/br&gt;
+&lt;/br&gt;
+Here is the anchor TLF. I&#39;ve clicked on the overall total cell for patients categorized as being &gt; 80 years of age. There are N = 77 such patients.  
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;anchor&#34; srcset=&#34;
+               /project/tplyr/t1_hud0f9c355be00ffbf55516980e7c03402_68375_0c95c0e0468d3f309507d0db1191fe2a.webp 400w,
+               /project/tplyr/t1_hud0f9c355be00ffbf55516980e7c03402_68375_5cacf636a8e0ff3b5e2ea314ccc7dbd4.webp 760w,
+               /project/tplyr/t1_hud0f9c355be00ffbf55516980e7c03402_68375_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/tplyr/t1_hud0f9c355be00ffbf55516980e7c03402_68375_0c95c0e0468d3f309507d0db1191fe2a.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;576&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Here is the first linked TLF. A simple listing of the N = 77 patients. In Tplyr, you can specify any additional columns you wish to have too.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;listing&#34; srcset=&#34;
+               /project/tplyr/t2_hub2aa4f4dd0f50af8aad19c52f1210e24_29694_d84f335c4a6db0c54a46a4bc5efef0d8.webp 400w,
+               /project/tplyr/t2_hub2aa4f4dd0f50af8aad19c52f1210e24_29694_7f824f4b050aa6f41cedf060f8a2aa38.webp 760w,
+               /project/tplyr/t2_hub2aa4f4dd0f50af8aad19c52f1210e24_29694_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/tplyr/t2_hub2aa4f4dd0f50af8aad19c52f1210e24_29694_d84f335c4a6db0c54a46a4bc5efef0d8.webp&#34;
+               width=&#34;424&#34;
+               height=&#34;638&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;I mentioned figures! Here is a safety figure and an efficacy figure for those N = 77 patients. Each of these figures are also interactive thanks to &lt;code&gt;{highcharter}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;figures&#34; srcset=&#34;
+               /project/tplyr/t3_hued9bccd0b40c21f207dcbcb72b66b4a6_61270_923ea559bc1feafdbb493019fd48bdd7.webp 400w,
+               /project/tplyr/t3_hued9bccd0b40c21f207dcbcb72b66b4a6_61270_13fb13383987b3630ef29e490962230e.webp 760w,
+               /project/tplyr/t3_hued9bccd0b40c21f207dcbcb72b66b4a6_61270_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/tplyr/t3_hued9bccd0b40c21f207dcbcb72b66b4a6_61270_923ea559bc1feafdbb493019fd48bdd7.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;398&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Lastly, here is a TLF from a completely separate section (i.e. safety) for those N = 77 patients. I&amp;rsquo;ve leveraged some of the neat features of &lt;code&gt;{reactable}&lt;/code&gt; to nest things.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;tlf2&#34; srcset=&#34;
+               /project/tplyr/t4_hu661b4305fbdc0509785935e60a5a364d_94981_925eb2975b88deec5721e76c49608dd0.webp 400w,
+               /project/tplyr/t4_hu661b4305fbdc0509785935e60a5a364d_94981_777df67d149219e193c4b64b479f2e72.webp 760w,
+               /project/tplyr/t4_hu661b4305fbdc0509785935e60a5a364d_94981_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/tplyr/t4_hu661b4305fbdc0509785935e60a5a364d_94981_925eb2975b88deec5721e76c49608dd0.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;446&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2&gt;Forward&lt;/h2&gt;
+Now take this impulse and multiply it by an entire catalog of TLFs and add to it Shiny&#39;s capabilities - what have you got? 
+&lt;/br&gt;
+&lt;/br&gt;
+A Swiss army knife of productivity capable of serving many functions. Think stat analysts, statisticians, medical writing and more...
+&lt;h2&gt;Access&lt;/h2&gt;
+You can try the app I created for this example &lt;a href=&#34;https://matt-kumar.shinyapps.io/linked_tlfs/&#34;&gt;here.&lt;/a&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+You can also access the specific build of `{Tplyr}` with these capabilities by going &lt;a href=&#34;https://github.com/atorus-research/Tplyr/tree/gh_issue_32&#34;&gt;here.&lt;/a&gt; 
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;remotes::install_github(&amp;quot;atorus-research/Tplyr@20beb73cd4c202308afbbb57c1f2b6e1590295b7&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I&amp;rsquo;ll definitely be keeping an eye on more developments and hope to share more with you here.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>shinyTrumbowyg</title>
+      <link>https://academic-demo.netlify.app/project/shiny-richtext/</link>
+      <pubDate>Fri, 02 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/shiny-richtext/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://alex-d.github.io/Trumbowyg/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Trumboywg.js&lt;/a&gt; is a lightweight, what-you-see-is-what-you-get, text editor written in jQuery.&lt;/p&gt;
+&lt;p&gt;I really wanted to use this library in my shiny apps (some work related, some personal), but I couldn&amp;rsquo;t locate any prior efforts in an R port. Therefore, I used this opportunity to learn to do it myself using the &lt;code&gt;{htmlwidgets}&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;I was able to successfully port over the base version of Trumbowyg and it can be called quite easily using the familiar shiny widget:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;trumbowygInput(id = &amp;quot;id&amp;quot;, label = &amp;quot;text&amp;quot;, value = &amp;quot;Hello world!&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;At the same time, many plugins are available for Trumbowyg, such as emoji&amp;rsquo;s, text coloring, highlighting, and more. I was able to also learn enough to use them natively and to have them be a part of the package.&lt;/p&gt;
+&lt;p&gt;This was a great learning experience to see how javascript integrates with R and Shiny &lt;em&gt;under the hood&lt;/em&gt;. It&amp;rsquo;s helped me develop a deeper appreciation for the work that goes into creating shiny extensions that I think we all (certainly I!) sometimes take for granted!&lt;/p&gt;
+&lt;p&gt;A quick shoutout to &lt;a href=&#34;https://john-coene.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;John Coene&lt;/a&gt; and &lt;a href=&#34;https://maya.rbind.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Maya Gans&lt;/a&gt; for their various works in describing how to bridge the gap between javascript and R!&lt;/p&gt;
+&lt;p&gt;You may view a demo of this &lt;a href=&#34;https://matt-kumar.shinyapps.io/demo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>frappe Charts</title>
+      <link>https://academic-demo.netlify.app/project/frappe/</link>
+      <pubDate>Sun, 13 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/frappe/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://frappe.io/charts&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Frappe charts&lt;/a&gt; is a modern, open source SVG charting library written in javascript.&lt;/p&gt;
+&lt;p&gt;I had been reading John Coene&amp;rsquo;s &lt;a href=&#34;https://javascript-for-r.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Javascript for R&lt;/a&gt;, an excellent exposition into building widgets for R, and was inspired to put my new-found knowledge to the test. I selected the Frappe charts library as my use case and wanted to see how far down the rabbit hole I could go.&lt;/p&gt;
+&lt;p&gt;I was successful in porting over some of the charts and put them (very crudely) into a few R functions for use in Shiny, Rmarkdown and the viewer in R Studio IDE. I probably won&amp;rsquo;t flesh this package out further as it was for educational purposes.&lt;/p&gt;
+&lt;p&gt;Below you can find a sample of what it can currently create:&lt;/p&gt;
+&lt;div&gt;
+&lt;iframe
+    src=&#34;https://rstudio-pubs-static.s3.amazonaws.com/781074_8197ded96dc34034b92dff8f87d28e8d.html&#34;
+    frameborder=&#34;0&#34;
+    style=&#34;overflow:hidden;height:1000;width:100%&#34;
+    height=&#34;1000&#34;
+    width=&#34;100%&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;Nothing earth-shattering, but very satisfying in being able to do some of this myself rather than waiting for someone else to.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Auto-Narratives</title>
+      <link>https://academic-demo.netlify.app/project/rmarkdown-reporting-engine/</link>
+      <pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/rmarkdown-reporting-engine/</guid>
+      <description>&lt;p&gt;I had recently learned about &lt;a href=&#34;https://drug-dev.com/patient-safety-narratives-clinical-trials-medical-writing-patient-safety-narratives/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;patient safety narratives&lt;/a&gt;, a key deliverable in clinical study reporting that is prepared on a per-patient basis. At the same time, I was also looking to extend my Rmarkdown knowledge to create automated workflows or &amp;ldquo;pipelines&amp;rdquo;. You can see where this is going right?&lt;/p&gt;
+&lt;p&gt;My aim was pretty clear: I wanted to create an Rmarkdown-based reporting engine, capable of automatically creating safety narratives for all participants in a clinical trial based on a single template.&lt;/p&gt;
+&lt;p&gt;For this example, I borrowed the clinical trial data from the PHUSE Github Repository, openly available &lt;a href=&#34;https://github.com/phuse-org/phuse-scripts/tree/master/data/adam/cdiscpilot01&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Next, I got to work in seeing what data elements I would want to pick out for my narratives. I was less concerned with what&amp;rsquo;s actually in a narrative and more interested in the process of automating their creation. Nevertheless, I picked some elements that I think are relevant such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patient Age/Sex/Race&lt;/li&gt;
+&lt;li&gt;Dates of first and last treatment&lt;/li&gt;
+&lt;li&gt;Adverse Events, including reported term, severity, outcome and associated dates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The technical part of this project was interesting to think about and research. I ultimately decided with the following approach:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a template or skeleton structure of a narrative that will be applied to each patients data&lt;/li&gt;
+&lt;li&gt;The template includes data wrangling steps that will be repeated for each subject. In here, I also include a table object just to test out variety.&lt;/li&gt;
+&lt;li&gt;Using Rmarkdown&amp;rsquo;s &lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/parameterized-reports.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;parameters&lt;/a&gt; (here each subject&amp;rsquo;s unique identifier), loop through the unique identifier list and have the corresponding report created.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This was great and I was able to get it to work almost immediately.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;However&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I wanted extend the current approach by providing a user interface to the engine. This is especially useful for non-programming colleagues (or colleagues not familiar with R or Rmarkdown). Enter Shiny.&lt;/p&gt;
+&lt;p&gt;Briefly, the user experience can be described as:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A list of patient identifiers are populated in a DataTable, and the user is instructed to select all or some of the patients they wish to generate a report for.&lt;/li&gt;
+&lt;li&gt;The user then has the option to select the format of their narratives: .docx, .html, or .pdf&lt;/li&gt;
+&lt;li&gt;Once selections are made, from here the process works similar to the above, but within the Shiny server context.&lt;/li&gt;
+&lt;li&gt;The last step involves collecting all generated reports, bundling them into a single zip file, and returning them to the user as a download. While this process happens in real time, a progress bar is provided to the user as feedback.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;That last part still amazes me.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve since taken this a few steps further, investigating even more approaches (e.g. parent-child reports) and conditional execution of narrative text based on values of users data and including graphics. I will likely update this repo to include those enhancements, but for now enjoy as is!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>React Calendar</title>
+      <link>https://academic-demo.netlify.app/project/calendar/</link>
+      <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/calendar/</guid>
+      <description>&lt;p&gt;The following project was a second entry into the first R Studio table contest held in 2020.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t even know where to start with this one. I was looking at creative uses of a table and I landed on the idea of using a table as a calendar.&lt;/p&gt;
+&lt;p&gt;At the same time, I was really into figuring out how to incorporate custom CSS into shiny. I had found this awesome 8-bit inspired CSS library and immediately wanted to use it. You can view it &lt;a href=&#34;https://nostalgic-css.github.io/NES.css/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Building on my previous experience of the &lt;code&gt;reactable&lt;/code&gt; package (and custom JS), I kind of went HAM on this one:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In addition to the custom bezel, added animated gifs from the super mario games&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Added (borrwed) JS code to give the particle effect of snow falling (it was December afterall!)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Using JS, set custom modals on certain dates to mimic the feel of a calendar invite in Outlook. These are also stylized to match the overall aesthetic.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;NAR Table&#34;
+           src=&#34;https://academic-demo.netlify.app/project/calendar/screencap.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Survival Tables</title>
+      <link>https://academic-demo.netlify.app/project/surv_tables/</link>
+      <pubDate>Sun, 20 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/surv_tables/</guid>
+      <description>&lt;p&gt;The following project was an entry into the first R Studio table contest held in 2020.&lt;/p&gt;
+&lt;p&gt;It depicts a standard survival analysis using the Kaplan-Meier method. Accompanying the graph is an interactive Number at Risk (DT) table which can be clicked.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;NAR Table&#34; srcset=&#34;
+               /project/surv_tables/t1_hu115f7e56b7edb68c77d990046f66e7aa_42029_7ccfc8aca693c795dfbdcca2fd3e291a.webp 400w,
+               /project/surv_tables/t1_hu115f7e56b7edb68c77d990046f66e7aa_42029_74ae0797eaee4fe1d814d48d3646fc3d.webp 760w,
+               /project/surv_tables/t1_hu115f7e56b7edb68c77d990046f66e7aa_42029_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/surv_tables/t1_hu115f7e56b7edb68c77d990046f66e7aa_42029_7ccfc8aca693c795dfbdcca2fd3e291a.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;718&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Upon clicking a cell of the Number at Risk table, a second (Reactable) table is produced for those subjects.&lt;/p&gt;
+&lt;p&gt;In this table, contextual information is given for these subjects and an inline, interactive swimmer plot (Highcharter) is also produced.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Swimmer Table&#34; srcset=&#34;
+               /project/surv_tables/t2_hu2daaac5208347fb142655b02ef0e3d02_34684_13a00c72137e35a3b6b3e702ad6c6803.webp 400w,
+               /project/surv_tables/t2_hu2daaac5208347fb142655b02ef0e3d02_34684_99b60cee1f737c3e250fb08ed2ed9f5c.webp 760w,
+               /project/surv_tables/t2_hu2daaac5208347fb142655b02ef0e3d02_34684_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/surv_tables/t2_hu2daaac5208347fb142655b02ef0e3d02_34684_13a00c72137e35a3b6b3e702ad6c6803.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;650&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Sadly this table did not place in the contest, though parts of it have made it&amp;rsquo;s way into some of our team projects.&lt;/p&gt;
+&lt;p&gt;I learned a lot about JS and Reactable in this project, which has since become my display table package of choice within R :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>forestR</title>
+      <link>https://academic-demo.netlify.app/project/forestr/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/forestr/</guid>
+      <description>&lt;p&gt;In a previous role, creating forest plots were a routine task in almost any project that involved studying statistical associations between various exposures and outcomes using population-level data. These usually came in the form of logistic regression (odds ratios) or Cox models (hazard ratios) and needed to be visualized, often using a forest plot.&lt;/p&gt;
+&lt;p&gt;While that role (and organization) was very SAS-centric, no macro or PROC, to my knowledge, existed at the time that made this process painless. Often analysts would turn to Excel (cringe) and spend needless hours trying to &lt;del&gt;format&lt;/del&gt; shoehorn their results into a template.&lt;/p&gt;
+&lt;p&gt;To help overcome this, I created a forest plot in R and shared it with colleagues. As more and more wished to use it and adapt it, I realized this was a good candidate for a Shiny app. So, regardless of familiarity with R, all project members could craft a high-quality, publication ready forest plot for the journal article submission.&lt;/p&gt;
+&lt;p&gt;To help bridge the gap between SAS and R, I structured the input data set required by the shiny app around what PROC logistic or Lifetest would spit out via ODS (or something very near). This was also because at the time, most statistical analyses were &lt;em&gt;not&lt;/em&gt; done in R.&lt;/p&gt;
+&lt;p&gt;So, the app works like this.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;I provide you a template with some light conventions to follow. These mimic most SAS PROCS ODS outputs.&lt;/li&gt;
+&lt;li&gt;Fill in the template and upload it to the app.&lt;/li&gt;
+&lt;li&gt;I provide you a good deal of aesthetic control (color, log-scaling, custom breaks, text, etc) to customize your plot.&lt;/li&gt;
+&lt;li&gt;Download your plot as a high-res PDF.&lt;/li&gt;
+&lt;li&gt;???&lt;/li&gt;
+&lt;li&gt;Profit.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;There&amp;rsquo;s sample data in the app. You can edit it to your liking or just click &lt;strong&gt;Proceed&lt;/strong&gt;. Give it a shot.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
