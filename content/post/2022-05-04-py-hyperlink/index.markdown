@@ -21,11 +21,11 @@ A prototype I was working on earlier this year needed to make use of data stored
 
 ![pre](pre.png)
 
-The cells in column B contain hyperlinks for which I need to extract out the URLs. For example, cell B4 has the value of: `http://www.amazon.ca/`. This is what I need. 
+The cells in column B contain hyperlinks for which I need to extract out the URLs. For example, cell B4 has the value of: `http://www.amazon.ca/`. This is what I need access to. 
 
 I figured one of the existing R packages that could extract this information. I checked the usual: `readxl`, `xlsx`, and `openxlsx` and was surprised that none could. 
 
-My next thought was to just have the URLs extracted in Excel, prior to reading them into R. Surely this was possible, right? Not without using a VBA macro. I gave this an honest shot and it proved too cumbersome 🤷. No thanks. 
+My next thought was to just have the URLs extracted in Excel, prior to reading them into R. Surely this was possible, right? Not without using a VBA macro. 🤢 I gave this an honest shot and it proved too cumbersome. No thanks. 
 
 I read that it might be possible in Python with the `openpyxl` package. I haven't a whole lot of experience with Python. I've been reading and hearing how easy it is to [use Python within R and RStudio](https://rstudio.github.io/reticulate/). I decided to give a go. Enter `reticulate`. 🐍🐍🐍
 
