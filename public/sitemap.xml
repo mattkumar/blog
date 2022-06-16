@@ -4,11 +4,15 @@
   
   
   <url>
-    <loc>https://academic-demo.netlify.app/</loc><lastmod>2022-05-03T21:47:04-04:00</lastmod></url>
+    <loc>https://academic-demo.netlify.app/</loc><lastmod>2022-06-15T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/post/whisker/</loc><lastmod>2022-06-15T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/post/</loc><lastmod>2022-06-15T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/post/py-hyperlink/</loc><lastmod>2022-05-04T17:44:10-04:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/post/hello-world/</loc><lastmod>2022-05-03T21:47:04-04:00</lastmod></url>
-  <url>
-    <loc>https://academic-demo.netlify.app/post/</loc><lastmod>2022-05-03T21:47:04-04:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/tag/cdisc/</loc><lastmod>2022-04-05T00:00:00+00:00</lastmod></url>
   <url>
@@ -92,6 +96,10 @@
   <url>
     <loc>https://academic-demo.netlify.app/project/shiny-richtext/</loc><lastmod>2021-07-02T00:00:00+00:00</lastmod></url>
   <url>
+    <loc>https://academic-demo.netlify.app/event/</loc><lastmod>2021-06-14T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/talk/table-based-data-visualizations-using-r/</loc><lastmod>2021-06-14T00:00:00+00:00</lastmod></url>
+  <url>
     <loc>https://academic-demo.netlify.app/project/frappe/</loc><lastmod>2021-06-13T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/author/calzavara-a/</loc><lastmod>2021-05-21T00:00:00+00:00</lastmod></url>
@@ -161,10 +169,6 @@
     <loc>https://academic-demo.netlify.app/author/young-j/</loc><lastmod>2020-06-08T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/talk/data-manipulation-with-r/</loc><lastmod>2019-12-04T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://academic-demo.netlify.app/event/</loc><lastmod>2019-12-04T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://academic-demo.netlify.app/talk/table-based-data-visualizations-using-r/</loc><lastmod>2019-12-04T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/author/gomes-t/</loc><lastmod>2019-09-21T00:00:00+00:00</lastmod></url>
   <url>

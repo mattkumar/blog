@@ -167,13 +167,12 @@ You can also access the specific build of `{Tplyr}` with these capabilities by g
       <link>https://academic-demo.netlify.app/project/mcmc/</link>
       <pubDate>Sun, 14 Nov 2021 00:00:00 +0000</pubDate>
       <guid>https://academic-demo.netlify.app/project/mcmc/</guid>
-      <description>&lt;p&gt;This project was a continuation into animation, using imposter syndrome as a motivation. Let me explain.&lt;/p&gt;
-&lt;p&gt;My educational background and training was in Biostatistics. Throughout my career, I&amp;rsquo;ve served many different roles, from statistician to programmer to epidemiologist to most recently, computational scientist. Over the last bit, I&amp;rsquo;ve kind of lost touch with my mathematical and statistical roots. Every so often, I will dive back into it to remind myself how it works and to a somewhat lesser extent, keep abreast of new developments.&lt;/p&gt;
+      <description>&lt;p&gt;My educational background and training was in Biostatistics. Throughout my career, I&amp;rsquo;ve served many different roles, from statistician to programmer to epidemiologist to most recently, computational scientist. Over the last bit, I&amp;rsquo;ve kind of lost touch with my mathematical and statistical roots. Every so often, I will dive back into some concepts to remind myself how it works and learn of any new developments.&lt;/p&gt;
 &lt;p&gt;Bayesian statistics was an interesting course in my graduate program. Unfortunately, I haven&amp;rsquo;t used it as much as I would have wished, but I am simply fascinated by the math. At the same time, it can be challenging to wrap your head around what&amp;rsquo;s going on underneath the hood in the estimation process. This is precisely why I made this post.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I&amp;rsquo;ll stop here to direct you towards the original (more comprehensive) post I made concerning this topic, which can be found &lt;a href=&#34;https://rpubs.com/matt-kumar/mcmc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;In short, this project involved a few key activities that helped refresh my memory and deepen my understanding, all through using R, animation and visualization.&lt;/p&gt;
+&lt;p&gt;In short, this project involved a few key activities that helped refresh my memory and deepen my understanding, all through using R, animation and simulation.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Simulating data arising from a statistical model with known parameters. Logistic regression was the use case.&lt;/p&gt;
@@ -182,7 +181,7 @@ You can also access the specific build of `{Tplyr}` with these capabilities by g
 &lt;p&gt;Fitting the model on simulated data to recover the known parameters, verifying the simulation worked.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Building an MCMC sampler (Random Walks Metropolis-Hastings) in order to fit a Bayesian-flavored version of the logistic regression model&lt;/p&gt;
+&lt;p&gt;Building an MCMC sampler (Random Walks Metropolis-Hastings) in order to fit a Bayesian version of the logistic regression model&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Understand exactly what the algorithm does at each step and visualize this via animation. Understand the impact of different priors, candidate distributions, and jump steps in the algorithm.&lt;/p&gt;
@@ -576,9 +575,9 @@ You can also access the specific build of `{Tplyr}` with these capabilities by g
 &lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;install.packages(&#39;funnelR&#39;)&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;In retrospect, I&amp;rsquo;ve learned quite a bit since about package building, reproducibility and the need of tests. Many of which are &lt;em&gt;absent&lt;/em&gt; here.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;ve included this entry here as it served as a major milestone for personal development.&lt;/p&gt;
-&lt;p&gt;I leave you with the vignettes to see what this package is all about. To give some context, in a previous role, and similar to forest plots, funnel plots were a staple of most statistical analyses involving our population-level data holdings.&lt;/p&gt;
+&lt;p&gt;In retrospect, I&amp;rsquo;ve learned quite a bit since about package building, reproducibility and the need for tests. Many of which are &lt;em&gt;absent&lt;/em&gt; here.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve included this entry here as it served as a major milestone for personal development. It even made the &lt;a href=&#34;https://rviews.rstudio.com/2018/04/30/march-2018-top-40-new-package-picks/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Top 40 New Package Picks&lt;/a&gt; shortly after it was released.&lt;/p&gt;
+&lt;p&gt;I leave you with the vignettes to see what this package is all about. To give some context, in a previous role funnel plots were a staple of most statistical analyses involving our population-level data holdings.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The &lt;code&gt;funnelR&lt;/code&gt; package provides a flexible framework for creating funnel plots for proportion data. A funnel plot is a powerful visualization in the analysis of unit level performance relative to some criterion. It readily allows identification of units that are &lt;code&gt;In Control&lt;/code&gt; or &lt;code&gt;Extreme&lt;/code&gt; according to a benchmark at a specified level of confidence (e.g.95%).&lt;/p&gt;
 &lt;/blockquote&gt;

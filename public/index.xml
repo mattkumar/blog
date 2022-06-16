@@ -5,7 +5,7 @@
     <link>https://academic-demo.netlify.app/</link>
       <atom:link href="https://academic-demo.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <description>Matthew Kumar</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 03 May 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 15 Jun 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Matthew Kumar</title>
@@ -13,13 +13,216 @@
     </image>
     
     <item>
+      <title>mustaches and whiskers</title>
+      <link>https://academic-demo.netlify.app/post/whisker/</link>
+      <pubDate>Wed, 15 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/post/whisker/</guid>
+      <description>&lt;p&gt;I recently came across the &lt;code&gt;whisker&lt;/code&gt; 📦, which is an R implementation of &lt;a href=&#34;https://mustache.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;{{mustache}}.&lt;/a&gt; Say what 👨?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;hellip; a logic-less template syntax. It can be used for HTML, config files, source code - anything. It works by expanding tags in a template using values provided in a hash or object.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you&amp;rsquo;ve authored either Rmarkdown documents or shiny apps (using &lt;a href=&#34;https://shiny.rstudio.com/articles/templates.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;HTML templates&lt;/a&gt;) chances are this will feel familiar. ✅&lt;/p&gt;
+&lt;p&gt;In a &lt;a href=&#34;https://matt-kumar.netlify.app/project/rmarkdown-reporting-engine/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;previous post&lt;/a&gt;, I described a templating strategy to automatically generate patient profiles within a clinical trial context. Where as this strategy relied on Rmarkdown and &lt;em&gt;actual R code&lt;/em&gt; to produce the per-patient summaries, the &lt;code&gt;whisker&lt;/code&gt; approach is far more generic.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s also &lt;em&gt;really&lt;/em&gt; easy to get started with. 🏁&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a generic template file with a placeholder for your content enclosed in &lt;code&gt;{{}}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Read the template into R&lt;/li&gt;
+&lt;li&gt;Assign your content using placeholder name&lt;/li&gt;
+&lt;li&gt;Write the results back&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I&amp;rsquo;ll demonstrate with a simple template I&amp;rsquo;ve made in notepad.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;template&#34; srcset=&#34;
+               /post/whisker/template_hu4419162416b4e1f9cedd9602278ae2f7_6889_da963397c1c88fb6e549c8674a177de1.webp 400w,
+               /post/whisker/template_hu4419162416b4e1f9cedd9602278ae2f7_6889_053a1ef8ed0c11c9793b36f78e122af3.webp 760w,
+               /post/whisker/template_hu4419162416b4e1f9cedd9602278ae2f7_6889_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/post/whisker/template_hu4419162416b4e1f9cedd9602278ae2f7_6889_da963397c1c88fb6e549c8674a177de1.webp&#34;
+               width=&#34;498&#34;
+               height=&#34;215&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Now, in R we can do the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(whisker)
+
+# read in template
+my_template &amp;lt;- readLines(&#39;template.txt&#39;)
+
+# assign {{name}} to be &amp;quot;matt&amp;quot;
+data &amp;lt;- list(name = &amp;quot;matt&amp;quot;)
+
+# write the results back
+whisker.render(my_template, data = data) |&amp;gt;
+  writeLines(&amp;quot;output.txt&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here is the result of the output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;output&#34; srcset=&#34;
+               /post/whisker/output_huc427c044dc08fd0bfffd4beb9d73948e_6649_f29f2fe3142dadab86b1215a5074f7f6.webp 400w,
+               /post/whisker/output_huc427c044dc08fd0bfffd4beb9d73948e_6649_0f7578ade967b757ec39cff773d61154.webp 760w,
+               /post/whisker/output_huc427c044dc08fd0bfffd4beb9d73948e_6649_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/post/whisker/output_huc427c044dc08fd0bfffd4beb9d73948e_6649_f29f2fe3142dadab86b1215a5074f7f6.webp&#34;
+               width=&#34;498&#34;
+               height=&#34;215&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;So what? Is this just a glorified search and replace functionality? 🤷️ No.&lt;/p&gt;
+&lt;p&gt;This is actually quite powerful when you start to think of the applications 🤔. ️️💡 Consider a complete R script as a &amp;ldquo;template&amp;quot;️. Something you tend to reuse in your work time to time. With &lt;code&gt;whisker&lt;/code&gt; you can easily populate these templates and actually generate R (or other languages) scripts that can be executed &lt;strong&gt;as is&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Still not convinced? Okay, think about how you could share some of this 💪 with your end users in the form a shiny app! ✌🍻&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Reticulate to the Rescue</title>
+      <link>https://academic-demo.netlify.app/post/py-hyperlink/</link>
+      <pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/post/py-hyperlink/</guid>
+      <description>&lt;p&gt;A prototype I was working on earlier this year needed to make use of data stored in an excel book. The data I needed were the &lt;strong&gt;URLS embedded in hyperlinks&lt;/strong&gt; within cells of a sheet.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;pre&#34; srcset=&#34;
+               /post/py-hyperlink/pre_hu441e53b175d0b25b83600e99ba33b99d_14530_169e4ba0dabe10b7f3bac4d8eaa0aa07.webp 400w,
+               /post/py-hyperlink/pre_hu441e53b175d0b25b83600e99ba33b99d_14530_6383141bb5eede82c62300f06d9c3994.webp 760w,
+               /post/py-hyperlink/pre_hu441e53b175d0b25b83600e99ba33b99d_14530_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/post/py-hyperlink/pre_hu441e53b175d0b25b83600e99ba33b99d_14530_169e4ba0dabe10b7f3bac4d8eaa0aa07.webp&#34;
+               width=&#34;470&#34;
+               height=&#34;370&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;The cells in column B contain hyperlinks for which I need to extract out the URLs. For example, cell B4 has the value of: &lt;code&gt;http://www.amazon.ca/&lt;/code&gt;. This is what I need access to.&lt;/p&gt;
+&lt;p&gt;I figured one of the existing R packages that could extract this information. I checked the usual: &lt;code&gt;readxl&lt;/code&gt;, &lt;code&gt;xlsx&lt;/code&gt;, and &lt;code&gt;openxlsx&lt;/code&gt; and was surprised that none could.&lt;/p&gt;
+&lt;p&gt;My next thought was to just have the URLs extracted in Excel, prior to reading them into R. Surely this was possible, right? Not without using a VBA macro. 🤢 I gave this an honest shot and it proved too cumbersome. No thanks.&lt;/p&gt;
+&lt;p&gt;I read that it might be possible in Python with the &lt;code&gt;openpyxl&lt;/code&gt; package. I haven&amp;rsquo;t a whole lot of experience with Python. I&amp;rsquo;ve been reading and hearing how easy it is to &lt;a href=&#34;https://rstudio.github.io/reticulate/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;use Python within R and RStudio&lt;/a&gt;. I decided to give a go. Enter &lt;code&gt;reticulate&lt;/code&gt;. 🐍🐍🐍&lt;/p&gt;
+&lt;p&gt;The example that follows can be broken down into a few steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install reticulate and figure out how it works&lt;/li&gt;
+&lt;li&gt;Install python packages (&lt;code&gt;openpyxl&lt;/code&gt;, &lt;code&gt;pandas&lt;/code&gt;) within RStudio and figure out how &lt;em&gt;they&lt;/em&gt; work&lt;/li&gt;
+&lt;li&gt;Integrate everything into a simple workflow&lt;/li&gt;
+&lt;li&gt;❓️❓️❓️&lt;/li&gt;
+&lt;li&gt;Profit&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Getting setup was actually the easy part. At least on my windows machine.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# install reticulate
+install.packages(&amp;quot;reticulate&amp;quot;)
+
+# install a python distribution on my machine
+reticulate::install_miniconda
+
+# install python packages
+reticulate::py_install(&#39;pandas&#39;)
+reticulate::py_install(&#39;openpyxl&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next was actually figuring out how to use these packages. After a fair bit of reading documentation and tinkering, I was able to come up with the following function I&amp;rsquo;ve named &lt;code&gt;get_hyperlink.py&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import openpyxl as xl
+import pandas as pd
+
+def get_hyperlink(path, sheet):
+
+  # Define workbook, worksheet
+  wb = xl.load_workbook(path)
+  ws = wb.get_sheet_by_name(sheet)
+  
+  # For all cells in the worksheet, if a hyperlink is detected:
+  # 1. Extract the hyperlink target
+  # 2. Otherwise just keep the original value as a string
+  for row_cells in ws.iter_rows():
+    for cell in row_cells:
+      try:
+        cell.value = cell.hyperlink.target
+      except:
+        cell.value = str(cell.value)
+    
+  # Store values to a data frame, clean up headers 
+  tmp = pd.DataFrame(ws.values)
+  tmp.rename(columns = tmp.iloc[0], inplace = True)
+  tmp.drop(tmp.index[0], inplace = True)
+  
+  return tmp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;At this point, what&amp;rsquo;s left is integrating the python script into an existing R workflow so that I can actually use it.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(reticulate)
+
+# Load python function
+source_python(&amp;quot;get_hyperlink.py&amp;quot;)
+
+# Use python function
+my_data &amp;lt;- get_hyperlink(path = &amp;quot;input.xlsx&amp;quot;, sheet = &amp;quot;Sheet1&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The results:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;head(my_data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   ID                   source1
+## 1  1     http://www.gmail.com/
+## 2  2 http://www.eventhubs.com/
+## 3  3   http://www.rstudio.com/
+## 4  4     http://www.amazon.ca/
+## 5  5                      None
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And that&amp;rsquo;s a wrap! ✅🏁🍻&lt;/p&gt;
+&lt;p&gt;Actually, there&amp;rsquo;s one other feature of the &lt;code&gt;reticulate&lt;/code&gt; package I want to share. If you&amp;rsquo;re new to Python like I am, it&amp;rsquo;s helpful to be able to tinker in a REPL (&lt;strong&gt;read-eval-print-loop&lt;/strong&gt;) fashion. Calling &lt;code&gt;reticulate::repl_python()&lt;/code&gt; provides one directly in your R session so you can tinker more naturally. 💪&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Hello World</title>
       <link>https://academic-demo.netlify.app/post/hello-world/</link>
       <pubDate>Tue, 03 May 2022 00:00:00 +0000</pubDate>
       <guid>https://academic-demo.netlify.app/post/hello-world/</guid>
       <description>&lt;p&gt;Welcome to my new&amp;hellip; blog?&lt;/p&gt;
-&lt;p&gt;This was a long time coming. My &lt;a href=&#34;https://matt-kumar.shinyapps.io/portfolio&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;previous portfolio&lt;/a&gt; was getting cumbersome to maintain. I have no idea why I thought at the time it would be good to structure it as a shiny app. Whoopsies.&lt;/p&gt;
-&lt;p&gt;Anyway, if you&amp;rsquo;re reading this, this is my new digital home. I plan to share my thoughts and some of my work here going forward. I&amp;rsquo;ve started to back-port some of the previous stuff I&amp;rsquo;ve worked in as well as bring newer content directly here in the future.&lt;/p&gt;
+&lt;p&gt;This was a long time coming. My &lt;a href=&#34;https://matt-kumar.shinyapps.io/portfolio&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;previous portfolio&lt;/a&gt; was getting cumbersome to maintain. I have no idea why I structured it as a shiny app. Whoopsies.&lt;/p&gt;
+&lt;p&gt;Anyway, if you&amp;rsquo;re reading this, this is my new digital home. I plan to share my thoughts and some of my work here going forward. I&amp;rsquo;ve started to back-port some of the previous stuff I&amp;rsquo;ve worked in and plan to add newer content here in the future.&lt;/p&gt;
 &lt;p&gt;If you&amp;rsquo;re into R, Shiny, or statistics I think you&amp;rsquo;ll enjoy this place. I hope you stick around!&lt;/p&gt;
 &lt;p&gt;A special shoutout to Andreas Handel&amp;rsquo;s &lt;a href=&#34;https://www.andreashandel.com/posts/blogdown-website-1/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;guide&lt;/a&gt; for getting started with blogdown and Hugo.&lt;/p&gt;
 </description>
@@ -188,13 +391,12 @@ You can also access the specific build of `{Tplyr}` with these capabilities by g
       <link>https://academic-demo.netlify.app/project/mcmc/</link>
       <pubDate>Sun, 14 Nov 2021 00:00:00 +0000</pubDate>
       <guid>https://academic-demo.netlify.app/project/mcmc/</guid>
-      <description>&lt;p&gt;This project was a continuation into animation, using imposter syndrome as a motivation. Let me explain.&lt;/p&gt;
-&lt;p&gt;My educational background and training was in Biostatistics. Throughout my career, I&amp;rsquo;ve served many different roles, from statistician to programmer to epidemiologist to most recently, computational scientist. Over the last bit, I&amp;rsquo;ve kind of lost touch with my mathematical and statistical roots. Every so often, I will dive back into it to remind myself how it works and to a somewhat lesser extent, keep abreast of new developments.&lt;/p&gt;
+      <description>&lt;p&gt;My educational background and training was in Biostatistics. Throughout my career, I&amp;rsquo;ve served many different roles, from statistician to programmer to epidemiologist to most recently, computational scientist. Over the last bit, I&amp;rsquo;ve kind of lost touch with my mathematical and statistical roots. Every so often, I will dive back into some concepts to remind myself how it works and learn of any new developments.&lt;/p&gt;
 &lt;p&gt;Bayesian statistics was an interesting course in my graduate program. Unfortunately, I haven&amp;rsquo;t used it as much as I would have wished, but I am simply fascinated by the math. At the same time, it can be challenging to wrap your head around what&amp;rsquo;s going on underneath the hood in the estimation process. This is precisely why I made this post.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I&amp;rsquo;ll stop here to direct you towards the original (more comprehensive) post I made concerning this topic, which can be found &lt;a href=&#34;https://rpubs.com/matt-kumar/mcmc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;In short, this project involved a few key activities that helped refresh my memory and deepen my understanding, all through using R, animation and visualization.&lt;/p&gt;
+&lt;p&gt;In short, this project involved a few key activities that helped refresh my memory and deepen my understanding, all through using R, animation and simulation.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Simulating data arising from a statistical model with known parameters. Logistic regression was the use case.&lt;/p&gt;
@@ -203,7 +405,7 @@ You can also access the specific build of `{Tplyr}` with these capabilities by g
 &lt;p&gt;Fitting the model on simulated data to recover the known parameters, verifying the simulation worked.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Building an MCMC sampler (Random Walks Metropolis-Hastings) in order to fit a Bayesian-flavored version of the logistic regression model&lt;/p&gt;
+&lt;p&gt;Building an MCMC sampler (Random Walks Metropolis-Hastings) in order to fit a Bayesian version of the logistic regression model&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Understand exactly what the algorithm does at each step and visualize this via animation. Understand the impact of different priors, candidate distributions, and jump steps in the algorithm.&lt;/p&gt;
@@ -376,6 +578,14 @@ You can also access the specific build of `{Tplyr}` with these capabilities by g
 &lt;p&gt;A quick shoutout to &lt;a href=&#34;https://john-coene.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;John Coene&lt;/a&gt; and &lt;a href=&#34;https://maya.rbind.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Maya Gans&lt;/a&gt; for their various works in describing how to bridge the gap between javascript and R!&lt;/p&gt;
 &lt;p&gt;You may view a demo of this &lt;a href=&#34;https://matt-kumar.shinyapps.io/demo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Table-based Data Visualizations using R</title>
+      <link>https://academic-demo.netlify.app/talk/table-based-data-visualizations-using-r/</link>
+      <pubDate>Mon, 14 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/talk/table-based-data-visualizations-using-r/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -584,14 +794,6 @@ You can also access the specific build of `{Tplyr}` with these capabilities by g
     </item>
     
     <item>
-      <title>Table-based Data Visualizations using R</title>
-      <link>https://academic-demo.netlify.app/talk/table-based-data-visualizations-using-r/</link>
-      <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/talk/table-based-data-visualizations-using-r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Time trends in opioid prescribing among Ontario long-term care residents - a repeated cross-sectional study</title>
       <link>https://academic-demo.netlify.app/publication/opioid/</link>
       <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
@@ -653,9 +855,9 @@ You can also access the specific build of `{Tplyr}` with these capabilities by g
 &lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;install.packages(&#39;funnelR&#39;)&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;In retrospect, I&amp;rsquo;ve learned quite a bit since about package building, reproducibility and the need of tests. Many of which are &lt;em&gt;absent&lt;/em&gt; here.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;ve included this entry here as it served as a major milestone for personal development.&lt;/p&gt;
-&lt;p&gt;I leave you with the vignettes to see what this package is all about. To give some context, in a previous role, and similar to forest plots, funnel plots were a staple of most statistical analyses involving our population-level data holdings.&lt;/p&gt;
+&lt;p&gt;In retrospect, I&amp;rsquo;ve learned quite a bit since about package building, reproducibility and the need for tests. Many of which are &lt;em&gt;absent&lt;/em&gt; here.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve included this entry here as it served as a major milestone for personal development. It even made the &lt;a href=&#34;https://rviews.rstudio.com/2018/04/30/march-2018-top-40-new-package-picks/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Top 40 New Package Picks&lt;/a&gt; shortly after it was released.&lt;/p&gt;
+&lt;p&gt;I leave you with the vignettes to see what this package is all about. To give some context, in a previous role funnel plots were a staple of most statistical analyses involving our population-level data holdings.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The &lt;code&gt;funnelR&lt;/code&gt; package provides a flexible framework for creating funnel plots for proportion data. A funnel plot is a powerful visualization in the analysis of unit level performance relative to some criterion. It readily allows identification of units that are &lt;code&gt;In Control&lt;/code&gt; or &lt;code&gt;Extreme&lt;/code&gt; according to a benchmark at a specified level of confidence (e.g.95%).&lt;/p&gt;
 &lt;/blockquote&gt;
