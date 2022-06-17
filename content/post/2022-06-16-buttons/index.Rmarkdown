@@ -60,7 +60,7 @@ shiny::actionButton('btn3',
 
 ```{r, echo = F, eval = T}
 shiny::actionButton('btn1',
-                    'Current',
+                    'Current Window',
                     class = "btn-danger",
                     onclick ="location.href='http://google.com';")
 shiny::HTML('&nbsp;')

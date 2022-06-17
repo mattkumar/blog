@@ -46,7 +46,7 @@ shiny::actionButton(&#39;btn3&#39;,
                     &#39;New Window&#39;, 
                     onclick =&amp;quot;window.open(&#39;http://google.com&#39;, &#39;_blank&#39;,&#39;width=800,height=800&#39;)&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;button class=&#34;btn btn-default action-button btn-danger&#34; id=&#34;btn1&#34; onclick=&#34;location.href=&amp;#39;http://google.com&amp;#39;;&#34; type=&#34;button&#34;&gt;Current&lt;/button&gt; &lt;button class=&#34;btn btn-default action-button btn-warning&#34; id=&#34;btn2&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window or Tab&lt;/button&gt; &lt;button class=&#34;btn btn-default action-button btn-success&#34; id=&#34;btn3&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;,&amp;#39;width=800,height=800&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window&lt;/button&gt;&lt;/p&gt;
+&lt;p&gt;&lt;button class=&#34;btn btn-default action-button btn-danger&#34; id=&#34;btn1&#34; onclick=&#34;location.href=&amp;#39;http://google.com&amp;#39;;&#34; type=&#34;button&#34;&gt;Current Window&lt;/button&gt; &lt;button class=&#34;btn btn-default action-button btn-warning&#34; id=&#34;btn2&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window or Tab&lt;/button&gt; &lt;button class=&#34;btn btn-default action-button btn-success&#34; id=&#34;btn3&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;,&amp;#39;width=800,height=800&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window&lt;/button&gt;&lt;/p&gt;
 </description>
     </item>
     
