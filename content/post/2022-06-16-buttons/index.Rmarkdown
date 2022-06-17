@@ -1,0 +1,76 @@
+---
+title: tweaking shiny actionButtons
+author: Matthew Kumar
+date: '2022-06-16'
+slug: shinybuttons
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+The default behavior in `shiny::actionButton()` is to open a web link in the *current* window. This approach has two potential implications for user-experience:
+
+1. The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭
+2. This can (independent of #1) inadvertently divert users away from your app 🏃️💨
+
+⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️
+
+```{r, echo = F}
+shiny::actionButton('btn0','Click Me!', class = "btn-warning", onclick='alert("Just kidding! Youre not going anywhere!")')
+```                    
+ 
+So what can we do?
+
+✖️ Do nothing. Leave it as is and let all the hard work you put into the app be overshadowed by the site your are linking to.
+
+✔️ Make the link open in a new tab or window.
+
+✔️ Force the link to open in a new window.
+
+The distinction between the two latter choices boils down to a users default browser settings. If you use Chrome like me, opening a link (designed to open in a tab or new window) defaults to opening it in a new tab. In other instances, it *might* open in a new window. Who knows? 🎱 
+
+If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯
+
+Below, I have three buttons and their corresponding code you might use in a shiny app. It's pretty straight forward so I'll end here. ✌🍻
+
+```{r, echo = T, eval = F}
+# Default - current
+shiny::actionButton('btn1',
+                    'Current',
+                    onclick ="location.href='http://google.com';")
+
+# New tab or window  
+shiny::actionButton('btn2',
+                    'New Window or Tab', 
+                    onclick ="window.open('http://google.com', '_blank')")
+
+# New window
+shiny::actionButton('btn3',
+                    'New Window', 
+                    onclick ="window.open('http://google.com', '_blank','width=800,height=800')")
+```
+
+```{r, echo = F, eval = T}
+shiny::actionButton('btn1',
+                    'Current',
+                    class = "btn-warning",
+                    onclick ="location.href='http://google.com';")
+shiny::HTML('&nbsp;')
+shiny::actionButton('btn2',
+                    'New Window or Tab', 
+                    class = "btn-warning",
+                    onclick ="window.open('http://google.com', '_blank')")
+shiny::HTML('&nbsp;')
+shiny::actionButton('btn3',
+                    'New Window', 
+                    class = "btn-warning",
+                    onclick ="window.open('http://google.com', '_blank','width=800,height=800')")
+```

@@ -60,10 +60,11 @@
   
     
   
-  <meta name="description" content="Senior Computational Scientist" />
+  <meta name="description" content="The default behavior in shiny::actionButton() is to open a web link in the current window. This approach has two potential implications for user-experience:
+ The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  See for yourself ⬇️⬇️⬇️" />
 
   
-  <link rel="alternate" hreflang="en-us" href="https://academic-demo.netlify.app/post/" />
+  <link rel="alternate" hreflang="en-us" href="https://academic-demo.netlify.app/post/shinybuttons/" />
 
   
   
@@ -268,8 +269,6 @@
   
 
   
-    <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="Matthew Kumar" />
-  
 
   
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -278,7 +277,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_3.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_3.png" />
 
-  <link rel="canonical" href="https://academic-demo.netlify.app/post/" />
+  <link rel="canonical" href="https://academic-demo.netlify.app/post/shinybuttons/" />
 
   
   
@@ -301,33 +300,83 @@
   <meta property="twitter:card" content="summary" />
   
   <meta property="og:site_name" content="Matthew Kumar" />
-  <meta property="og:url" content="https://academic-demo.netlify.app/post/" />
-  <meta property="og:title" content="Posts | Matthew Kumar" />
-  <meta property="og:description" content="Senior Computational Scientist" /><meta property="og:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:url" content="https://academic-demo.netlify.app/post/shinybuttons/" />
+  <meta property="og:title" content="tweaking shiny actionButtons | Matthew Kumar" />
+  <meta property="og:description" content="The default behavior in shiny::actionButton() is to open a web link in the current window. This approach has two potential implications for user-experience:
+ The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  See for yourself ⬇️⬇️⬇️" /><meta property="og:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
-      <meta property="og:updated_time" content="2022-06-16T00:00:00&#43;00:00" />
+      <meta
+        property="article:published_time"
+        content="2022-06-16T00:00:00&#43;00:00"
+      />
     
+    <meta property="article:modified_time" content="2022-06-16T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://academic-demo.netlify.app/post/shinybuttons/"
+  },
+  "headline": "tweaking shiny actionButtons",
+  
+  "datePublished": "2022-06-16T00:00:00Z",
+  "dateModified": "2022-06-16T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Matthew Kumar"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Matthew Kumar",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "The default behavior in shiny::actionButton() is to open a web link in the current window. This approach has two potential implications for user-experience:\n The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  See for yourself ⬇️⬇️⬇️"
+}
+</script>
+
+  
+
+  
+
   
 
   
 
 
 
-  
-
-  
 
 
-
-
-
-  <title>Posts | Matthew Kumar</title>
+  <title>tweaking shiny actionButtons | Matthew Kumar</title>
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="6370009740e1eb2ee0b7974f10ecc91f" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="20a440ec99507d92da7567ac9fa8ae2f" >
 
   
   
@@ -672,7 +721,9 @@
   </div>
 
   <div class="page-body">
-    
+    <article class="article">
+
+  
 
 
 
@@ -690,63 +741,13 @@
   
   
   
-    
-  
-<div class="universal-wrapper pt-3">
-  <h1>Posts</h1>
+<div class="article-container pt-3">
+  <h1>tweaking shiny actionButtons</h1>
 
   
 
-  
-</div>
-
-
-
-<div class="universal-wrapper">
-
-  
-
-  
   
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/post/shinybuttons/" >tweaking shiny actionButtons</a>
-    </div>
-
-    
-    <a href="/post/shinybuttons/"  class="summary-link">
-      <div class="article-style">
-        The default behavior in shiny::actionButton() is to open a web link in the current window. This approach has two potential implications for user-experience:
- The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  See for yourself ⬇️⬇️⬇️
-      </div>
-    </a>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 <div class="article-metadata">
@@ -785,297 +786,278 @@
 
 </div>
 
-      
-    </div>
-
     
 
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
+
+
+
+
+  
 </div>
 
-  
-    
 
 
+  <div class="article-container">
 
+    <div class="article-style">
+      <p>The default behavior in <code>shiny::actionButton()</code> is to open a web link in the <em>current</em> window. This approach has two potential implications for user-experience:</p>
+<ol>
+<li>The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭</li>
+<li>This can (independent of #1) inadvertently divert users away from your app 🏃️💨</li>
+</ol>
+<p>See for yourself ⬇️⬇️⬇️</p>
+<p><button class="btn btn-default action-button btn-warning" id="btn0" onclick="alert(&quot;Just kidding! Youre not going anywhere!&quot;)" type="button">Click Me!</button></p>
+<p>So what can we do?</p>
+<p>✖️ Do nothing. Leave it as is and let all the hard work you put into the app be overshadowed by the site your are linking to.</p>
+<p>✔️ Make the link open in a new tab or window.</p>
+<p>✔️ Force the link to open in a new window.</p>
+<p>The distinction between the two latter choices boils down to a users default browser settings. If you use Chrome like me, opening a link (designed to open in a tab or new window) defaults to opening it in a new tab. In other instances, it <em>might</em> open in a new window. Who knows? 🎱</p>
+<p>If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯</p>
+<p>Below, I have three buttons and their corresponding code you might use in a shiny app. It’s pretty straight forward so I’ll end here. ✌🍻</p>
+<pre><code class="language-r"># Open in the current window
+shiny::actionButton('btn1',
+                    'Current',
+                    class = &quot;btn-warning&quot;,
+                    onclick =&quot;location.href='http://google.com';&quot;)
 
+# Open in a new tab (or new window depending on browser)
+shiny::actionButton('btn2',
+                    'New Window or Tab', 
+                    class = &quot;btn-warning&quot;,
+                    onclick =&quot;window.open('http://google.com', '_blank')&quot;)
 
+# Open in a new window - width and height are in px
+shiny::actionButton('btn3',
+                    'New Window', 
+                    class = &quot;btn-warning&quot;,
+                    onclick =&quot;window.open('http://google.com', '_blank','width=800,height=800')&quot;)
+</code></pre>
+<p><button class="btn btn-default action-button btn-warning" id="btn1" onclick="location.href=&#39;http://google.com&#39;;" type="button">Current</button> <button class="btn btn-default action-button btn-warning" id="btn2" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;)" type="button">New Window or Tab</button> <button class="btn btn-default action-button btn-warning" id="btn3" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;,&#39;width=800,height=800&#39;)" type="button">New Window</button></p>
 
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/post/whisker/" >mustaches and whiskers</a>
     </div>
 
     
-    <a href="/post/whisker/"  class="summary-link">
-      <div class="article-style">
-        I recently came across the whisker 📦, which is an R implementation of {{mustache}}. Say what 👨?
- &hellip; a logic-less template syntax. It can be used for HTML, config files, source code - anything.
-      </div>
-    </a>
+
+
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
     
-
-    <div class="stream-meta article-metadata">
-
       
-
+      
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://academic-demo.netlify.app/post/shinybuttons/&amp;text=tweaking%20shiny%20actionButtons" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
       
-    
-    Jun 15, 2022
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/post/py-hyperlink/" >Reticulate to the Rescue</a>
-    </div>
-
-    
-    <a href="/post/py-hyperlink/"  class="summary-link">
-      <div class="article-style">
-        A prototype I was working on earlier this year needed to make use of data stored in an excel book. The data I needed were the URLS embedded in hyperlinks within cells of a sheet.
-      </div>
-    </a>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://academic-demo.netlify.app/post/shinybuttons/&amp;t=tweaking%20shiny%20actionButtons" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
       
-          Last updated on
       
-    
-    May 4, 2022
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/post/hello-world/" >Hello World</a>
-    </div>
-
-    
-    <a href="/post/hello-world/"  class="summary-link">
-      <div class="article-style">
-        Welcome to my new&hellip; blog?
-This was a long time coming. My previous portfolio was getting cumbersome to maintain. I have no idea why I structured it as a shiny app.
-      </div>
-    </a>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=tweaking%20shiny%20actionButtons&amp;body=https://academic-demo.netlify.app/post/shinybuttons/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
     
       
-          Last updated on
       
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://academic-demo.netlify.app/post/shinybuttons/&amp;title=tweaking%20shiny%20actionButtons" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
     
-    May 3, 2022
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=tweaking%20shiny%20actionButtons%20https://academic-demo.netlify.app/post/shinybuttons/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://academic-demo.netlify.app/post/shinybuttons/&amp;title=tweaking%20shiny%20actionButtons" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
       
+      <a href="https://academic-demo.netlify.app/"><img class="avatar mr-3 avatar-circle" src="/author/matthew-kumar/avatar_hu4f54313eb19ae7d3d941aca70eb36a3f_29108_270x270_fill_q75_lanczos_center.jpg" alt="Matthew Kumar"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://academic-demo.netlify.app/">Matthew Kumar</a></h5>
+      <h6 class="card-subtitle">Senior Computational Scientist</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto::mattkumar@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/mattkumar_" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/mattkumar" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://ca.linkedin.com/in/matthew-kumar-24910629" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
     </div>
-
-    
-
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
-
   
 
 
-</div>
+
+
+
+  </div>
+</article>
   </div>
 
   <div class="page-footer">
