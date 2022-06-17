@@ -13,7 +13,7 @@
     </image>
     
     <item>
-      <title>tweaking shiny actionButtons</title>
+      <title>tweaking shiny actionButton</title>
       <link>https://academic-demo.netlify.app/post/shinybuttons/</link>
       <pubDate>Thu, 16 Jun 2022 00:00:00 +0000</pubDate>
       <guid>https://academic-demo.netlify.app/post/shinybuttons/</guid>
@@ -28,8 +28,8 @@
 &lt;p&gt;✖️ Do nothing. Leave it as is and let all the hard work you put into the app be overshadowed by the site your are linking to.&lt;/p&gt;
 &lt;p&gt;✔️ Make the link open in a new tab or window.&lt;/p&gt;
 &lt;p&gt;✔️ Force the link to open in a new window.&lt;/p&gt;
-&lt;p&gt;The distinction between the two latter choices boils down to a users default browser settings. If you use Chrome like me, opening a link (designed to open in a tab or new window) defaults to opening it in a new tab. In other instances, it &lt;em&gt;might&lt;/em&gt; open in a new window. Who knows? 🎱&lt;/p&gt;
-&lt;p&gt;If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify a &lt;code&gt;height&lt;/code&gt; and &lt;code&gt;width&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The distinction between the two latter choices boils down to a users default browser settings. If you use Chrome like me, opening a link (designed to open in a tab or new window) defaults to opening it in a new tab. For you, it &lt;em&gt;might&lt;/em&gt; open in a new window. Who knows? 🎱&lt;/p&gt;
+&lt;p&gt;If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify the window &lt;code&gt;height&lt;/code&gt; and &lt;code&gt;width&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Below, I have three buttons and their corresponding code you might use in a shiny app. It’s pretty straight forward so I’ll end here. ✌🍻&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Default - current
 shiny::actionButton(&#39;btn1&#39;,

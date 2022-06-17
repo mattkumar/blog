@@ -301,7 +301,7 @@
   
   <meta property="og:site_name" content="Matthew Kumar" />
   <meta property="og:url" content="https://academic-demo.netlify.app/post/shinybuttons/" />
-  <meta property="og:title" content="tweaking shiny actionButtons | Matthew Kumar" />
+  <meta property="og:title" content="tweaking shiny actionButton | Matthew Kumar" />
   <meta property="og:description" content="The default behavior in shiny::actionButton() is to open a web link in the current window. This approach has two potential implications for user-experience:
  The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  ⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️" /><meta property="og:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
@@ -338,7 +338,7 @@
     "@type": "WebPage",
     "@id": "https://academic-demo.netlify.app/post/shinybuttons/"
   },
-  "headline": "tweaking shiny actionButtons",
+  "headline": "tweaking shiny actionButton",
   
   "datePublished": "2022-06-16T00:00:00Z",
   "dateModified": "2022-06-16T00:00:00Z",
@@ -372,7 +372,7 @@
 
 
 
-  <title>tweaking shiny actionButtons | Matthew Kumar</title>
+  <title>tweaking shiny actionButton | Matthew Kumar</title>
 </head>
 
 
@@ -742,7 +742,7 @@
   
   
 <div class="article-container pt-3">
-  <h1>tweaking shiny actionButtons</h1>
+  <h1>tweaking shiny actionButton</h1>
 
   
 
@@ -811,8 +811,8 @@
 <p>✖️ Do nothing. Leave it as is and let all the hard work you put into the app be overshadowed by the site your are linking to.</p>
 <p>✔️ Make the link open in a new tab or window.</p>
 <p>✔️ Force the link to open in a new window.</p>
-<p>The distinction between the two latter choices boils down to a users default browser settings. If you use Chrome like me, opening a link (designed to open in a tab or new window) defaults to opening it in a new tab. In other instances, it <em>might</em> open in a new window. Who knows? 🎱</p>
-<p>If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify a <code>height</code> and <code>width</code>.</p>
+<p>The distinction between the two latter choices boils down to a users default browser settings. If you use Chrome like me, opening a link (designed to open in a tab or new window) defaults to opening it in a new tab. For you, it <em>might</em> open in a new window. Who knows? 🎱</p>
+<p>If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify the window <code>height</code> and <code>width</code>.</p>
 <p>Below, I have three buttons and their corresponding code you might use in a shiny app. It’s pretty straight forward so I’ll end here. ✌🍻</p>
 <pre><code class="language-r"># Default - current
 shiny::actionButton('btn1',
@@ -853,7 +853,7 @@ shiny::actionButton('btn3',
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=https://academic-demo.netlify.app/post/shinybuttons/&amp;text=tweaking%20shiny%20actionButtons" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://academic-demo.netlify.app/post/shinybuttons/&amp;text=tweaking%20shiny%20actionButton" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -866,7 +866,7 @@ shiny::actionButton('btn3',
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=https://academic-demo.netlify.app/post/shinybuttons/&amp;t=tweaking%20shiny%20actionButtons" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://academic-demo.netlify.app/post/shinybuttons/&amp;t=tweaking%20shiny%20actionButton" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -879,7 +879,7 @@ shiny::actionButton('btn3',
       
       
       <li>
-        <a href="mailto:?subject=tweaking%20shiny%20actionButtons&amp;body=https://academic-demo.netlify.app/post/shinybuttons/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+        <a href="mailto:?subject=tweaking%20shiny%20actionButton&amp;body=https://academic-demo.netlify.app/post/shinybuttons/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -892,7 +892,7 @@ shiny::actionButton('btn3',
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https://academic-demo.netlify.app/post/shinybuttons/&amp;title=tweaking%20shiny%20actionButtons" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=https://academic-demo.netlify.app/post/shinybuttons/&amp;title=tweaking%20shiny%20actionButton" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -905,7 +905,7 @@ shiny::actionButton('btn3',
       
       
       <li>
-        <a href="whatsapp://send?text=tweaking%20shiny%20actionButtons%20https://academic-demo.netlify.app/post/shinybuttons/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+        <a href="whatsapp://send?text=tweaking%20shiny%20actionButton%20https://academic-demo.netlify.app/post/shinybuttons/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -918,7 +918,7 @@ shiny::actionButton('btn3',
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=https://academic-demo.netlify.app/post/shinybuttons/&amp;title=tweaking%20shiny%20actionButtons" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://academic-demo.netlify.app/post/shinybuttons/&amp;title=tweaking%20shiny%20actionButton" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>

@@ -1,5 +1,5 @@
 ---
-title: tweaking shiny actionButtons
+title: tweaking shiny actionButton
 author: Matthew Kumar
 date: '2022-06-16'
 slug: shinybuttons
@@ -35,9 +35,9 @@ So what can we do?
 
 ✔️ Force the link to open in a new window.
 
-The distinction between the two latter choices boils down to a users default browser settings. If you use Chrome like me, opening a link (designed to open in a tab or new window) defaults to opening it in a new tab. In other instances, it *might* open in a new window. Who knows? 🎱 
+The distinction between the two latter choices boils down to a users default browser settings. If you use Chrome like me, opening a link (designed to open in a tab or new window) defaults to opening it in a new tab. For you, it *might* open in a new window. Who knows? 🎱 
 
-If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify a `height` and `width`.  
+If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify the window `height` and `width`.  
 
 Below, I have three buttons and their corresponding code you might use in a shiny app. It's pretty straight forward so I'll end here. ✌🍻
 
