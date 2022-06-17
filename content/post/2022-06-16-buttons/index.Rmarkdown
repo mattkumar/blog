@@ -61,7 +61,7 @@ shiny::actionButton('btn3',
 ```{r, echo = F, eval = T}
 shiny::actionButton('btn1',
                     'Current',
-                    class = "btn-warning",
+                    class = "btn-danger",
                     onclick ="location.href='http://google.com';")
 shiny::HTML('&nbsp;')
 shiny::actionButton('btn2',
@@ -71,6 +71,6 @@ shiny::actionButton('btn2',
 shiny::HTML('&nbsp;')
 shiny::actionButton('btn3',
                     'New Window', 
-                    class = "btn-warning",
+                    class = "btn-success",
                     onclick ="window.open('http://google.com', '_blank','width=800,height=800')")
 ```

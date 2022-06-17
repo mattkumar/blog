@@ -22,7 +22,7 @@
 &lt;li&gt;The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭&lt;/li&gt;
 &lt;li&gt;This can (independent of #1) inadvertently divert users away from your app 🏃️💨&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;See for yourself ⬇️⬇️⬇️&lt;/p&gt;
+&lt;p&gt;⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️&lt;/p&gt;
 &lt;p&gt;&lt;button class=&#34;btn btn-default action-button btn-warning&#34; id=&#34;btn0&#34; onclick=&#34;alert(&amp;quot;Just kidding! Youre not going anywhere!&amp;quot;)&#34; type=&#34;button&#34;&gt;Click Me!&lt;/button&gt;&lt;/p&gt;
 &lt;p&gt;So what can we do?&lt;/p&gt;
 &lt;p&gt;✖️ Do nothing. Leave it as is and let all the hard work you put into the app be overshadowed by the site your are linking to.&lt;/p&gt;
@@ -31,25 +31,22 @@
 &lt;p&gt;The distinction between the two latter choices boils down to a users default browser settings. If you use Chrome like me, opening a link (designed to open in a tab or new window) defaults to opening it in a new tab. In other instances, it &lt;em&gt;might&lt;/em&gt; open in a new window. Who knows? 🎱&lt;/p&gt;
 &lt;p&gt;If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯&lt;/p&gt;
 &lt;p&gt;Below, I have three buttons and their corresponding code you might use in a shiny app. It’s pretty straight forward so I’ll end here. ✌🍻&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Open in the current window
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Default - current
 shiny::actionButton(&#39;btn1&#39;,
                     &#39;Current&#39;,
-                    class = &amp;quot;btn-warning&amp;quot;,
                     onclick =&amp;quot;location.href=&#39;http://google.com&#39;;&amp;quot;)
 
-# Open in a new tab (or new window depending on browser)
+# New tab or window  
 shiny::actionButton(&#39;btn2&#39;,
                     &#39;New Window or Tab&#39;, 
-                    class = &amp;quot;btn-warning&amp;quot;,
                     onclick =&amp;quot;window.open(&#39;http://google.com&#39;, &#39;_blank&#39;)&amp;quot;)
 
-# Open in a new window - width and height are in px
+# New window
 shiny::actionButton(&#39;btn3&#39;,
                     &#39;New Window&#39;, 
-                    class = &amp;quot;btn-warning&amp;quot;,
                     onclick =&amp;quot;window.open(&#39;http://google.com&#39;, &#39;_blank&#39;,&#39;width=800,height=800&#39;)&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;button class=&#34;btn btn-default action-button btn-warning&#34; id=&#34;btn1&#34; onclick=&#34;location.href=&amp;#39;http://google.com&amp;#39;;&#34; type=&#34;button&#34;&gt;Current&lt;/button&gt; &lt;button class=&#34;btn btn-default action-button btn-warning&#34; id=&#34;btn2&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window or Tab&lt;/button&gt; &lt;button class=&#34;btn btn-default action-button btn-warning&#34; id=&#34;btn3&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;,&amp;#39;width=800,height=800&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window&lt;/button&gt;&lt;/p&gt;
+&lt;p&gt;&lt;button class=&#34;btn btn-default action-button btn-danger&#34; id=&#34;btn1&#34; onclick=&#34;location.href=&amp;#39;http://google.com&amp;#39;;&#34; type=&#34;button&#34;&gt;Current&lt;/button&gt; &lt;button class=&#34;btn btn-default action-button btn-warning&#34; id=&#34;btn2&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window or Tab&lt;/button&gt; &lt;button class=&#34;btn btn-default action-button btn-success&#34; id=&#34;btn3&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;,&amp;#39;width=800,height=800&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window&lt;/button&gt;&lt;/p&gt;
 </description>
     </item>
     
