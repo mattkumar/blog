@@ -22,15 +22,24 @@
 &lt;li&gt;The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭&lt;/li&gt;
 &lt;li&gt;This can (independent of #1) inadvertently divert users away from your app 🏃️💨&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️&lt;/p&gt;
-&lt;p&gt;&lt;button class=&#34;btn btn-default action-button btn-warning&#34; id=&#34;btn0&#34; onclick=&#34;alert(&amp;quot;Just kidding! Youre not going anywhere!&amp;quot;)&#34; type=&#34;button&#34;&gt;Click Me!&lt;/button&gt;&lt;/p&gt;
+&lt;center&gt;
+⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️
+&lt;br&gt;
+&lt;br&gt;
+&lt;button class=&#34;btn btn-default action-button btn-warning&#34; id=&#34;btn0&#34; onclick=&#34;alert(&amp;quot;Just kidding! Youre not going anywhere!&amp;quot;)&#34; type=&#34;button&#34;&gt;Click Me!&lt;/button&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;br&gt; &lt;br&gt;&lt;/p&gt;
 &lt;p&gt;So what can we do?&lt;/p&gt;
 &lt;p&gt;✖️ Do nothing. Leave it as is and let all the hard work you put into the app be overshadowed by the site your are linking to.&lt;/p&gt;
 &lt;p&gt;✔️ Make the link open in a new tab or window.&lt;/p&gt;
 &lt;p&gt;✔️ Force the link to open in a new window.&lt;/p&gt;
 &lt;p&gt;The distinction between the two latter choices boils down to a users default browser settings. If you use Chrome like me, opening a link (designed to open in a tab or new window) defaults to opening it in a new tab. For you, it &lt;em&gt;might&lt;/em&gt; open in a new window. Who knows? 🎱&lt;/p&gt;
-&lt;p&gt;If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify the window &lt;code&gt;height&lt;/code&gt; and &lt;code&gt;width&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Below, I have three buttons and their corresponding code you might use in a shiny app. It’s pretty straight forward so I’ll end here. ✌🍻&lt;/p&gt;
+&lt;p&gt;If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify the window &lt;code&gt;height&lt;/code&gt; and &lt;code&gt;width&lt;/code&gt; in pixels. You can also pass &lt;code&gt;fullscreen=1&lt;/code&gt; to make the new window, well, full screen.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️⚠️⚠️ Opening links in a new window may result in getting dinged by an ad-blocker. This is because the so-called new window is more of a pop-up rather than it being a truly new window (i.e. &lt;code&gt;CTRL + N&lt;/code&gt;).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Thank you &lt;a href=&#34;https://github.com/iqis&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;iqis&lt;/a&gt; for pointing out that! 👽️&lt;/p&gt;
+&lt;p&gt;Whatever option you chose for your app, we have options. Below, I have three buttons and their corresponding code you might use in a shiny app. It’s pretty straight forward so I’ll end with saying keep user-experience front and center in your design! ✌🍻&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Default - current
 shiny::actionButton(&#39;btn1&#39;,
                     &#39;Current Window&#39;,

@@ -61,7 +61,7 @@
     
   
   <meta name="description" content="The default behavior in shiny::actionButton() is to open a web link in the current window. This approach has two potential implications for user-experience:
- The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  ⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️" />
+ The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  ⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️Click Me!" />
 
   
   <link rel="alternate" hreflang="en-us" href="https://academic-demo.netlify.app/post/shinybuttons/" />
@@ -303,7 +303,7 @@
   <meta property="og:url" content="https://academic-demo.netlify.app/post/shinybuttons/" />
   <meta property="og:title" content="tweaking shiny actionButton | Matthew Kumar" />
   <meta property="og:description" content="The default behavior in shiny::actionButton() is to open a web link in the current window. This approach has two potential implications for user-experience:
- The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  ⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️" /><meta property="og:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
+ The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  ⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️Click Me!" /><meta property="og:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -356,7 +356,7 @@
       "url": "https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "The default behavior in shiny::actionButton() is to open a web link in the current window. This approach has two potential implications for user-experience:\n The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  ⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️"
+  "description": "The default behavior in shiny::actionButton() is to open a web link in the current window. This approach has two potential implications for user-experience:\n The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  \r⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️\rClick Me!"
 }
 </script>
 
@@ -805,15 +805,24 @@
 <li>The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭</li>
 <li>This can (independent of #1) inadvertently divert users away from your app 🏃️💨</li>
 </ol>
-<p>⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️</p>
-<p><button class="btn btn-default action-button btn-warning" id="btn0" onclick="alert(&quot;Just kidding! Youre not going anywhere!&quot;)" type="button">Click Me!</button></p>
+<center>
+⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️
+<br>
+<br>
+<button class="btn btn-default action-button btn-warning" id="btn0" onclick="alert(&quot;Just kidding! Youre not going anywhere!&quot;)" type="button">Click Me!</button>
+</center>
+<p><br> <br></p>
 <p>So what can we do?</p>
 <p>✖️ Do nothing. Leave it as is and let all the hard work you put into the app be overshadowed by the site your are linking to.</p>
 <p>✔️ Make the link open in a new tab or window.</p>
 <p>✔️ Force the link to open in a new window.</p>
 <p>The distinction between the two latter choices boils down to a users default browser settings. If you use Chrome like me, opening a link (designed to open in a tab or new window) defaults to opening it in a new tab. For you, it <em>might</em> open in a new window. Who knows? 🎱</p>
-<p>If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify the window <code>height</code> and <code>width</code>.</p>
-<p>Below, I have three buttons and their corresponding code you might use in a shiny app. It’s pretty straight forward so I’ll end here. ✌🍻</p>
+<p>If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify the window <code>height</code> and <code>width</code> in pixels. You can also pass <code>fullscreen=1</code> to make the new window, well, full screen.</p>
+<blockquote>
+<p>⚠️⚠️⚠️ Opening links in a new window may result in getting dinged by an ad-blocker. This is because the so-called new window is more of a pop-up rather than it being a truly new window (i.e. <code>CTRL + N</code>).</p>
+</blockquote>
+<p>Thank you <a href="https://github.com/iqis" target="_blank" rel="noopener">iqis</a> for pointing out that! 👽️</p>
+<p>Whatever option you chose for your app, we have options. Below, I have three buttons and their corresponding code you might use in a shiny app. It’s pretty straight forward so I’ll end with saying keep user-experience front and center in your design! ✌🍻</p>
 <pre><code class="language-r"># Default - current
 shiny::actionButton('btn1',
                     'Current Window',
