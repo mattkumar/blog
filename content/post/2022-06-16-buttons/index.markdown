@@ -46,7 +46,7 @@ If you really need the link to open in a separate window, luckily with a little 
 
 Thank you [iqis](https://github.com/iqis) for pointing out that! 👽️
 
-Whatever option you chose for your app, we have options. Below, I have three buttons and their corresponding code you might use in a shiny app. It’s pretty straight forward so I’ll end with saying keep user-experience front and center in your design! ✌🍻
+Below, I have three buttons and their corresponding code you might use in a shiny app. It’s pretty straight forward so I’ll end with saying keep user-experience front and center in your design! ✌🍻
 
 ``` r
 # Default - current

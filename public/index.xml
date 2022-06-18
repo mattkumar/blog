@@ -39,7 +39,7 @@
 &lt;p&gt;⚠️⚠️⚠️ Opening links in a new window may result in getting dinged by an ad-blocker. This is because the so-called new window is more of a pop-up rather than it being a truly new window (i.e. &lt;code&gt;CTRL + N&lt;/code&gt;).&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Thank you &lt;a href=&#34;https://github.com/iqis&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;iqis&lt;/a&gt; for pointing out that! 👽️&lt;/p&gt;
-&lt;p&gt;Whatever option you chose for your app, we have options. Below, I have three buttons and their corresponding code you might use in a shiny app. It’s pretty straight forward so I’ll end with saying keep user-experience front and center in your design! ✌🍻&lt;/p&gt;
+&lt;p&gt;Below, I have three buttons and their corresponding code you might use in a shiny app. It’s pretty straight forward so I’ll end with saying keep user-experience front and center in your design! ✌🍻&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Default - current
 shiny::actionButton(&#39;btn1&#39;,
                     &#39;Current Window&#39;,
