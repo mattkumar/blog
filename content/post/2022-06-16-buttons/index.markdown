@@ -40,9 +40,9 @@ So what can we do?
 
 The distinction between the two latter choices boils down to a users default browser settings. If you use Chrome like me, opening a link (designed to open in a tab or new window) defaults to opening it in a new tab. For you, it *might* open in a new window. Who knows? 🎱
 
-If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify the window `height` and `width` in pixels. You can also pass `fullscreen=1` to make the new window, well, full screen.
+If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify the window `height` and `width`. You can also pass `fullscreen=1` to make the new window, well, full screen. See the code snippet below.
 
-> ⚠️⚠️⚠️ Opening links in a new window may result in getting dinged by an ad-blocker. This is because the so-called new window is more of a pop-up rather than it being a truly new window (i.e. `CTRL + N`).
+> ⚠️Opening links in a new window may result in getting dinged by an ad-blocker. This is because the so-called new window is more of a pop-up rather than it being a truly new window (i.e. `CTRL + N`).
 
 Thank you [iqis](https://github.com/iqis) for pointing out that! 👽️
 
@@ -65,4 +65,4 @@ shiny::actionButton('btn3',
                     onclick ="window.open('http://google.com', '_blank','width=800,height=800')")
 ```
 
-<button class="btn btn-default action-button btn-danger" id="btn1" onclick="location.href=&#39;http://google.com&#39;;" type="button">Current Window</button>&nbsp;<button class="btn btn-default action-button btn-warning" id="btn2" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;)" type="button">New Window or Tab</button>&nbsp;<button class="btn btn-default action-button btn-success" id="btn3" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;,&#39;width=800,height=800&#39;)" type="button">New Window</button>
+<button class="btn btn-default action-button btn btn-danger btn-lg  btn-huge" id="btn1" onclick="location.href=&#39;http://google.com&#39;;" type="button">Current Window</button>&nbsp;<button class="btn btn-default action-button btn btn-warning btn-lg  btn-huge" id="btn2" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;)" type="button">New Window or Tab</button>&nbsp;<button class="btn btn-default action-button btn btn-success btn-lg  btn-huge" id="btn3" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;,&#39;width=800,height=800&#39;)" type="button">New Window</button>

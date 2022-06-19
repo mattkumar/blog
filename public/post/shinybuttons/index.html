@@ -817,9 +817,9 @@
 <p>✔️ Make the link open in a new tab or window.</p>
 <p>✔️ Force the link to open in a new window.</p>
 <p>The distinction between the two latter choices boils down to a users default browser settings. If you use Chrome like me, opening a link (designed to open in a tab or new window) defaults to opening it in a new tab. For you, it <em>might</em> open in a new window. Who knows? 🎱</p>
-<p>If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify the window <code>height</code> and <code>width</code> in pixels. You can also pass <code>fullscreen=1</code> to make the new window, well, full screen.</p>
+<p>If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify the window <code>height</code> and <code>width</code>. You can also pass <code>fullscreen=1</code> to make the new window, well, full screen. See the code snippet below.</p>
 <blockquote>
-<p>⚠️⚠️⚠️ Opening links in a new window may result in getting dinged by an ad-blocker. This is because the so-called new window is more of a pop-up rather than it being a truly new window (i.e. <code>CTRL + N</code>).</p>
+<p>⚠️Opening links in a new window may result in getting dinged by an ad-blocker. This is because the so-called new window is more of a pop-up rather than it being a truly new window (i.e. <code>CTRL + N</code>).</p>
 </blockquote>
 <p>Thank you <a href="https://github.com/iqis" target="_blank" rel="noopener">iqis</a> for pointing out that! 👽️</p>
 <p>Below, I have three buttons and their corresponding code you might use in a shiny app. It’s pretty straight forward so I’ll end with saying keep user-experience front and center in your design! ✌🍻</p>
@@ -838,7 +838,7 @@ shiny::actionButton('btn3',
                     'New Window', 
                     onclick =&quot;window.open('http://google.com', '_blank','width=800,height=800')&quot;)
 </code></pre>
-<p><button class="btn btn-default action-button btn-danger" id="btn1" onclick="location.href=&#39;http://google.com&#39;;" type="button">Current Window</button> <button class="btn btn-default action-button btn-warning" id="btn2" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;)" type="button">New Window or Tab</button> <button class="btn btn-default action-button btn-success" id="btn3" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;,&#39;width=800,height=800&#39;)" type="button">New Window</button></p>
+<p><button class="btn btn-default action-button btn btn-danger btn-lg  btn-huge" id="btn1" onclick="location.href=&#39;http://google.com&#39;;" type="button">Current Window</button> <button class="btn btn-default action-button btn btn-warning btn-lg  btn-huge" id="btn2" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;)" type="button">New Window or Tab</button> <button class="btn btn-default action-button btn btn-success btn-lg  btn-huge" id="btn3" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;,&#39;width=800,height=800&#39;)" type="button">New Window</button></p>
 
     </div>
 

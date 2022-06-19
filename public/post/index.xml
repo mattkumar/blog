@@ -34,9 +34,9 @@
 &lt;p&gt;✔️ Make the link open in a new tab or window.&lt;/p&gt;
 &lt;p&gt;✔️ Force the link to open in a new window.&lt;/p&gt;
 &lt;p&gt;The distinction between the two latter choices boils down to a users default browser settings. If you use Chrome like me, opening a link (designed to open in a tab or new window) defaults to opening it in a new tab. For you, it &lt;em&gt;might&lt;/em&gt; open in a new window. Who knows? 🎱&lt;/p&gt;
-&lt;p&gt;If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify the window &lt;code&gt;height&lt;/code&gt; and &lt;code&gt;width&lt;/code&gt; in pixels. You can also pass &lt;code&gt;fullscreen=1&lt;/code&gt; to make the new window, well, full screen.&lt;/p&gt;
+&lt;p&gt;If you really need the link to open in a separate window, luckily with a little elbow grease we can make that a sure thing.🎯 We just need to explicitly specify the window &lt;code&gt;height&lt;/code&gt; and &lt;code&gt;width&lt;/code&gt;. You can also pass &lt;code&gt;fullscreen=1&lt;/code&gt; to make the new window, well, full screen. See the code snippet below.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;⚠️⚠️⚠️ Opening links in a new window may result in getting dinged by an ad-blocker. This is because the so-called new window is more of a pop-up rather than it being a truly new window (i.e. &lt;code&gt;CTRL + N&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;⚠️Opening links in a new window may result in getting dinged by an ad-blocker. This is because the so-called new window is more of a pop-up rather than it being a truly new window (i.e. &lt;code&gt;CTRL + N&lt;/code&gt;).&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Thank you &lt;a href=&#34;https://github.com/iqis&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;iqis&lt;/a&gt; for pointing out that! 👽️&lt;/p&gt;
 &lt;p&gt;Below, I have three buttons and their corresponding code you might use in a shiny app. It’s pretty straight forward so I’ll end with saying keep user-experience front and center in your design! ✌🍻&lt;/p&gt;
@@ -55,7 +55,7 @@ shiny::actionButton(&#39;btn3&#39;,
                     &#39;New Window&#39;, 
                     onclick =&amp;quot;window.open(&#39;http://google.com&#39;, &#39;_blank&#39;,&#39;width=800,height=800&#39;)&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;button class=&#34;btn btn-default action-button btn-danger&#34; id=&#34;btn1&#34; onclick=&#34;location.href=&amp;#39;http://google.com&amp;#39;;&#34; type=&#34;button&#34;&gt;Current Window&lt;/button&gt; &lt;button class=&#34;btn btn-default action-button btn-warning&#34; id=&#34;btn2&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window or Tab&lt;/button&gt; &lt;button class=&#34;btn btn-default action-button btn-success&#34; id=&#34;btn3&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;,&amp;#39;width=800,height=800&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window&lt;/button&gt;&lt;/p&gt;
+&lt;p&gt;&lt;button class=&#34;btn btn-default action-button btn btn-danger btn-lg  btn-huge&#34; id=&#34;btn1&#34; onclick=&#34;location.href=&amp;#39;http://google.com&amp;#39;;&#34; type=&#34;button&#34;&gt;Current Window&lt;/button&gt; &lt;button class=&#34;btn btn-default action-button btn btn-warning btn-lg  btn-huge&#34; id=&#34;btn2&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window or Tab&lt;/button&gt; &lt;button class=&#34;btn btn-default action-button btn btn-success btn-lg  btn-huge&#34; id=&#34;btn3&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;,&amp;#39;width=800,height=800&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window&lt;/button&gt;&lt;/p&gt;
 </description>
     </item>
     

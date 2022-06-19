@@ -13,6 +13,7 @@ interests:
 - R, Shiny Development
 - Statistical Methods
 - Data Visualization
+- UI and UX
 organizations:
 - name: Bayer
   url: https://www.bayer.com/en/
