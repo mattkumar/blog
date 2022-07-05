@@ -5,12 +5,74 @@
     <link>https://academic-demo.netlify.app/post/</link>
       <atom:link href="https://academic-demo.netlify.app/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 16 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 04 Jul 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Posts</title>
       <link>https://academic-demo.netlify.app/post/</link>
     </image>
+    
+    <item>
+      <title>old code and beginnings</title>
+      <link>https://academic-demo.netlify.app/post/r-code/</link>
+      <pubDate>Mon, 04 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/post/r-code/</guid>
+      <description>&lt;p&gt;&amp;hellip; and by old, I mean really old. Like the first R code I ever wrote. 👨‍💻.&lt;/p&gt;
+&lt;p&gt;I recently went digging in an old dropbox account for photos and to my surprise I had saved a copy of my undergraduate thesis, complete with code.&lt;/p&gt;
+&lt;p&gt;My undergraduate degree was in Psychology and I had a keen interest in psychometrics. My thesis involved an application of &lt;a href=&#34;https://en.wikipedia.org/wiki/Item_response_theory&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;item response theory&lt;/a&gt; to ordinal data.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;if you are interested, I used &lt;a href=&#34;https://link.springer.com/chapter/10.1007/978-1-4757-2691-6_5&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Samejima&amp;rsquo;s Graded Response Model&lt;/a&gt; to analyze responses made to the &lt;a href=&#34;https://en.wikipedia.org/wiki/Barratt_Impulsiveness_Scale&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Barratt Impulsiveness Scale&lt;/a&gt; from a sample of first year university students&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;At the time, my only experience with statistical software was with &lt;a href=&#34;https://en.wikipedia.org/wiki/SPSS&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SPSS&lt;/a&gt;. I remember teaching myself how to use it only a year prior in order to double check my intro stats homework assignments 🤓🔬📏. I think that was a good move in retrospect because I was also able to spin that experience into a &lt;strong&gt;paid&lt;/strong&gt; Stats Advisory position at the Psychology Resource Center.&lt;/p&gt;
+&lt;p&gt;I digress.&lt;/p&gt;
+&lt;p&gt;The type of model I needed to fit for my thesis was only available through proprietary software. My &lt;a href=&#34;https://health.yorku.ca/health-profiles/index.php?mid=498680&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;thesis advisor&lt;/a&gt; recommended I look into R as he had caught wind of a package that could help. The upside was that it would be 🆓 and open source 🤑. The downside was that I was going to have to learn &amp;ldquo;syntax&amp;rdquo; 🤢. I was aware that SPSS had syntax facilities for advanced users, but it was always intimidating 😣. Luckily almost all of what I needed to do in SPSS could be handled by pointing and clicking through menus.&lt;/p&gt;
+&lt;p&gt;But now I &lt;strong&gt;had&lt;/strong&gt; to learn &amp;ldquo;syntax&amp;rdquo;. &lt;em&gt;I&amp;rsquo;m laughing while typing this believe you me.&lt;/em&gt; 🤣 Anyway, I don&amp;rsquo;t quite recall the learning process, but I reckon it was difficult and in the end I was probably just relieved to get the job done. ✅🎓.I ended up having to write &amp;ldquo;syntax&amp;rdquo; for other supporting analyses in my thesis, namely Confirmatory Factor Analysis for assumption checking in &lt;a href=&#34;https://ssicentral.com/index.php/products/lisrel/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;LISREL&lt;/a&gt;. &lt;em&gt;shudders&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;For historical (and sentimental reasons) I&amp;rsquo;ve included the R code in my thesis below. It marked the first steps on the path I&amp;rsquo;m on today.&lt;/p&gt;
+&lt;p&gt;From what I can tell I was using R 2.8.1 and I&amp;rsquo;m happy to see the original 📦, &lt;a href=&#34;https://cran.r-project.org/web/packages/ltm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;ltm&lt;/strong&gt;&lt;/a&gt; is still active on CRAN today.&lt;/p&gt;
+&lt;p&gt;Till next time, 🍻✌&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;install.packages(&amp;quot;ltm&amp;quot;, dependencies = TRUE)
+#downloads and installs the &#39;LTM&#39; packageto the user’s hard drive.
+
+library(ltm)
+#loads the &#39;LTM&#39; package from the user’s hard drive
+
+attention = read.table(file.choose(),header=T)
+#prompts for location of data set
+
+grm0 = grm(attention, constrained = TRUE, Hessian = TRUE)
+#fits the constrained GRM to the specified data set. The HESSIAN = TRUE argument computes standard error values.
+
+summary(grm0)
+#returns the parameter estimates
+
+grm1 = grm(attention, constrained = FALSE, Hessian = TRUE)
+#fits the unconstrained GRM and computes standard error values
+
+summary(grm1)
+#returns the parameter estimates
+
+anova(grm0,grm1)
+#performs a likelihood ratio test on the two models.
+
+plot(grm1, type = &amp;quot;IIC&amp;quot;, lwd = 2, cex = 1.2, legend = TRUE, cx = &amp;quot;topleft&amp;quot;,xlab = &amp;quot;Latent
+Trait&amp;quot;, cex.main = 1.5, cex.lab = 1.3, cex.axis = 1.1)
+#plots the IIFs
+
+plot(grm1, type = &amp;quot;IIC&amp;quot;, items = 0, lwd = 2, xlab = &amp;quot;Attention&amp;quot;,
+     cex.main = 1.5, cex.lab = 1.3, cex.axis = 1.1)
+#plots the TIF
+
+plot(grm1, lwd = 2, cex = 1.2, legend = TRUE, cx = &amp;quot;left&amp;quot;,
+     xlab = &amp;quot;Attention&amp;quot;, cex.main = 1.5, cex.lab = 1.3, cex.ax
+     is = 1.1)
+#plots the CRCs
+
+plot(grm1, type = &amp;quot;OCCu&amp;quot;, lwd = 2, cex = 1.2, legend = TRUE, cx = &amp;quot;topleft&amp;quot;,
+     xlab = &amp;quot;Attention&amp;quot;, cex.main = 1.5, cex.lab = 1.3, cex.axis = 1.1)
+#plots the OCCs
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>tweaking shiny actionButton</title>
