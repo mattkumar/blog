@@ -31,7 +31,7 @@ At the time, my only experience with statistical software was with [SPSS](https:
 
 I digress.
 
-The type of model I needed to fit for my thesis was only available through proprietary software. My [thesis advisor](https://health.yorku.ca/health-profiles/index.php?mid=498680) recommended I look into R as he had caught wind of a package that could help. The upside was that it would be 🆓 and open source 🤑. The downside was that I was going to have to learn "syntax" 🤢. I was aware that SPSS had syntax facilities for advanced users, but it was always intimidating 😣. Luckily almost all of what I needed to do in SPSS could be handled by pointing and clicking through menus.
+The type of model I needed to fit for my thesis was only available through proprietary software. My [thesis advisor](https://health.yorku.ca/health-profiles/index.php?mid=498680) recommended I look into R as he had caught wind of a package that could help. The upside was that it would be 🆓 and open source 🤑. The downside was that I was going to have to learn "syntax" 🤢. I was aware that SPSS had syntax facilities for advanced users, but it was always intimidating 😣. 
 
 But now I **had** to learn "syntax". *I'm laughing while typing this believe you me.* 🤣 Anyway, I don't quite recall the learning process, but I reckon it was difficult and in the end I was probably just relieved to get the job done. ✅🎓.I ended up having to write "syntax" for other supporting analyses in my thesis, namely Confirmatory Factor Analysis for assumption checking in [LISREL](https://ssicentral.com/index.php/products/lisrel/). *shudders*
 
