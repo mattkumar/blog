@@ -18,7 +18,7 @@ links:
   name: Learn More
   url: https://shiny.rstudio.com/py/
 slides: example
-summary: A basic shiny app written in Python
+summary: A relatively basic shiny app written in Python
 tags:
 - shiny
 - Python
@@ -38,18 +38,17 @@ This app is an initial exploration into
 <a href="https://shiny.rstudio.com/py/">shiny for Python</a> which was
 recently revealed at
 <a href="https://www.rstudio.com/conference/"><strong>rstudio::</strong>conf(2022)</a>
-earlier this summer.🐍🐍🐍 <br> <br> While the library is still in alpha
-(and API subject to change), after reviewing a bit of the examples and
-reading some of the docs, I figured it was enough to get started with.
-
+earlier this summer.🐍🐍🐍 
+<br> 
 <h2>Aim</h2>
 
 The aim of the exploration was to familiarize myself with the API and
 essentially try to see if I can recreate common patterns/functionalities
-I tend to use in my other apps. <br> <br> The app is simple. Use the
+I tend to use in my other apps. <br> <br> The app is simple: Use the
 sample data (or upload your own) to run a basic linear regression
-analysis and display the resulting plot. The users are able to choose
-the variables of interest. <br> <br> <h2>Functionalities</h2> Here are
+analysis and display the resulting plot. <br> <br> 
+
+<h2>Functionalities</h2> Here are
 the functionalities covered in the app:
 
 -   ✅ custom CSS (could you tell?) 🤣
@@ -60,7 +59,7 @@ the functionalities covered in the app:
 -   ✅rendering Plots
 -   ✅valiadation of inputs with `req()`
 
-<br> <br> <h2>Deployment</h2> I currently have my app running on
+<h2>Deployment</h2> I currently have my app running on
 `shinylive.io` which is a serverless solution. This really got my
 attention during the reveal and I'll continue to keep an eye on this. 🤩😦
 <br> 
@@ -72,12 +71,11 @@ execute it all within the browser!
 Here</a>👈👈👈 
 </div>
 <br> 
+The one downside is that not all libraries are supported, which is to be expected. I originally used the `xport` library to read SAS .xpt files instead of .csv files in development. 
 <br> 
-The one downside is that not all libraries are supported, which is to be expected. When I wrote this app locally, I originally used the `xport` library to read SAS .xpt files. I switched
-to .csv in the app, however. 
-<br> 
-<br> 
+<h2>Future</h2>
 If and when this is included (or I figure out the rsconnect deployment), the following code can be replaced easily to read .xpt
+<br> <br>
 
     import xport
 
