@@ -58,7 +58,7 @@ Here are the functionalities covered in the app:
 
 <h2>Deployment</h2>
 
-I currently have my app running on shinylive.io which is seems to be a
+I currently have my app running on shinylive.io which seems to be a
 very promising *serverless* solution. You can also build your app as a
 static site (locally) and serve it via github pages or netlify.🤯🤯🤯
 <br> <br>
@@ -72,8 +72,8 @@ Here</a>👈 <br><br>
 <a href="https://mattkumar.github.io/shinypy/">See Here</a>👈</div>
 <br> The one downside is that not all libraries are supported, which is
 understandable. I originally used the `xport` library to read SAS .xpt
-files instead of .csv files in development. <br> <h2>Future</h2> If and
-when this is included (or I figure out the rsconnect deployment), the
+files instead of .csv files in development. Winston Chang's [talk](https://www.rstudio.com/conference/2022/talks/running-shiny-without-server/) provides more detail about this and the technology in general.<br> <h2>Future</h2> If and
+when this is included (or I figure out the rsconnect deployment, which is also an option by the way), the
 following code can be replaced easily to read .xpt <br> <br>
 
     import xport
