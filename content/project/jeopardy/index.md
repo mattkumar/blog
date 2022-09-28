@@ -8,7 +8,7 @@ links:
 - icon: r-project
   icon_pack: fab
   name: View Interactive Table
-  url: https://mattkumar.quarto.pub/jeopardy-game-contest/
+  url: https://mattkumar.quarto.pub/jeopardy-game-contest
 - icon: github
   icon_pack: fab
   name: View Repo
