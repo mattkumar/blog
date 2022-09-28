@@ -2,7 +2,7 @@
 date: "2022-09-29T00:00:00Z"
 external_link: ""
 image:
-  caption: Jeopardy! board - static
+  caption: Jeopardy board (static)
   focal_point: Smart
 links:
 - icon: r-project
