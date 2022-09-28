@@ -18,7 +18,7 @@ links:
   name: Learn More
   url: https://shiny.rstudio.com/py/
 slides: example
-summary: A relatively basic shiny app written in Python
+summary: A relatively basic exploratory data analysis shiny app written in Python
 tags:
 - shiny
 - Python
