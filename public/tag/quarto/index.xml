@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>quarto | Matthew Kumar</title>
+    <link>https://academic-demo.netlify.app/tag/quarto/</link>
+      <atom:link href="https://academic-demo.netlify.app/tag/quarto/index.xml" rel="self" type="application/rss+xml" />
+    <description>quarto</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <title>quarto</title>
+      <link>https://academic-demo.netlify.app/tag/quarto/</link>
+    </image>
+    
+    <item>
+      <title>Jeopardy!</title>
+      <link>https://academic-demo.netlify.app/project/jeopardy/</link>
+      <pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/jeopardy/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This is my entry into the ⚡&lt;a href=&#34;https://www.rstudio.com/blog/rstudio-table-contest-2022/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R Studio 2022 Table Contest.&lt;/a&gt;
+It uses reactable and scss in Quarto to style a Jeopardy! game board. &lt;/br&gt;&lt;/p&gt;
+&lt;p&gt;My aims for this project were three-fold:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;To think about creative uses of tables! ✅&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Learn how to use some of &lt;code&gt;reactable&lt;/code&gt;&amp;rsquo;s custom rendering capabilities ✅&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Continue to investigate and experiment (s)css and Quarto. ✅&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
+&lt;p&gt;I start by pulling archived Jeopardy! game data using the &lt;code&gt;whatr&lt;/code&gt; 📦. What&amp;rsquo;s nice is that each row of data is indexed by the row and column it appears on in the actual board 😝. This makes it simple to ensure the &lt;em&gt;right content&lt;/em&gt; is in the &lt;em&gt;right place.&lt;/em&gt; ✅&lt;/p&gt;
+&lt;p&gt;In the next step, I borrow some preexisting css for creating &lt;a href=&#34;https://www.w3schools.com/howto/howto_css_flip_card.asp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;flip cards&lt;/a&gt; 🔍. I ♻️, 🔨  and 🗑 elements in order to match the aesthetic of Jeopardy! This was relatively straightforward, though researching colors and fonts took a bit of time.&lt;/p&gt;
+&lt;p&gt;The last step is to arrange the data once it&amp;rsquo;s been read into R into a format serviceable for display. I knew I planned to use &lt;code&gt;reactable&lt;/code&gt; as the display table package and leverage escaping html.&lt;/p&gt;
+&lt;h3 id=&#34;method-1&#34;&gt;Method 1&lt;/h3&gt;
+&lt;p&gt;My first approach was to bake the html/css stuff directly into each cell, before passing it to reactable for escaping. It looked something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{code}&#34;&gt;raw_data %&amp;gt;%
+  .... %&amp;gt;%
+  mutate(content = if_else(row == 1,
+                             # html for header
+                             glue::glue(&#39;&amp;lt;div class=&amp;quot;flip-card&amp;quot;&amp;gt;
+                                          &amp;lt;div class=&amp;quot;flip-card-inner&amp;quot;&amp;gt;
+                                            &amp;lt;div class=&amp;quot;flip-card-head&amp;quot;&amp;gt;
+                                              &amp;lt;p&amp;gt;{category}&amp;lt;/p&amp;gt;
+                                            &amp;lt;/div&amp;gt;
+                                            &amp;lt;div class=&amp;quot;flip-card-head&amp;quot;&amp;gt;
+                                              {category}
+                                            &amp;lt;/div&amp;gt;
+                                          &amp;lt;/div&amp;gt;
+                                        &amp;lt;/div&amp;gt;&#39;)
+ .... %&amp;gt;%
+ reactable(.,
+           defaultColDef = colDef(html = TRUE))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;While this certainly worked (it has in the past for me), I knew reactable had more to offer in terms of custom rendering but have never delved into it.😨&lt;/p&gt;
+&lt;h3 id=&#34;method-2&#34;&gt;Method 2&lt;/h3&gt;
+&lt;p&gt;It turns reactables &lt;code&gt;defaultColDef&lt;/code&gt; argument works great for custom rendering in this case since every cell in my Jeopardy! board needs the same html/css treatment. It looks something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{code}&#34;&gt;table_data %&amp;gt;%
+  reactable(.,
+    sortable = FALSE,
+    defaultColDef = colDef(
+      html = TRUE,
+      align = &amp;quot;center&amp;quot;,
+      header = function(value) {
+        tags$div(
+          class = &amp;quot;flip-card flip-card-head&amp;quot;,
+          value
+        )
+      })
+    )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I like this approach much better than the first because I&amp;rsquo;m keeping table and data wrangling parts of my workflow separate and hopefully more clear for readers. 🤓&lt;/p&gt;
+&lt;h2 id=&#34;forward&#34;&gt;Forward&lt;/h2&gt;
+&lt;p&gt;It&amp;rsquo;s been an awesome ride so far experimenting with Quarto and continuing to learn how to create and modify existing CSS. I&amp;rsquo;m happy that the &lt;a href=&#34;https://www.rstudio.com/blog/rstudio-table-contest-2022/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R Studio 2022 Table Contest.&lt;/a&gt; is taking place right around this time because it was a constructive outlet to build something that uses the new things I&amp;rsquo;ve recently learned.&lt;/p&gt;
+&lt;p&gt;🍻✌ Enjoy!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
