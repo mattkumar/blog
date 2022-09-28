@@ -1,5 +1,5 @@
 ---
-date: "2022-09-29T00:00:00Z"
+date: "2022-09-28T00:00:00Z"
 external_link: ""
 image:
   caption: Jeopardy board (static)
