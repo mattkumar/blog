@@ -53,8 +53,9 @@ My first approach was to bake the html/css stuff directly into each cell, before
 
 
 <details>
-<summary>See Code</summary>
-```{code}
+<summary>👉️ See Code</summary>
+
+```{r, eval = F, echo = T}
 raw_data %>%
   .... %>%
   mutate(content = if_else(row == 1,
@@ -85,10 +86,10 @@ raw_data %>%
                                         </div>
                                       </div>'))) %>%
  .... %>%
- .... %>%
  reactable(.,
            defaultColDef = colDef(html = TRUE))
 ```
+
 </details>
 
 While this certainly worked (it has in the past for me), I knew reactable had more to offer in terms of custom rendering. It was time to have a closer look at specifics. 😨
@@ -97,8 +98,9 @@ While this certainly worked (it has in the past for me), I knew reactable had mo
 It turns reactables `defaultColDef` argument works great for custom rendering in this case since every cell in my Jeopardy! board needs the same html/css treatment. It looks something like this:
 
 <details>
-<summary>See Code</summary>
-```{code}
+<summary>👉️ See Code</summary>
+
+```{r, eval = F, echo = T}
 reactable(table_data,
   sortable = FALSE,
   defaultColDef = colDef(
@@ -141,6 +143,7 @@ reactable(table_data,
   )
 )
 ```
+
 </details>
 
 I like this approach much better than the first because I'm keeping table and data wrangling parts of my workflow separate and hopefully more clear for readers. 🤓

@@ -891,82 +891,79 @@ It uses reactable and scss in Quarto to style a Jeopardy! game board. </br></p>
 <h3 id="method-1">Method 1</h3>
 <p>My first approach was to bake the html/css stuff directly into each cell, before passing it to reactable for escaping. It looked something like this:</p>
 <details>
-<summary>See Code</summary>
-```{code}
-raw_data %>%
-  .... %>%
+<summary>👉️ See Code</summary>
+<pre><code class="language-{r,">raw_data %&gt;%
+  .... %&gt;%
   mutate(content = if_else(row == 1,
                            # html for header
-                           glue::glue('<div class="flip-card">
-                                        <div class="flip-card-inner">
-                                          <div class="flip-card-head">
-                                            <p>{category}</p>
-                                          </div>
-                                          <div class="flip-card-head">
+                           glue::glue('&lt;div class=&quot;flip-card&quot;&gt;
+                                        &lt;div class=&quot;flip-card-inner&quot;&gt;
+                                          &lt;div class=&quot;flip-card-head&quot;&gt;
+                                            &lt;p&gt;{category}&lt;/p&gt;
+                                          &lt;/div&gt;
+                                          &lt;div class=&quot;flip-card-head&quot;&gt;
                                             {category}
-                                          </div>
-                                        </div>
-                                      </div>'),
+                                          &lt;/div&gt;
+                                        &lt;/div&gt;
+                                      &lt;/div&gt;'),
                            # html for clues
-                           glue::glue('<div class="flip-card">
-                                        <div class="flip-card-inner">
-                                          <div class="flip-card-front">
+                           glue::glue('&lt;div class=&quot;flip-card&quot;&gt;
+                                        &lt;div class=&quot;flip-card-inner&quot;&gt;
+                                          &lt;div class=&quot;flip-card-front&quot;&gt;
                                             {value}
-                                          </div>
-                                          <div class="flip-card-back">
-                                            <p>{clue}</p>
-                                            <details>
-                                            <summary>Answer</summary>
-                                            <p>{answer}</p>
-                                          </details>
-                                          </div>
-                                        </div>
-                                      </div>'))) %>%
- .... %>%
- .... %>%
+                                          &lt;/div&gt;
+                                          &lt;div class=&quot;flip-card-back&quot;&gt;
+                                            &lt;p&gt;{clue}&lt;/p&gt;
+                                            &lt;details&gt;
+                                            &lt;summary&gt;Answer&lt;/summary&gt;
+                                            &lt;p&gt;{answer}&lt;/p&gt;
+                                          &lt;/details&gt;
+                                          &lt;/div&gt;
+                                        &lt;/div&gt;
+                                      &lt;/div&gt;'))) %&gt;%
+ .... %&gt;%
  reactable(.,
            defaultColDef = colDef(html = TRUE))
-```
+</code></pre>
 </details>
 <p>While this certainly worked (it has in the past for me), I knew reactable had more to offer in terms of custom rendering. It was time to have a closer look at specifics. 😨</p>
 <h3 id="method-2">Method 2</h3>
 <p>It turns reactables <code>defaultColDef</code> argument works great for custom rendering in this case since every cell in my Jeopardy! board needs the same html/css treatment. It looks something like this:</p>
 <details>
-<summary>See Code</summary>
-```{code}
-reactable(table_data,
+<summary>👉️ See Code</summary>
+<pre><code class="language-{r,">reactable(table_data,
   sortable = FALSE,
   defaultColDef = colDef(
     html = TRUE,
-    align = "center",
+    align = &quot;center&quot;,
     # Header Rendering
     header = function(value) {
       tags$div(
-        class = "flip-card flip-card-head",
+        class = &quot;flip-card flip-card-head&quot;,
         value
       )
     },
     # Cell Rendering
     cell = function(value, index) {
       # parse clue, answer from table cell
-      content <- str_split(value, ";", simplify = TRUE)
-      clue <- content[1]
-      answer <- content[2]
+      content &lt;- str_split(value, &quot;;&quot;, simplify = TRUE)
+      clue &lt;- content[1]
+      answer &lt;- content[2]
       # cell content
       tags$div(
-        class = "flip-card",
+        class = &quot;flip-card&quot;,
         tags$div(
-          class = "flip-card-inner",
+          class = &quot;flip-card-inner&quot;,
           tags$div(
-            class = "flip-card-front",
+            class = &quot;flip-card-front&quot;,
             # multiply row index by 200 for tile value
-            paste("$", index * 200)
+            paste(&quot;$&quot;, index * 200)
           ),
           tags$div(
-            class = "flip-card-back",
+            class = &quot;flip-card-back&quot;,
             clue,
             tags$details(
-              tags$summary("Answer"),
+              tags$summary(&quot;Answer&quot;),
               answer
             )
           )
@@ -975,7 +972,7 @@ reactable(table_data,
     }
   )
 )
-```
+</code></pre>
 </details>
 <p>I like this approach much better than the first because I&rsquo;m keeping table and data wrangling parts of my workflow separate and hopefully more clear for readers. 🤓</p>
 <h2 id="forward">Forward</h2>
