@@ -890,44 +890,96 @@ It uses reactable and scss in Quarto to style a Jeopardy! game board. </br></p>
 <p>The last step is to arrange the data once it&rsquo;s been read into R into a format serviceable for display. I knew I planned to use <code>reactable</code> as the display table package and leverage escaping html.</p>
 <h3 id="method-1">Method 1</h3>
 <p>My first approach was to bake the html/css stuff directly into each cell, before passing it to reactable for escaping. It looked something like this:</p>
-<pre><code class="language-{code}">raw_data %&gt;%
-  .... %&gt;%
+<details>
+<summary>See Code</summary>
+```{code}
+raw_data %>%
+  .... %>%
   mutate(content = if_else(row == 1,
-                             # html for header
-                             glue::glue('&lt;div class=&quot;flip-card&quot;&gt;
-                                          &lt;div class=&quot;flip-card-inner&quot;&gt;
-                                            &lt;div class=&quot;flip-card-head&quot;&gt;
-                                              &lt;p&gt;{category}&lt;/p&gt;
-                                            &lt;/div&gt;
-                                            &lt;div class=&quot;flip-card-head&quot;&gt;
-                                              {category}
-                                            &lt;/div&gt;
-                                          &lt;/div&gt;
-                                        &lt;/div&gt;')
- .... %&gt;%
+                           # html for header
+                           glue::glue('<div class="flip-card">
+                                        <div class="flip-card-inner">
+                                          <div class="flip-card-head">
+                                            <p>{category}</p>
+                                          </div>
+                                          <div class="flip-card-head">
+                                            {category}
+                                          </div>
+                                        </div>
+                                      </div>'),
+                           # html for clues
+                           glue::glue('<div class="flip-card">
+                                        <div class="flip-card-inner">
+                                          <div class="flip-card-front">
+                                            {value}
+                                          </div>
+                                          <div class="flip-card-back">
+                                            <p>{clue}</p>
+                                            <details>
+                                            <summary>Answer</summary>
+                                            <p>{answer}</p>
+                                          </details>
+                                          </div>
+                                        </div>
+                                      </div>'))) %>%
+ .... %>%
+ .... %>%
  reactable(.,
            defaultColDef = colDef(html = TRUE))
-</code></pre>
-<p>While this certainly worked (it has in the past for me), I knew reactable had more to offer in terms of custom rendering but have never delved into it.😨</p>
+```
+</details>
+<p>While this certainly worked (it has in the past for me), I knew reactable had more to offer in terms of custom rendering. It was time to have a closer look at specifics. 😨</p>
 <h3 id="method-2">Method 2</h3>
 <p>It turns reactables <code>defaultColDef</code> argument works great for custom rendering in this case since every cell in my Jeopardy! board needs the same html/css treatment. It looks something like this:</p>
-<pre><code class="language-{code}">table_data %&gt;%
-  reactable(.,
-    sortable = FALSE,
-    defaultColDef = colDef(
-      html = TRUE,
-      align = &quot;center&quot;,
-      header = function(value) {
+<details>
+<summary>See Code</summary>
+```{code}
+reactable(table_data,
+  sortable = FALSE,
+  defaultColDef = colDef(
+    html = TRUE,
+    align = "center",
+    # Header Rendering
+    header = function(value) {
+      tags$div(
+        class = "flip-card flip-card-head",
+        value
+      )
+    },
+    # Cell Rendering
+    cell = function(value, index) {
+      # parse clue, answer from table cell
+      content <- str_split(value, ";", simplify = TRUE)
+      clue <- content[1]
+      answer <- content[2]
+      # cell content
+      tags$div(
+        class = "flip-card",
         tags$div(
-          class = &quot;flip-card flip-card-head&quot;,
-          value
+          class = "flip-card-inner",
+          tags$div(
+            class = "flip-card-front",
+            # multiply row index by 200 for tile value
+            paste("$", index * 200)
+          ),
+          tags$div(
+            class = "flip-card-back",
+            clue,
+            tags$details(
+              tags$summary("Answer"),
+              answer
+            )
+          )
         )
-      })
-    )
-</code></pre>
+      )
+    }
+  )
+)
+```
+</details>
 <p>I like this approach much better than the first because I&rsquo;m keeping table and data wrangling parts of my workflow separate and hopefully more clear for readers. 🤓</p>
 <h2 id="forward">Forward</h2>
-<p>It&rsquo;s been an awesome ride so far experimenting with Quarto and continuing to learn how to create and modify existing CSS. I&rsquo;m happy that the <a href="https://www.rstudio.com/blog/rstudio-table-contest-2022/" target="_blank" rel="noopener">R Studio 2022 Table Contest.</a> is taking place right around this time because it was a constructive outlet to build something that uses the new things I&rsquo;ve recently learned.</p>
+<p>It&rsquo;s been an awesome ride so far experimenting with Quarto and continuing to learn how to create and modify existing CSS. I&rsquo;m happy that the <a href="https://www.rstudio.com/blog/rstudio-table-contest-2022/" target="_blank" rel="noopener">R Studio 2022 Table Contest</a> is currently taking place because it was a constructive outlet to build something that uses things I&rsquo;ve recently learned.</p>
 <p>🍻✌ Enjoy!</p>
 
     </div>
@@ -1207,16 +1259,6 @@ It uses reactable and scss in Quarto to style a Jeopardy! game board. </br></p>
 
   
 
-  
-  <p class="powered-by">
-    
-      <a href="/privacy/">Privacy Policy</a>
-    
-    
-       &middot; 
-      <a href="/terms/">Terms</a>
-    
-  </p>
   
 
   

@@ -52,52 +52,101 @@ The last step is to arrange the data once it's been read into R into a format se
 My first approach was to bake the html/css stuff directly into each cell, before passing it to reactable for escaping. It looked something like this:  
 
 
-
+<details>
+<summary>See Code</summary>
 ```{code}
 raw_data %>%
   .... %>%
   mutate(content = if_else(row == 1,
-                             # html for header
-                             glue::glue('<div class="flip-card">
-                                          <div class="flip-card-inner">
-                                            <div class="flip-card-head">
-                                              <p>{category}</p>
-                                            </div>
-                                            <div class="flip-card-head">
-                                              {category}
-                                            </div>
+                           # html for header
+                           glue::glue('<div class="flip-card">
+                                        <div class="flip-card-inner">
+                                          <div class="flip-card-head">
+                                            <p>{category}</p>
                                           </div>
-                                        </div>')
+                                          <div class="flip-card-head">
+                                            {category}
+                                          </div>
+                                        </div>
+                                      </div>'),
+                           # html for clues
+                           glue::glue('<div class="flip-card">
+                                        <div class="flip-card-inner">
+                                          <div class="flip-card-front">
+                                            {value}
+                                          </div>
+                                          <div class="flip-card-back">
+                                            <p>{clue}</p>
+                                            <details>
+                                            <summary>Answer</summary>
+                                            <p>{answer}</p>
+                                          </details>
+                                          </div>
+                                        </div>
+                                      </div>'))) %>%
+ .... %>%
  .... %>%
  reactable(.,
            defaultColDef = colDef(html = TRUE))
 ```
-                            
-While this certainly worked (it has in the past for me), I knew reactable had more to offer in terms of custom rendering but have never delved into it.😨
+</details>
+
+While this certainly worked (it has in the past for me), I knew reactable had more to offer in terms of custom rendering. It was time to have a closer look at specifics. 😨
 
 ### Method 2
 It turns reactables `defaultColDef` argument works great for custom rendering in this case since every cell in my Jeopardy! board needs the same html/css treatment. It looks something like this:
 
+<details>
+<summary>See Code</summary>
 ```{code}
-table_data %>%
-  reactable(.,
-    sortable = FALSE,
-    defaultColDef = colDef(
-      html = TRUE,
-      align = "center",
-      header = function(value) {
+reactable(table_data,
+  sortable = FALSE,
+  defaultColDef = colDef(
+    html = TRUE,
+    align = "center",
+    # Header Rendering
+    header = function(value) {
+      tags$div(
+        class = "flip-card flip-card-head",
+        value
+      )
+    },
+    # Cell Rendering
+    cell = function(value, index) {
+      # parse clue, answer from table cell
+      content <- str_split(value, ";", simplify = TRUE)
+      clue <- content[1]
+      answer <- content[2]
+      # cell content
+      tags$div(
+        class = "flip-card",
         tags$div(
-          class = "flip-card flip-card-head",
-          value
+          class = "flip-card-inner",
+          tags$div(
+            class = "flip-card-front",
+            # multiply row index by 200 for tile value
+            paste("$", index * 200)
+          ),
+          tags$div(
+            class = "flip-card-back",
+            clue,
+            tags$details(
+              tags$summary("Answer"),
+              answer
+            )
+          )
         )
-      })
-    )
+      )
+    }
+  )
+)
 ```
+</details>
 
 I like this approach much better than the first because I'm keeping table and data wrangling parts of my workflow separate and hopefully more clear for readers. 🤓
 
 ## Forward
-It's been an awesome ride so far experimenting with Quarto and continuing to learn how to create and modify existing CSS. I'm happy that the [R Studio 2022 Table Contest.](https://www.rstudio.com/blog/rstudio-table-contest-2022/) is taking place right around this time because it was a constructive outlet to build something that uses the new things I've recently learned.
+It's been an awesome ride so far experimenting with Quarto and continuing to learn how to create and modify existing CSS. I'm happy that the [R Studio 2022 Table Contest](https://www.rstudio.com/blog/rstudio-table-contest-2022/) is currently taking place because it was a constructive outlet to build something that uses things I've recently learned.
 
 🍻✌ Enjoy!
 

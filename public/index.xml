@@ -38,44 +38,96 @@ It uses reactable and scss in Quarto to style a Jeopardy! game board. &lt;/br&gt
 &lt;p&gt;The last step is to arrange the data once it&amp;rsquo;s been read into R into a format serviceable for display. I knew I planned to use &lt;code&gt;reactable&lt;/code&gt; as the display table package and leverage escaping html.&lt;/p&gt;
 &lt;h3 id=&#34;method-1&#34;&gt;Method 1&lt;/h3&gt;
 &lt;p&gt;My first approach was to bake the html/css stuff directly into each cell, before passing it to reactable for escaping. It looked something like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{code}&#34;&gt;raw_data %&amp;gt;%
-  .... %&amp;gt;%
+&lt;details&gt;
+&lt;summary&gt;See Code&lt;/summary&gt;
+```{code}
+raw_data %&gt;%
+  .... %&gt;%
   mutate(content = if_else(row == 1,
-                             # html for header
-                             glue::glue(&#39;&amp;lt;div class=&amp;quot;flip-card&amp;quot;&amp;gt;
-                                          &amp;lt;div class=&amp;quot;flip-card-inner&amp;quot;&amp;gt;
-                                            &amp;lt;div class=&amp;quot;flip-card-head&amp;quot;&amp;gt;
-                                              &amp;lt;p&amp;gt;{category}&amp;lt;/p&amp;gt;
-                                            &amp;lt;/div&amp;gt;
-                                            &amp;lt;div class=&amp;quot;flip-card-head&amp;quot;&amp;gt;
-                                              {category}
-                                            &amp;lt;/div&amp;gt;
-                                          &amp;lt;/div&amp;gt;
-                                        &amp;lt;/div&amp;gt;&#39;)
- .... %&amp;gt;%
+                           # html for header
+                           glue::glue(&#39;&lt;div class=&#34;flip-card&#34;&gt;
+                                        &lt;div class=&#34;flip-card-inner&#34;&gt;
+                                          &lt;div class=&#34;flip-card-head&#34;&gt;
+                                            &lt;p&gt;{category}&lt;/p&gt;
+                                          &lt;/div&gt;
+                                          &lt;div class=&#34;flip-card-head&#34;&gt;
+                                            {category}
+                                          &lt;/div&gt;
+                                        &lt;/div&gt;
+                                      &lt;/div&gt;&#39;),
+                           # html for clues
+                           glue::glue(&#39;&lt;div class=&#34;flip-card&#34;&gt;
+                                        &lt;div class=&#34;flip-card-inner&#34;&gt;
+                                          &lt;div class=&#34;flip-card-front&#34;&gt;
+                                            {value}
+                                          &lt;/div&gt;
+                                          &lt;div class=&#34;flip-card-back&#34;&gt;
+                                            &lt;p&gt;{clue}&lt;/p&gt;
+                                            &lt;details&gt;
+                                            &lt;summary&gt;Answer&lt;/summary&gt;
+                                            &lt;p&gt;{answer}&lt;/p&gt;
+                                          &lt;/details&gt;
+                                          &lt;/div&gt;
+                                        &lt;/div&gt;
+                                      &lt;/div&gt;&#39;))) %&gt;%
+ .... %&gt;%
+ .... %&gt;%
  reactable(.,
            defaultColDef = colDef(html = TRUE))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;While this certainly worked (it has in the past for me), I knew reactable had more to offer in terms of custom rendering but have never delved into it.😨&lt;/p&gt;
+```
+&lt;/details&gt;
+&lt;p&gt;While this certainly worked (it has in the past for me), I knew reactable had more to offer in terms of custom rendering. It was time to have a closer look at specifics. 😨&lt;/p&gt;
 &lt;h3 id=&#34;method-2&#34;&gt;Method 2&lt;/h3&gt;
 &lt;p&gt;It turns reactables &lt;code&gt;defaultColDef&lt;/code&gt; argument works great for custom rendering in this case since every cell in my Jeopardy! board needs the same html/css treatment. It looks something like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{code}&#34;&gt;table_data %&amp;gt;%
-  reactable(.,
-    sortable = FALSE,
-    defaultColDef = colDef(
-      html = TRUE,
-      align = &amp;quot;center&amp;quot;,
-      header = function(value) {
+&lt;details&gt;
+&lt;summary&gt;See Code&lt;/summary&gt;
+```{code}
+reactable(table_data,
+  sortable = FALSE,
+  defaultColDef = colDef(
+    html = TRUE,
+    align = &#34;center&#34;,
+    # Header Rendering
+    header = function(value) {
+      tags$div(
+        class = &#34;flip-card flip-card-head&#34;,
+        value
+      )
+    },
+    # Cell Rendering
+    cell = function(value, index) {
+      # parse clue, answer from table cell
+      content &lt;- str_split(value, &#34;;&#34;, simplify = TRUE)
+      clue &lt;- content[1]
+      answer &lt;- content[2]
+      # cell content
+      tags$div(
+        class = &#34;flip-card&#34;,
         tags$div(
-          class = &amp;quot;flip-card flip-card-head&amp;quot;,
-          value
+          class = &#34;flip-card-inner&#34;,
+          tags$div(
+            class = &#34;flip-card-front&#34;,
+            # multiply row index by 200 for tile value
+            paste(&#34;$&#34;, index * 200)
+          ),
+          tags$div(
+            class = &#34;flip-card-back&#34;,
+            clue,
+            tags$details(
+              tags$summary(&#34;Answer&#34;),
+              answer
+            )
+          )
         )
-      })
-    )
-&lt;/code&gt;&lt;/pre&gt;
+      )
+    }
+  )
+)
+```
+&lt;/details&gt;
 &lt;p&gt;I like this approach much better than the first because I&amp;rsquo;m keeping table and data wrangling parts of my workflow separate and hopefully more clear for readers. 🤓&lt;/p&gt;
 &lt;h2 id=&#34;forward&#34;&gt;Forward&lt;/h2&gt;
-&lt;p&gt;It&amp;rsquo;s been an awesome ride so far experimenting with Quarto and continuing to learn how to create and modify existing CSS. I&amp;rsquo;m happy that the &lt;a href=&#34;https://www.rstudio.com/blog/rstudio-table-contest-2022/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R Studio 2022 Table Contest.&lt;/a&gt; is taking place right around this time because it was a constructive outlet to build something that uses the new things I&amp;rsquo;ve recently learned.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s been an awesome ride so far experimenting with Quarto and continuing to learn how to create and modify existing CSS. I&amp;rsquo;m happy that the &lt;a href=&#34;https://www.rstudio.com/blog/rstudio-table-contest-2022/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R Studio 2022 Table Contest&lt;/a&gt; is currently taking place because it was a constructive outlet to build something that uses things I&amp;rsquo;ve recently learned.&lt;/p&gt;
 &lt;p&gt;🍻✌ Enjoy!&lt;/p&gt;
 </description>
     </item>
@@ -1079,24 +1131,6 @@ You can also access the specific build of `{Tplyr}` with these capabilities by g
       <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
       <guid>https://academic-demo.netlify.app/publication/olis-ltc/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Privacy Policy</title>
-      <link>https://academic-demo.netlify.app/privacy/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>https://academic-demo.netlify.app/privacy/</guid>
-      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Terms</title>
-      <link>https://academic-demo.netlify.app/terms/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>https://academic-demo.netlify.app/terms/</guid>
-      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
-</description>
     </item>
     
     <item>
