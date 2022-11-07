@@ -5,12 +5,118 @@
     <link>https://academic-demo.netlify.app/tag/table/</link>
       <atom:link href="https://academic-demo.netlify.app/tag/table/index.xml" rel="self" type="application/rss+xml" />
     <description>Table</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 28 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 07 Nov 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Table</title>
       <link>https://academic-demo.netlify.app/tag/table/</link>
     </image>
+    
+    <item>
+      <title>Time Machine</title>
+      <link>https://academic-demo.netlify.app/project/time_machine/</link>
+      <pubDate>Mon, 07 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/time_machine/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This is another entry into the ⚡&lt;a href=&#34;https://mattkumar.quarto.pub/time-travel/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R Studio 2022 Table Contest.&lt;/a&gt;
+It uses reactable, countup and css to recreate the time machine gizmo seen in the movie &lt;a href=&#34;https://www.imdb.com/title/tt0088763/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Back To The Future&lt;/a&gt; &lt;/br&gt;&lt;/p&gt;
+&lt;p&gt;My aims for this project were two-fold:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;To think about creative uses of tables! ✅&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Continue to experiment with reactable, css and Quarto. ✅&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
+&lt;p&gt;My goal was to reenvision the following image as a table using R. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://images.squarespace-cdn.com/content/v1/545f5b33e4b0719cb5aee3a5/1606653495764-HE8UCUWTBZR2M4IWXOLA/Screen&amp;#43;Shot&amp;#43;2020-11-29&amp;#43;at&amp;#43;12.36.14.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;I can divide my approach into 2 sections: general and styling&lt;/p&gt;
+&lt;h3 id=&#34;general&#34;&gt;General&lt;/h3&gt;
+&lt;p&gt;When I first saw the above image, I thought it would make a great use-case for getting creative with tables. It was immediately apparent that the bulk of this work was going to boil down to styling. The general approach is quite simple:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a data frame with the required data&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r}&#34;&gt;data &amp;lt;- tibble::tribble(
+  ~MONTH, ~DAY, ~YEAR, ~AMPM, ~HOUR, ~COLON, ~MIN,
+   &amp;quot;OCT&amp;quot;,   26,  1985,    NA,    10,     NA,   21,
+   &amp;quot;OCT&amp;quot;,   26,  1985,    NA,    10,     NA,   22,
+   &amp;quot;OCT&amp;quot;,   26,  1985,    NA,    10,     NA,   20
+  )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;strong&gt;AMPM&lt;/strong&gt; and &lt;strong&gt;COLON&lt;/strong&gt; columns are left as placeholders which get rendered in &lt;code&gt;reactable&lt;/code&gt;.&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Execute &lt;strong&gt;3&lt;/strong&gt; successive calls to a custom &lt;code&gt;reactable&lt;/code&gt; function, one for each row of the table. E.g.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r}&#34;&gt;data %&amp;gt;%
+  filter(row_number() == 1) %&amp;gt;%
+  my_reactable()
+  
+# etc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;my_reactable()&lt;/code&gt; would be a wrapper function that is written by me and takes care of the formatting of a single table row including the cell, column and footer rendering along with css. A great use-case for a function as then I would only need to call it two more times to complete the illusion that this is a singular table.&lt;/p&gt;
+&lt;h3 id=&#34;styling&#34;&gt;Styling&lt;/h3&gt;
+&lt;p&gt;Much of my effort in this table was around styling. This involved quite a bit of work and playing around, and in the end I&amp;rsquo;m glad I saw it through to completion.&lt;/p&gt;
+&lt;h4 id=&#34;css&#34;&gt;CSS&lt;/h4&gt;
+&lt;p&gt;Yes, much of this table relies on custom css classes. It shouldn&amp;rsquo;t be taken for granted the amount of work needed, including research on the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;custom fonts, font sizes&lt;/li&gt;
+&lt;li&gt;color classes&lt;/li&gt;
+&lt;li&gt;unfamiliar html elements (i.e. &lt;code&gt;&amp;lt;mark&amp;gt;&amp;lt;/mark&amp;gt;&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;animations with css&lt;/li&gt;
+&lt;li&gt;leveraging the &lt;code&gt;@extend&lt;/code&gt; directive to make my css file shorter and more compact&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;countup&#34;&gt;Countup&lt;/h4&gt;
+&lt;p&gt;One neat package I was finally thrilled to have a use for was the &lt;a href=&#34;https://github.com/JohnCoene/countup&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;countup&lt;/a&gt; by &lt;a href=&#34;https://john-coene.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;John Coene&lt;/a&gt;. In short, his package lets you transform the appearance of a number as if a counter were running as an html element. This integrated quite nicely with &lt;code&gt;reactable&lt;/code&gt; and serves to give the illusion that the time machine is calibrating!&lt;/p&gt;
+&lt;h4 id=&#34;3d&#34;&gt;3D&lt;/h4&gt;
+&lt;p&gt;I also spent a bit of time learning some more interesting properties of css, namely &lt;code&gt;perspective&lt;/code&gt;, &lt;code&gt;skew&lt;/code&gt;, &lt;code&gt;scale&lt;/code&gt; and &lt;code&gt;transform&lt;/code&gt;. I decided to integrate this into this work as well. This image was my inspiration:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://www.rookscastle.com/tutorials/bttf-int-016-1.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;forward&#34;&gt;Forward&lt;/h3&gt;
+&lt;p&gt;You can view these tables and all their interactive glory &lt;a href=&#34;https://mattkumar.quarto.pub/time-travel/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;🍻✌  Till next time!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Jeopardy!</title>
