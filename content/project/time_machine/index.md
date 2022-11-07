@@ -71,26 +71,24 @@ data %>%
   
 # etc
 ```
-`my_reactable()` would be a wrapper function that is written by me and takes care of the formatting of a single table row including the cell, column and footer rendering along with css. A great use-case for a function as then I would only need to call it two more times to complete the illusion that this is a singular table.
+`my_reactable()` is a wrapper that is written by me and takes care of the formatting of a single table row including the cell, column and footer rendering along with css. A great use-case for a function! 🎯
 
 ### Styling
-Much of my effort in this table was around styling. This involved quite a bit of work and playing around, and in the end I'm glad I saw it through to completion.
+Much of my effort in this table was around styling. This involved quite a bit of work and playing around, and in the end I'm glad I saw it through to completion. 😥 ➡ 🤓
 
 #### CSS
-Yes, much of this table relies on custom css classes. It shouldn't be taken for granted the amount of work needed, including research on the following:
+Yes, much of this table relies on custom css classes. It shouldn't be taken for granted the amount of work needed however, including research on the following to match aesthetics:
 
-- custom fonts, font sizes
-- color classes
-- unfamiliar html elements (i.e. `<mark></mark>`)
+- custom fonts, font sizes, color schemes
+- using new html elements (i.e. `<mark></mark>`)
 - animations with css
-- leveraging the `@extend` directive to make my css file shorter and more compact
+- leveraging the `@extend` directive to make my css file shorter and more compact 💥💥💥
 
 #### Countup
-One neat package I was finally thrilled to have a use for was the [countup](https://github.com/JohnCoene/countup) by [John Coene](https://john-coene.com/). In short, his package lets you transform the appearance of a number as if a counter were running as an html element. This integrated quite nicely with `reactable` and serves to give the illusion that the time machine is calibrating!
+One neat package I was finally thrilled to have a use for was the [countup](https://github.com/JohnCoene/countup) by [John Coene](https://john-coene.com/). In short, his package lets you transform the appearance of a number as if a counter were running as an html element. This integrated quite nicely with `reactable` and serves to give the illusion that the time machine is calibrating! 😵
 
 #### 3D
-I also spent a bit of time learning some more interesting properties of css, namely `perspective`, `skew`, `scale` and `transform`. I decided to integrate this into this work as well. This image was my inspiration:
-
+I also spent a bit of time learning some additional methods of css, namely `perspective`, `skew`, `scale` and `transform`. I decided to integrate this into this work as well as a separate table. 📦 This image was my inspiration:
 ![](https://www.rookscastle.com/tutorials/bttf-int-016-1.jpg)
 
 ### Forward
