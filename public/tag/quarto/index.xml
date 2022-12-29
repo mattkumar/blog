@@ -1,16 +1,72 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>quarto | Matthew Kumar</title>
+    <title>Quarto | Matthew Kumar</title>
     <link>https://academic-demo.netlify.app/tag/quarto/</link>
       <atom:link href="https://academic-demo.netlify.app/tag/quarto/index.xml" rel="self" type="application/rss+xml" />
-    <description>quarto</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 07 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <description>Quarto</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 29 Dec 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
-      <title>quarto</title>
+      <title>Quarto</title>
       <link>https://academic-demo.netlify.app/tag/quarto/</link>
     </image>
+    
+    <item>
+      <title>Dynamic TLFs</title>
+      <link>https://academic-demo.netlify.app/project/dynamic-tlf/</link>
+      <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/dynamic-tlf/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This is another entry into the ⚡&lt;a href=&#34;https://mattkumar.quarto.pub/time-travel/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R Studio 2022 Table Contest.&lt;/a&gt;
+This app enables the exploration of subgroups on-the-fly through linked, interactive tables, listings and figures (TLFs) for clinical trial data. It leverages Tplyr, reactable and reactablefmtr for computing and is presented as a dashboard using Quarto. &lt;/br&gt;&lt;/p&gt;
+&lt;p&gt;My aims for this project were two-fold:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Investigate whether we can dynamically create tables which can be used to guide an exploratory analysis.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The analysis starts with an anchor table, where individual cells can be clicked to retrieve the study participants ID&amp;rsquo;s who comprise it. These are subsequently fed into additional tables, listings and figures through reactives.&lt;/p&gt;
+&lt;p&gt;In &lt;a href=&#34;https://matt-kumar.netlify.app/project/tplyr/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;previous work&lt;/a&gt;, I&amp;rsquo;ve hard coded the anchor table by pre-specifying the variables to be displayed. With this work, you can now dynamically specify the anchor table to include any variables you like, which in turn can be used explore subgroups on-the-fly.&lt;/p&gt;
+&lt;p&gt;This work is largely enabled by utilizing the metadata building features of the &lt;a href=&#34;https://cran.r-project.org/web/packages/Tplyr/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tplyr&lt;/a&gt; 📦.&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Currently, no dashboard extension or package exists for Quarto. I used this opportunity to also see if I could (roughly) mimic what flexdashboard offers by using Quarto and custom css. My inspiration was the bootswatch lux theme. 👀&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
+&lt;p&gt;The linked TLFs are also interactive and share the spirit of &amp;ldquo;drilling down&amp;rdquo; 🔃&lt;/p&gt;
+&lt;h3 id=&#34;adverse-events-table-&#34;&gt;Adverse Events Table 🕵&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Uses reactable&amp;rsquo;s groupBy to succinctly present a large table&lt;/li&gt;
+&lt;li&gt;Cells (in the second column) are hyper-linked to open a MedlinePlus search of that term. I found this resource was helpful in learning about medical conditions when analyzing clinical trials data.&lt;/li&gt;
+&lt;li&gt;A table-wide search functionality to pin-point certain SOCs/PTs of interest&lt;/li&gt;
+&lt;li&gt;A button to expand all SOCs at once to show the nested PTs&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;adverse-event-figure-&#34;&gt;Adverse Event Figure 📊&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;The highcharter column chart is a drill down plot. The first layer displays the top 4 System Organ Classes for a given subset&lt;/li&gt;
+&lt;li&gt;Clicking each of bars lets you drill down into a stacked column chart for the Preferred Terms x Severity&lt;/li&gt;
+&lt;li&gt;Customized tool tips to display information more clearly (i.e. severity of adverse event)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;patient-listing-1-&#34;&gt;Patient Listing 1 📝&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Uses reactable&amp;rsquo;s filter + search to navigate a potentially exhaustive table&lt;/li&gt;
+&lt;li&gt;Leverages reactable&amp;rsquo;s columnGroups + formatting to organize the data layout&lt;/li&gt;
+&lt;li&gt;Capable of exporting a list subject identifiers as a CSV file to enable further analyses of interesting subgroups&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;patient-listing-2-&#34;&gt;Patient Listing 2 📋&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Uses reactablefmtr&amp;rsquo;s inline visual to show vital signs measured at three times relative to baseline (i.e. percent change)&lt;/li&gt;
+&lt;li&gt;Leverages reactable&amp;rsquo;s columnGroups + formatting to organize the data layout&lt;/li&gt;
+&lt;li&gt;Paired with shiny inputs to enable switching of Blood Pressure Parameters and Visits&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;future&#34;&gt;Future&lt;/h2&gt;
+&lt;p&gt;This app can be extended in a number of different ways:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Including additional, linked TLFs; the sky&amp;rsquo;s the limit! 🤩&lt;/li&gt;
+&lt;li&gt;Uploading data - the way I&amp;rsquo;ve began to structure the server will enable this in the future ⏫&lt;/li&gt;
+&lt;li&gt;More robust organization, control and validation for when the anchor table is updated 🛠&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Till next time, 🍻!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Time Machine</title>
