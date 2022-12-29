@@ -5,12 +5,37 @@
     <link>https://academic-demo.netlify.app/post/</link>
       <atom:link href="https://academic-demo.netlify.app/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 04 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 29 Dec 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Posts</title>
       <link>https://academic-demo.netlify.app/post/</link>
     </image>
+    
+    <item>
+      <title>highlights of 2022</title>
+      <link>https://academic-demo.netlify.app/post/year-end/</link>
+      <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/post/year-end/</guid>
+      <description>&lt;p&gt;&amp;hellip; or rather the latter the half of 2022 since I&amp;rsquo;m getting old and can&amp;rsquo;t remember the first half&lt;/p&gt;
+&lt;h2 id=&#34;posit-2022-table-contest&#34;&gt;Posit 2022 Table Contest&lt;/h2&gt;
+&lt;p&gt;This year I decided to participate in the Posit 2022 table contest. I was quite surprised that all 3 of my entries placed! 1 received a runner-up and the other two both received honorable mentions! 🙏&lt;/p&gt;
+&lt;p&gt;Overall, it was a rewarding experience because it was a natural outlet to experiment with new tech (Quarto, R packages) while finally putting to work some of the &lt;a href=&#34;https://www.coursera.org/learn/html-css-javascript-for-web-developers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CSS/JS/HTML stuff I learned&lt;/a&gt; earlier in the year into something meaningful. ⚡&lt;/p&gt;
+&lt;p&gt;You can read the Posit announcement article here:&lt;br&gt;
+👉 &lt;a href=&#34;https://posit.co/blog/winners-of-the-2022-table-contest/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Posit Blog - Winners of the 2022 Table Contest&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;All of my entries to the contest are &lt;a href=&#34;https://matt-kumar.netlify.app/#projects&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt; on this site:&lt;br&gt;
+🏃 &lt;a href=&#34;https://matt-kumar.netlify.app/project/dynamic-tlf/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dynamic TLFs&lt;/a&gt; - Runner Up&lt;br&gt;
+📣 &lt;a href=&#34;https://matt-kumar.netlify.app/project/time_machine/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Time Machine&lt;/a&gt; - Honorable Mention&lt;br&gt;
+📣 &lt;a href=&#34;https://matt-kumar.netlify.app/project/jeopardy/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Jeopardy!&lt;/a&gt; - Honorable Mention&lt;/p&gt;
+&lt;p&gt;Lastly, I encourage everyone to check out the full list of entries submitted my the community. Truly creative and inspiring takes on tabular representations of data! 😍 💪&lt;/p&gt;
+&lt;h2 id=&#34;work&#34;&gt;Work&lt;/h2&gt;
+&lt;p&gt;While most of what could be covered in this section is already covered in my official review of 2022 @ work 🙈, I still want to 💬 about my working or professional life this year.&lt;/p&gt;
+&lt;p&gt;I work in a global organization. The majority of my team is spread throughout the 🌍. In spite of this, 2022 was a year where I felt we connected more closely than ever. I just want to say I&amp;rsquo;m super fortunate to work with my team and have their unrelenting support and encouragement. 🤜 🤛 You would think that working globally could feel lonesome or isolating, but it feels like anything but that. 👊&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s strange - I re-joined this company during the pandemic and have been remote/hybrid since. I&amp;rsquo;ve yet to meet a lot of my colleagues in Germany, but I can tell you I feel as if I &amp;ldquo;know&amp;rdquo; them already.. for a while at that. I had a similar experience earlier this year where I was able to meet my US colleagues for the first time after working ~2ish years together. Strange, but familiar :) I hope 2023 allows me to meet more in person, including those in India! ✈️✈️✈️&lt;/p&gt;
+&lt;p&gt;A last note about the leadership + mgmt of my immediate and extended teams. I&amp;rsquo;ve never felt more empowered to do what it is I need to. I feel fully supported and trusted. &amp;hellip;Let that sink in for a second. I couldn&amp;rsquo;t think of a better metric or litmus test to gauge an approach to leadership. I&amp;rsquo;m truly grateful. 🙏&lt;/p&gt;
+&lt;p&gt;So long, 2022 🍻!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>old code and beginnings</title>
