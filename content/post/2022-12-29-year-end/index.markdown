@@ -35,12 +35,9 @@ All of my entries to the contest are [here](https://matt-kumar.netlify.app/#proj
 Lastly, I encourage everyone to check out the full list of entries submitted my the community. Truly creative and inspiring takes on tabular representations of data! 😍 💪
 
 ## Work
-While most of what could be covered in this section is already covered in my official review of 2022 @ work 🙈, I still want to 💬 about my working or professional life this year.
+I want to briefly 💬 about my working or professional life this year.
 
-I work in a global organization. The majority of my team is spread throughout the 🌍. In spite of this, 2022 was a year where I felt we connected more closely than ever. I just want to say I'm super fortunate to work with my team and have their unrelenting support and encouragement. 🤜 🤛 You would think that working globally could feel lonesome or isolating, but it feels like anything but that. 👊
+The majority of my team is spread throughout the 🌍. In spite of this, 2022 was a year where we connected more closely than ever. I just want to say I'm super fortunate to work with my team and have their unrelenting support and encouragement. This also goes for the leadership teams that orbit my immediate and adjacent functions. I've never felt more empowered in a position knowing I having the trust and backing of management in my proverbial corner 🤜🤛. All things considered, I'm truly grateful to have such an amazing opportunity at Bayer. 🙏 
 
-It's strange - I re-joined this company during the pandemic and have been remote/hybrid since. I've yet to meet a lot of my colleagues in Germany, but I can tell you I feel as if I "know" them already.. for a while at that. I had a similar experience earlier this year where I was able to meet my US colleagues for the first time after working ~2ish years together. Strange, but familiar :) I hope 2023 allows me to meet more in person, including those in India! ✈️✈️✈️
-
-A last note about the leadership + mgmt of my immediate and extended teams. I've never felt more empowered to do what it is I need to. I feel fully supported and trusted. ...Let that sink in for a second. I couldn't think of a better metric or litmus test to gauge an approach to leadership. I'm truly grateful. 🙏
 
 So long, 2022 🍻!
