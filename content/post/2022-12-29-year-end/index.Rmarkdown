@@ -19,6 +19,9 @@ projects: []
 
 ... or rather the latter the half of 2022 since I'm getting old and can't remember the first half
 
+## This Blog
+I set out to initially redesign my portfolio this year. It involved migrating a lot of the content from my previous portfolio, which was hosted as a shiny app. At the same time, I said I'd try and use this portfolio as a general purpose for my "digital presence". I'm happy that I've been able to keep up with writing blog posts and sharing side projects or code demonstrations. All of this is infinitely easier now that I use blogdown-github-netlify chain for content management. ⚡
+
 ## Posit 2022 Table Contest
 This year I decided to participate in the Posit 2022 table contest. I was quite surprised that all 3 of my entries placed! 1 received a runner-up and the other two both received honorable mentions! 🙏   
 
@@ -37,7 +40,7 @@ Lastly, I encourage everyone to check out the full list of entries submitted my 
 ## Work
 I want to briefly 💬 about my working or professional life this year.
 
-The majority of my team is spread throughout the 🌍. In spite of this, 2022 was a year where we connected more closely than ever. I just want to say I'm super fortunate to work with my team and have their unrelenting support and encouragement. This also goes for the leadership teams that orbit my immediate and adjacent functions. I've never felt more empowered in a position knowing I having the trust and backing of management in my proverbial corner 🤜🤛. All things considered, I'm truly grateful to have such an amazing opportunity at Bayer. 🙏 
+The majority of my team is spread throughout the 🌍. In spite of this, 2022 was a year where we connected more closely than ever. I just want to say I'm super fortunate to work with my team and have their unrelenting support and encouragement. This also goes for the leadership teams that orbit my immediate and adjacent functions. I've never felt more empowered in a position knowing I having the trust and backing of management in my corner 🤜🤛. All things considered, I'm truly grateful to have such an amazing opportunity at Bayer. 🙏 
 
 
 So long, 2022 🍻!
