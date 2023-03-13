@@ -53,6 +53,7 @@ filelists <- files %>%
 ```
 
 Here's what `filelists` looks like in R Studio:
+
 ![filelist](file1.png)
 
 ## Step 3
@@ -64,6 +65,7 @@ purrr::pmap(.l = list(.x = filelists, .y = names(filelists)),
 ```
 
 Here's what my global environment looks like in R Studio:
+
 ![globalenv](file2.png)
 
 

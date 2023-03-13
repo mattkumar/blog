@@ -820,8 +820,8 @@ files
   map(., haven::read_xpt) %&gt;%
   set_names(files %&gt;% basename(.) %&gt;% tools::file_path_sans_ext(.))
 </code></pre>
-<p>Here&rsquo;s what <code>filelists</code> looks like in R Studio:
-
+<p>Here&rsquo;s what <code>filelists</code> looks like in R Studio:</p>
+<p>
 
 
 
@@ -847,8 +847,8 @@ files
 <pre><code class="language-r">purrr::pmap(.l = list(.x = filelists, .y = names(filelists)),
             .f = ~assign(.y, .x, envir = globalenv()))
 </code></pre>
-<p>Here&rsquo;s what my global environment looks like in R Studio:
-
+<p>Here&rsquo;s what my global environment looks like in R Studio:</p>
+<p>
 
 
 
