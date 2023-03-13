@@ -5,12 +5,91 @@
     <link>https://academic-demo.netlify.app/post/</link>
       <atom:link href="https://academic-demo.netlify.app/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 29 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 13 Mar 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Posts</title>
       <link>https://academic-demo.netlify.app/post/</link>
     </image>
+    
+    <item>
+      <title>reading files with purrr</title>
+      <link>https://academic-demo.netlify.app/post/2023-03-13-reading/purrr/</link>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/post/2023-03-13-reading/purrr/</guid>
+      <description>&lt;p&gt;I feel like there are countless examples on how to read a directory of .csv files into R using &lt;code&gt;purrr&lt;/code&gt; 😺. However, in those examples the setup is potentially many CSV files being read in &lt;strong&gt;and stacked into a single data frame&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;What if we need to read several .csv (or other types) data files into &lt;em&gt;their own data frame&lt;/em&gt;❓️💡&lt;/p&gt;
+&lt;p&gt;In my own work, this is an operation I typically do. Until recently, I haven&amp;rsquo;t bothered how to figure this out in &lt;code&gt;purrr&lt;/code&gt;. Don&amp;rsquo;t ask how I was doing it before. 🤢&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s a small snippet that will demonstrate how to use &lt;code&gt;purrr::pmap()&lt;/code&gt; to perform this operation. Instead of .csv files, we&amp;rsquo;ll read in .xpt (SAS Transport) using &lt;code&gt;haven::read_xpt()&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;step-1&#34;&gt;Step 1&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s first identify the relevant files we want to read in using &lt;code&gt;list.files()&lt;/code&gt; and store this as a character vector.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(purrr)
+library(dplyr)
+
+files &amp;lt;- list.files(&amp;quot;C:\\&amp;quot;, pattern = &amp;quot;*.xpt&amp;quot;, full.names = TRUE)
+
+# preview
+files
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;C:\\adae.xpt&amp;quot;  &amp;quot;C:\\adsl.xpt&amp;quot;  &amp;quot;C:\\adtte.xpt&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;step-2&#34;&gt;Step 2&lt;/h2&gt;
+&lt;p&gt;Next, for each element of the files character vector, we&amp;rsquo;ll read in the corresponding file using a combination of &lt;code&gt;purrr::map&lt;/code&gt; and &lt;code&gt;haven::read_xpt&lt;/code&gt;. This will result in a list where each element corresponds to a tibble of the respective xpt file. At the sometime, we&amp;rsquo;ll attach the name to each element using &lt;code&gt;purrr::setnames&lt;/code&gt; so we can identify what&amp;rsquo;s what.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;filelists &amp;lt;- files %&amp;gt;%
+  map(., haven::read_xpt) %&amp;gt;%
+  set_names(files %&amp;gt;% basename(.) %&amp;gt;% tools::file_path_sans_ext(.))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here&amp;rsquo;s what &lt;code&gt;filelists&lt;/code&gt; looks like in R Studio:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;file1.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;step-3&#34;&gt;Step 3&lt;/h2&gt;
+&lt;p&gt;Here&amp;rsquo;s the cool part. Let&amp;rsquo;s use &lt;code&gt;purrr::pmap()&lt;/code&gt; and &lt;code&gt;assign()&lt;/code&gt; to make a separate data frame for it in the global environment. We start by specifying .x to be the list of files and .y to be the names of the files. With these two inputs, we need to simply map them to a single &lt;code&gt;assign()&lt;/code&gt; call and we&amp;rsquo;re done.💯&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;purrr::pmap(.l = list(.x = filelists, .y = names(filelists)),
+            .f = ~assign(.y, .x, envir = globalenv()))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here&amp;rsquo;s what my global environment looks like in R Studio:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;file2.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>highlights of 2022</title>
