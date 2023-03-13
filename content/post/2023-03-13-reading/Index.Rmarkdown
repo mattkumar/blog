@@ -47,7 +47,7 @@ filelists <- files %>%
 ```
 
 Here's what `filelists` looks like in R Studio:
-![](file1.png)
+![filelist](file1.png)
 
 ## Step 3
 Here's the cool part. Let's use `purrr::pmap()` and `assign()` to make a separate data frame for it in the global environment. We start by specifying .x to be the list of files and .y to be the names of the files. With these two inputs, we need to simply map them to a single `assign()` call and we're done.💯
@@ -57,7 +57,7 @@ purrr::pmap(.l = list(.x = filelists, .y = names(filelists)),
 ```
 
 Here's what my global environment looks like in R Studio:
-![](file2.png)
+![globalenv](file2.png)
 
 
 Till next time 🍻🙏 !
