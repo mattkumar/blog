@@ -1,22 +1,22 @@
 ---
-abstract: In this presentation, we investigate techniques for producing table-based data visualization using the R programming language. The primary goal is to enhance the medical review process by integrating inline, static or interactive visualizations directly into study tables or listings. This approach has the potential to elucidate study results by providing both a rich, compact view and profounder context of study data. Such insights may not be immediately obvious and could otherwise remain hidden in a strictly tabular summary. Specifically, we demonstrate how to construct inline variants of common clinical trial visualizations such as box plots, swimmer plots and heatmaps using various R table and visualization packages.  Examples will stem primarily from oncology studies and include efficacy, lab and adverse event domains. Lastly, we discuss how these visualizations can be synergistically combined with Shiny ‘s native interactivity to produce web applications that further advance the medical review process.
-authors: []
-date: "2021-06-14T00:00:00Z"
+abstract: R and Shiny have seen significant adoption in pharmaceutical data science, owing to the relative ease with which an interactive application can be created and shared to non-technical audiences to engage with. They have been employed in numerous analysis and reporting activities such as delivering insight dashboards, performing exploratory analyses, generating submission dossiers, and aiding in medical review. These apps are evolving from an exploratory state to pivotal decision-making tools in many facets of clinical analysis and operations. This makes it increasingly imperative to being able to replicate the novel insights (derived from user-driven interaction) outside the application in a traceable setting that can be shared with regulators. In this paper, we share our learnings in exploring reproducibility and Shiny. We present our initial use-case, methodology and discuss both practical and technical considerations. Lastly, we outline how leveraging code reproducibility could enable efficiencies in helping programmers to learn open-source languages. 
+authors: [Matthew Kumar; Srinivas Veeragoni]
+date: "2023-03-08T00:00:00Z"
 featured: false
 links:
 - icon: link
   icon_pack: fas
   name: View Presentation
-  url: https://www.lexjansen.com/phuse-us/2021/dv/PRE_DV08.pdf
-location: PhUSE US Connect 2021
-publishDate: "2021-06-14T00:00:00Z"
+  url: https://github.com/mattkumar/blog/raw/main/content/event/phuse_os_2023/PRE_OS10.pptx
+location: PhUSE US Connect 2023
+publishDate: "2023-03-08T00:00:00Z"
 slides: example
-summary: Exploring the use of table-based data visualizations in clinical trials
+summary: Exploring code generation and reproducibility in the context of shiny apps
 tags: []
-title: Table-based Data Visualizations using R
+title: Reproducibility of Interactive Analyses
 url_code: ""
-url_pdf: ""
-url_slides: "https://r4oda.netlify.app/"
+url_pdf: "https://github.com/mattkumar/blog/raw/main/content/event/phuse_os_2023/PAP_OS10.pdf"
+url_slides: "https://github.com/mattkumar/blog/raw/main/content/event/phuse_os_2023/PRE_OS10.pptx"
 url_video: ""
 ---
 

@@ -10,6 +10,26 @@
   <url>
     <loc>https://academic-demo.netlify.app/post/purrr/</loc><lastmod>2023-03-13T00:00:00+00:00</lastmod></url>
   <url>
+    <loc>https://academic-demo.netlify.app/publication-type/2/</loc><lastmod>2023-03-08T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/authors/</loc><lastmod>2023-03-08T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/author/matthew-kumar/</loc><lastmod>2023-03-08T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/author/matthew-kumar-srinivas-veeragoni/</loc><lastmod>2023-03-08T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/publication_types/</loc><lastmod>2023-03-08T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/publication/</loc><lastmod>2023-03-08T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/event/</loc><lastmod>2023-03-08T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/talk/reproducibility-of-interactive-analyses/</loc><lastmod>2023-03-08T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/publication/shinymeta/</loc><lastmod>2023-03-08T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/author/srinivas-veeragoni/</loc><lastmod>2023-03-08T00:00:00+00:00</lastmod></url>
+  <url>
     <loc>https://academic-demo.netlify.app/tag/cdisc/</loc><lastmod>2022-12-29T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/tag/data-visualization/</loc><lastmod>2022-12-29T00:00:00+00:00</lastmod></url>
@@ -54,10 +74,6 @@
   <url>
     <loc>https://academic-demo.netlify.app/tag/metadata/</loc><lastmod>2022-04-05T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://academic-demo.netlify.app/publication-type/2/</loc><lastmod>2022-03-02T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://academic-demo.netlify.app/authors/</loc><lastmod>2022-03-02T00:00:00+00:00</lastmod></url>
-  <url>
     <loc>https://academic-demo.netlify.app/author/bai-h/</loc><lastmod>2022-03-02T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/publication/rct/</loc><lastmod>2022-03-02T00:00:00+00:00</lastmod></url>
@@ -88,17 +104,11 @@
   <url>
     <loc>https://academic-demo.netlify.app/author/lee-s/</loc><lastmod>2022-03-02T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://academic-demo.netlify.app/author/matthew-kumar/</loc><lastmod>2022-03-02T00:00:00+00:00</lastmod></url>
-  <url>
     <loc>https://academic-demo.netlify.app/author/morris-a/</loc><lastmod>2022-03-02T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/author/mulhall-c/</loc><lastmod>2022-03-02T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/author/pinto-r/</loc><lastmod>2022-03-02T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://academic-demo.netlify.app/publication_types/</loc><lastmod>2022-03-02T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://academic-demo.netlify.app/publication/</loc><lastmod>2022-03-02T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/author/saxena-fe/</loc><lastmod>2022-03-02T00:00:00+00:00</lastmod></url>
   <url>
@@ -117,8 +127,6 @@
     <loc>https://academic-demo.netlify.app/tag/rmarkdown/</loc><lastmod>2021-07-02T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/project/shiny-richtext/</loc><lastmod>2021-07-02T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://academic-demo.netlify.app/event/</loc><lastmod>2021-06-14T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/talk/table-based-data-visualizations-using-r/</loc><lastmod>2021-06-14T00:00:00+00:00</lastmod></url>
   <url>
