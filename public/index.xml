@@ -13,6 +13,30 @@
     </image>
     
     <item>
+      <title>GHA and Shiny</title>
+      <link>https://academic-demo.netlify.app/project/shiny_gha/</link>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/shiny_gha/</guid>
+      <description>&lt;p&gt;This was a fun 🤓 experiment to build the intuition of using Github Actions (GHA) to automate &amp;ldquo;things&amp;rdquo;. In this case, I use GHA to auto-deploy a shiny app to my personal shinyapps.io account.&lt;/p&gt;
+&lt;p&gt;In a nutshell, it works like this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Everytime a push is made to the master branch of this repo, a github action script is triggered 🏃🏃🏻🏃🏼 💨&lt;/li&gt;
+&lt;li&gt;The set of GHAs is specified using a &lt;code&gt;yaml&lt;/code&gt; file, here &lt;code&gt;~/.github/workflows/deploy.yaml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;In the yaml file, you provide explicit instructions to build your app from the ground up. This includes everything from first installing R, R packages to deployment to shinyapps.io via the &lt;code&gt;{rsconnect}&lt;/code&gt; package.🔀🔁&lt;/li&gt;
+&lt;li&gt;One the GHAs are finished, the app is made available at the destination. ✅&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In order to test whether GHA was working, the sample app I created is a super-simple dashboard 📈📉📊 that takes a single reactive: the date and time of deployment ⏰. There are other ways to monitor Hhile they run and I will be covering this and more in depth in my Quarto use-case write up 💬.&lt;/p&gt;
+&lt;p&gt;For now, I want to make this available as it reflects a recent learning and a pattern I can see myself reusing in the future. Many thanks to the following people + resources 💪💪💪&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kcuilla/USgasprices&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kyle Cuilla&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iqis&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Siqi Zhang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ca.coursera.org/learn/making-data-science-work-for-clinical-reporting&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Making Data Science Work for Clinical Reporting Coursera&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Till next time, 🍻!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>reading files with purrr</title>
       <link>https://academic-demo.netlify.app/post/purrr/</link>
       <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
