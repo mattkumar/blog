@@ -35,6 +35,10 @@ In a nutshell, it works like this:
 -   In the yaml file, you provide explicit instructions to build your app from the ground up. This includes everything from first installing R, R packages to deployment to shinyapps.io via the `{rsconnect}` package.🔀🔁
 -   One the GHAs are finished, the app is made available at the destination. ✅
 
+Pretty neat!
+
+![img](https://i.imgflip.com/65l2yb.jpg)
+
 In order to test whether GHA was working, the sample app I created is a super-simple dashboard 📈📉📊 that takes a single reactive: the date and time of deployment ⏰. There are other, more informative ways to monitor their progress and I will be covering this and more in depth in my Quarto use-case write up 💬. Stay tuned!
 
 For now, I want to make this available as it reflects a recent learning and a pattern I can see myself reusing in the future. Many thanks to the following people + resources 💪💪💪
