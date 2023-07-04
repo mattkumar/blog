@@ -31,7 +31,7 @@ files &amp;lt;- list.files(&amp;quot;C:\\&amp;quot;, pattern = &amp;quot;*.xpt&a
 # preview
 files
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;C:\\adae.xpt&amp;quot;  &amp;quot;C:\\adsl.xpt&amp;quot;  &amp;quot;C:\\adtte.xpt&amp;quot;
+&lt;pre&gt;&lt;code&gt;## character(0)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;step-2&#34;&gt;Step 2&lt;/h2&gt;
 &lt;p&gt;Next, for each element of the files character vector, we&amp;rsquo;ll read in the corresponding file using a combination of &lt;code&gt;purrr::map&lt;/code&gt; and &lt;code&gt;haven::read_xpt&lt;/code&gt;. This will result in a list where each element corresponds to a tibble of the respective xpt file. At the sometime, we&amp;rsquo;ll attach the name to each element using &lt;code&gt;purrr::setnames&lt;/code&gt; so we can identify what&amp;rsquo;s what.&lt;/p&gt;
@@ -122,7 +122,7 @@ files
       <link>https://academic-demo.netlify.app/post/r-code/</link>
       <pubDate>Mon, 04 Jul 2022 00:00:00 +0000</pubDate>
       <guid>https://academic-demo.netlify.app/post/r-code/</guid>
-      <description>&lt;p&gt;&amp;hellip; and by old, I mean really old. Like year 2008 old. Like the first R code I ever wrote. 👩‍💻.&lt;/p&gt;
+      <description>&lt;p&gt;&amp;hellip; and by old, I mean really old. Like year 2008 old. Like the first R code I ever wrote.&lt;/p&gt;
 &lt;p&gt;I recently went digging in an old dropbox account for photos and to my surprise I had saved a copy of my undergraduate thesis, complete with code.&lt;/p&gt;
 &lt;p&gt;My undergraduate degree was in Psychology and I had a keen interest in psychometrics. My thesis involved an application of &lt;a href=&#34;https://en.wikipedia.org/wiki/Item_response_theory&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;item response theory&lt;/a&gt; to ordinal data.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -190,10 +190,10 @@ plot(grm1, type = &amp;quot;OCCu&amp;quot;, lwd = 2, cex = 1.2, legend = TRUE, c
 &lt;li&gt;This can (independent of #1) inadvertently divert users away from your app 🏃️💨&lt;/li&gt;
 &lt;/ol&gt;
 &lt;center&gt;
-⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️
+&lt;p&gt;⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️
 &lt;br&gt;
-&lt;br&gt;
-&lt;button class=&#34;btn btn-default action-button btn-warning&#34; id=&#34;btn0&#34; onclick=&#34;alert(&amp;quot;Just kidding! Youre not going anywhere!&amp;quot;)&#34; type=&#34;button&#34;&gt;Click Me!&lt;/button&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;button class=&#34;btn btn-default action-button btn-warning&#34; id=&#34;btn0&#34; onclick=&#34;alert(&amp;quot;Just kidding! Youre not going anywhere!&amp;quot;)&#34; type=&#34;button&#34;&gt;Click Me!&lt;/button&gt;&lt;/p&gt;
 &lt;/center&gt;
 &lt;p&gt;&lt;br&gt; &lt;br&gt;&lt;/p&gt;
 &lt;p&gt;So what can we do?&lt;/p&gt;
@@ -222,7 +222,11 @@ shiny::actionButton(&#39;btn3&#39;,
                     &#39;New Window&#39;, 
                     onclick =&amp;quot;window.open(&#39;http://google.com&#39;, &#39;_blank&#39;,&#39;width=800,height=800&#39;)&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;button class=&#34;btn btn-default action-button btn btn-danger btn-lg  btn-huge&#34; id=&#34;btn1&#34; onclick=&#34;location.href=&amp;#39;http://google.com&amp;#39;;&#34; type=&#34;button&#34;&gt;Current Window&lt;/button&gt; &lt;button class=&#34;btn btn-default action-button btn btn-warning btn-lg  btn-huge&#34; id=&#34;btn2&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window or Tab&lt;/button&gt; &lt;button class=&#34;btn btn-default action-button btn btn-success btn-lg  btn-huge&#34; id=&#34;btn3&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;,&amp;#39;width=800,height=800&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window&lt;/button&gt;&lt;/p&gt;
+&lt;p&gt;&lt;button class=&#34;btn btn-default action-button btn btn-danger btn-lg  btn-huge&#34; id=&#34;btn1&#34; onclick=&#34;location.href=&amp;#39;http://google.com&amp;#39;;&#34; type=&#34;button&#34;&gt;Current Window&lt;/button&gt;
+ 
+&lt;button class=&#34;btn btn-default action-button btn btn-warning btn-lg  btn-huge&#34; id=&#34;btn2&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window or Tab&lt;/button&gt;
+ 
+&lt;button class=&#34;btn btn-default action-button btn btn-success btn-lg  btn-huge&#34; id=&#34;btn3&#34; onclick=&#34;window.open(&amp;#39;http://google.com&amp;#39;, &amp;#39;_blank&amp;#39;,&amp;#39;width=800,height=800&amp;#39;)&#34; type=&#34;button&#34;&gt;New Window&lt;/button&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -418,11 +422,11 @@ my_data &amp;lt;- get_hyperlink(path = &amp;quot;input.xlsx&amp;quot;, sheet = &
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;head(my_data)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##   ID                   source1
-## 1  1     http://www.gmail.com/
-## 2  2 http://www.eventhubs.com/
-## 3  3   http://www.rstudio.com/
-## 4  4     http://www.amazon.ca/
-## 5  5                      None
+## 2  1     http://www.gmail.com/
+## 3  2 http://www.eventhubs.com/
+## 4  3   http://www.rstudio.com/
+## 5  4     http://www.amazon.ca/
+## 6  5                      None
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;And that&amp;rsquo;s a wrap! ✅🏁🍻&lt;/p&gt;
 &lt;p&gt;Actually, there&amp;rsquo;s one other feature of the &lt;code&gt;reticulate&lt;/code&gt; package I want to share. If you&amp;rsquo;re new to Python like I am, it&amp;rsquo;s helpful to be able to tinker in a REPL (&lt;strong&gt;read-eval-print-loop&lt;/strong&gt;) fashion. Calling &lt;code&gt;reticulate::repl_python()&lt;/code&gt; provides one directly in your R session so you can tinker more naturally. 💪&lt;/p&gt;

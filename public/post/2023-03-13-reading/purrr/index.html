@@ -812,7 +812,7 @@ files &lt;- list.files(&quot;C:\\&quot;, pattern = &quot;*.xpt&quot;, full.names
 # preview
 files
 </code></pre>
-<pre><code>## [1] &quot;C:\\adae.xpt&quot;  &quot;C:\\adsl.xpt&quot;  &quot;C:\\adtte.xpt&quot;
+<pre><code>## character(0)
 </code></pre>
 <h2 id="step-2">Step 2</h2>
 <p>Next, for each element of the files character vector, we&rsquo;ll read in the corresponding file using a combination of <code>purrr::map</code> and <code>haven::read_xpt</code>. This will result in a list where each element corresponds to a tibble of the respective xpt file. At the sometime, we&rsquo;ll attach the name to each element using <code>purrr::setnames</code> so we can identify what&rsquo;s what.</p>

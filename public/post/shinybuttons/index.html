@@ -61,7 +61,7 @@
     
   
   <meta name="description" content="The default behavior in shiny::actionButton() is to open a web link in the current window. This approach has two potential implications for user-experience:
- The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  ⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️Click Me!" />
+ The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  ⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️ Click Me!" />
 
   
   <link rel="alternate" hreflang="en-us" href="https://academic-demo.netlify.app/post/shinybuttons/" />
@@ -303,7 +303,7 @@
   <meta property="og:url" content="https://academic-demo.netlify.app/post/shinybuttons/" />
   <meta property="og:title" content="tweaking shiny actionButton | Matthew Kumar" />
   <meta property="og:description" content="The default behavior in shiny::actionButton() is to open a web link in the current window. This approach has two potential implications for user-experience:
- The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  ⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️Click Me!" /><meta property="og:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
+ The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  ⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️ Click Me!" /><meta property="og:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -356,7 +356,7 @@
       "url": "https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "The default behavior in shiny::actionButton() is to open a web link in the current window. This approach has two potential implications for user-experience:\n The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  \r⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️\rClick Me!"
+  "description": "The default behavior in shiny::actionButton() is to open a web link in the current window. This approach has two potential implications for user-experience:\n The current progress within the shiny app will be lost; clicking 🔙 on your browser will reload the app 😭 This can (independent of #1) inadvertently divert users away from your app 🏃️💨  \r⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️ Click Me!"
 }
 </script>
 
@@ -806,10 +806,10 @@
 <li>This can (independent of #1) inadvertently divert users away from your app 🏃️💨</li>
 </ol>
 <center>
-⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️
+<p>⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️
 <br>
-<br>
-<button class="btn btn-default action-button btn-warning" id="btn0" onclick="alert(&quot;Just kidding! Youre not going anywhere!&quot;)" type="button">Click Me!</button>
+<br></p>
+<p><button class="btn btn-default action-button btn-warning" id="btn0" onclick="alert(&quot;Just kidding! Youre not going anywhere!&quot;)" type="button">Click Me!</button></p>
 </center>
 <p><br> <br></p>
 <p>So what can we do?</p>
@@ -838,7 +838,11 @@ shiny::actionButton('btn3',
                     'New Window', 
                     onclick =&quot;window.open('http://google.com', '_blank','width=800,height=800')&quot;)
 </code></pre>
-<p><button class="btn btn-default action-button btn btn-danger btn-lg  btn-huge" id="btn1" onclick="location.href=&#39;http://google.com&#39;;" type="button">Current Window</button> <button class="btn btn-default action-button btn btn-warning btn-lg  btn-huge" id="btn2" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;)" type="button">New Window or Tab</button> <button class="btn btn-default action-button btn btn-success btn-lg  btn-huge" id="btn3" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;,&#39;width=800,height=800&#39;)" type="button">New Window</button></p>
+<p><button class="btn btn-default action-button btn btn-danger btn-lg  btn-huge" id="btn1" onclick="location.href=&#39;http://google.com&#39;;" type="button">Current Window</button>
+ 
+<button class="btn btn-default action-button btn btn-warning btn-lg  btn-huge" id="btn2" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;)" type="button">New Window or Tab</button>
+ 
+<button class="btn btn-default action-button btn btn-success btn-lg  btn-huge" id="btn3" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;,&#39;width=800,height=800&#39;)" type="button">New Window</button></p>
 
     </div>
 

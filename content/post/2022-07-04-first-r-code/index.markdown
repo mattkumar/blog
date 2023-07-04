@@ -18,7 +18,7 @@ projects: []
 ---
 
 
-... and by old, I mean really old. Like year 2008 old. Like the first R code I ever wrote. 👩‍💻.
+... and by old, I mean really old. Like year 2008 old. Like the first R code I ever wrote. 
 
 
 I recently went digging in an old dropbox account for photos and to my surprise I had saved a copy of my undergraduate thesis, complete with code.

@@ -22,9 +22,11 @@ The default behavior in `shiny::actionButton()` is to open a web link in the *cu
 2.  This can (independent of \#1) inadvertently divert users away from your app 🏃️💨
 
 <center>
+
 ⬇️⬇️⬇️ See for yourself ⬇️⬇️⬇️
 <br>
 <br>
+
 <button class="btn btn-default action-button btn-warning" id="btn0" onclick="alert(&quot;Just kidding! Youre not going anywhere!&quot;)" type="button">Click Me!</button>
 </center>
 
@@ -65,4 +67,8 @@ shiny::actionButton('btn3',
                     onclick ="window.open('http://google.com', '_blank','width=800,height=800')")
 ```
 
-<button class="btn btn-default action-button btn btn-danger btn-lg  btn-huge" id="btn1" onclick="location.href=&#39;http://google.com&#39;;" type="button">Current Window</button>&nbsp;<button class="btn btn-default action-button btn btn-warning btn-lg  btn-huge" id="btn2" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;)" type="button">New Window or Tab</button>&nbsp;<button class="btn btn-default action-button btn btn-success btn-lg  btn-huge" id="btn3" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;,&#39;width=800,height=800&#39;)" type="button">New Window</button>
+<button class="btn btn-default action-button btn btn-danger btn-lg  btn-huge" id="btn1" onclick="location.href=&#39;http://google.com&#39;;" type="button">Current Window</button>
+&nbsp;
+<button class="btn btn-default action-button btn btn-warning btn-lg  btn-huge" id="btn2" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;)" type="button">New Window or Tab</button>
+&nbsp;
+<button class="btn btn-default action-button btn btn-success btn-lg  btn-huge" id="btn3" onclick="window.open(&#39;http://google.com&#39;, &#39;_blank&#39;,&#39;width=800,height=800&#39;)" type="button">New Window</button>
