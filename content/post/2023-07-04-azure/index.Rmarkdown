@@ -1,7 +1,7 @@
 ---
 title: DevOps Bootcamp
 author: Matthew Kumar
-date: '2023-07-14'
+date: '2023-07-04'
 slug: azure
 categories: []
 tags: []
