@@ -32,9 +32,9 @@ I looked into the `AzureStor` package because by it's description alone, it's wh
 
 It turns out I needed to use the `AzureAuth` package first, whose sole focus is on establishing authentication with services on Azure using Active Directory. OK, so game plan. Use `AzureAuth` to "connect", get a token 🌕, then pass it to functions in `AzureStor` to do operations like read/write/list. Once I could do this, I was confident my app would work in it's entirety. ✔️
 
-This task in reality took quite a bit of time to map 🕵. Remember, I don't speak Azure. I also don't expect the DevOps engineers 👷 to be familiar with this R package and support it. Enter growing pains 😭 🏋️‍♀️ 👨‍🔧.
+This task in reality took quite a bit of time to map 🕵. Remember, I don't speak Azure. I also don't expect the DevOps engineers 👷 to be familiar with this R package nor support it. Enter growing pains 😭 🏋️‍♀️ 👨‍🔧.
 
-In the end we did get it mapped out, some parameters / settings more obvious than others, and I could finally read local Azure file containers on my local session 🎉
+In the end we did get it mapped out, some parameters / settings more obvious than others, and I could finally read Azure File Containers hosted on the platform in my local R instance. 🎉
 
 Here is the function I used:
 
@@ -48,7 +48,7 @@ Oh man, you would think just because you can produce something in a local R sess
 
 I'll mention too that on this new platform, we've chosen to use Posit Connect to host our shiny apps going forward. This product is definitely new to the DevOps team and while I have experience deploying apps to it, I don't have experience in configuring it. 😶.
 
-Some weeks later, the connect server was setup, and I could deploy hello world apps to it from my local R instance. I could actually deploy my full app, but it essentially didn't do anything since the data connectivity wasn't ironed out. Small victories. 🏁
+Some weeks later, the connect server was setup, and I could deploy hello world apps to it from my local R instance. I could actually deploy my full app, but it essentially didn't do anything since I didn't re-factor the data connectivity. Small victories. 🏁
 
 <h5>Hello App, with Azure</h5>
 
@@ -60,7 +60,7 @@ I'll say this vignette was [super-helpful](https://cran.r-project.org/web/packag
 
 I tried for the life of me to get the app to pull <strong>my</strong> credentials with no luck. Relying on the app-password was just a non-starter for this project. Enter `AzureGraph` 🌄
 
-We had Microsoft Graph setup in our Azure system. In the end, after many hours of googling (GPT-4 was not helpful here) and experimenting, I was able to get it working locally again. <em>Two steps forward, one step back.</em> In the end, I got the shiny version to work ✔️.
+We had Microsoft Graph setup in our Azure system. In the end, after many hours of googling (GPT-4 was not helpful here) and experimenting, I was able to get it working locally. <em>Two steps forward, one step back.</em> In the end, I managed to integrate the Graph work flow into a shiny app ✔️.
 
 This is what I did:
 
