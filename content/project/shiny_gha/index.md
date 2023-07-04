@@ -8,7 +8,7 @@ links:
 - icon: link
   icon_pack: fas
   name: View App
-  url: https://matt-portfolio.shinyapps.io/shiny-gha/
+  url: https://matt-portfolio.shinyapps.io/shiny-gha2/
 - icon: r-project
   icon_pack: fab
   name: View Repo
