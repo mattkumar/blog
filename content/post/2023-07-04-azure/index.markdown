@@ -15,6 +15,7 @@ image:
   preview_only: no
 projects: []
 ---
+<h4>Preface</h4>
 
 I'll preface with this post is related to a project I lead at work. I can't share too many details about it here unfortunately (including code), but what I can safely share is my experience and process 💡.
 
@@ -30,13 +31,13 @@ I looked into the `AzureStor` package because by it's description alone, it's wh
 
 It turns out I needed to use the `AzureAuth` package first, whose sole focus is on establishing authentication with services on Azure. OK, so gameplan. Use `AzureAuth` to connect, get a token, then pass it to functions in `AzureStor` to do operations like download/upload/list. Once I could do this, I was confident my app would work in it's entirety.
 
-This task in reality took quite a bit of time to map 🕵. Remember, I don't speak Azure. I also don't expect the DevOps engineers to be familiar with this R package and support it. Enter growing pains 😭.
+This task in reality took quite a bit of time to map 🕵. Remember, I don't speak Azure. I also don't expect the DevOps engineers 👷 to be familiar with this R package and support it. Enter growing pains 😭 🏋️‍♀️ 👨‍🔧.
 
 In the end we did get it mapped out, some parameters / settings more obvious than others, and I could finally read local Azure file containers on my local session ✅.
 
 Here is the function I used:
 
-`AzureAuth::get_azure_token(   resource,   tenant,   app,   password = NULL,   username = NULL,   certificate = NULL,   auth_type = NULL,   aad_host = "https://login.microsoftonline.com/",   version = 1,   authorize_args = list(),   token_args = list(),   use_cache = NULL,   on_behalf_of = NULL,   auth_code = NULL,   device_creds = NULL )`
+`AzureAuth::get_azure_token(resource,   tenant,   app,   password = NULL,   username = NULL,   certificate = NULL,   auth_type = NULL,   aad_host = "https://login.microsoftonline.com/",   version = 1,   authorize_args = list(),   token_args = list(),   use_cache = NULL,   on_behalf_of = NULL,   auth_code = NULL,   device_creds = NULL )`
 
 <h4>Shiny</h4>
 

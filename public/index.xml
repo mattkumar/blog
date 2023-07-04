@@ -60,9 +60,9 @@
     
     <item>
       <title>reading files with purrr</title>
-      <link>https://academic-demo.netlify.app/post/purrr/</link>
+      <link>https://academic-demo.netlify.app/post/2023-03-13-reading/purrr/</link>
       <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/purrr/</guid>
+      <guid>https://academic-demo.netlify.app/post/2023-03-13-reading/purrr/</guid>
       <description>&lt;p&gt;I feel like there are countless examples on how to read a directory of .csv files into R using &lt;code&gt;purrr&lt;/code&gt; 😺. However, in those examples the setup is potentially many CSV files being read in &lt;strong&gt;and stacked into a single data frame&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;What if we need to read several .csv (or other types) data files into &lt;em&gt;their own data frame&lt;/em&gt;❓️💡&lt;/p&gt;
 &lt;p&gt;In my own work, this is an operation I typically do. Until recently, I haven&amp;rsquo;t bothered how to figure this out in &lt;code&gt;purrr&lt;/code&gt;. Don&amp;rsquo;t ask how I was doing it before. 🤢&lt;/p&gt;
@@ -104,14 +104,7 @@ files
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;filelist&#34; srcset=&#34;
-               /post/purrr/file1_hu4cc5821266038c0878f2829a570e835d_13194_033e7e9c5c334a4e0269e5a8f4719a4f.webp 400w,
-               /post/purrr/file1_hu4cc5821266038c0878f2829a570e835d_13194_174fd26655458db2353b2eb0ce4c4f19.webp 760w,
-               /post/purrr/file1_hu4cc5821266038c0878f2829a570e835d_13194_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://academic-demo.netlify.app/post/purrr/file1_hu4cc5821266038c0878f2829a570e835d_13194_033e7e9c5c334a4e0269e5a8f4719a4f.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;149&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;file1.png&#34; alt=&#34;filelist&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;step-3&#34;&gt;Step 3&lt;/h2&gt;
@@ -138,14 +131,7 @@ files
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;globalenv&#34; srcset=&#34;
-               /post/purrr/file2_hu644b7816835bbf02577b59e5fd65c3e9_11752_6c4d87960c4d7c507ed94c4e7540ff11.webp 400w,
-               /post/purrr/file2_hu644b7816835bbf02577b59e5fd65c3e9_11752_14cada22e961c654eb449b701cc65ef4.webp 760w,
-               /post/purrr/file2_hu644b7816835bbf02577b59e5fd65c3e9_11752_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://academic-demo.netlify.app/post/purrr/file2_hu644b7816835bbf02577b59e5fd65c3e9_11752_6c4d87960c4d7c507ed94c4e7540ff11.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;144&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;file2.png&#34; alt=&#34;globalenv&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;Till next time 🍻🙏 !&lt;/p&gt;
