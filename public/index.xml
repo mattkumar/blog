@@ -5,12 +5,69 @@
     <link>https://academic-demo.netlify.app/</link>
       <atom:link href="https://academic-demo.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <description>Matthew Kumar</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 04 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 25 Nov 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Matthew Kumar</title>
       <link>https://academic-demo.netlify.app/</link>
     </image>
+    
+    <item>
+      <title>saving sessions (&#43; shinylive)</title>
+      <link>https://academic-demo.netlify.app/post/2023-11-25-shinysave/purrr/</link>
+      <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/post/2023-11-25-shinysave/purrr/</guid>
+      <description>&lt;p&gt;It pains me 😩 that most of the time I consider Shiny for a work-related project the &lt;em&gt;can users save and restore their progress&lt;/em&gt; 💬🗨 inevitably surfaces.&lt;/p&gt;
+&lt;p&gt;While there are a variety of ways to do so in shiny (e.g. bookmarks), &amp;ldquo;work-related&amp;rdquo; apps aren&amp;rsquo;t always so straight forward 🔀&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;They are usually tied to remote raw data that must be accessed with a live connection 📲&lt;/li&gt;
+&lt;li&gt;They have intermediate calculations that don&amp;rsquo;t lend themselves to just restoring input values on the UI 👨‍🔬&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Well, I finally took the time to 🔨 and I&amp;rsquo;m here to share what I&amp;rsquo;ve learned 👨‍🏫
+&lt;br&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;⚡️&lt;strong&gt;Sidebar⚡️ &lt;/strong&gt;Today is a bit of a 2 for 1. The demo app I&amp;rsquo;ve cooked up is using &lt;a href=&#34;https://posit-dev.github.io/r-shinylive/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shinylive&lt;/a&gt;! In a nutshell, the app is ran serverless in the browser via &lt;a href=&#34;https://docs.r-wasm.org/webr/latest/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;webR&lt;/a&gt;. More on that later.&lt;/p&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
+&lt;p&gt;For simplicity, I&amp;rsquo;ve coded a small app that allows users to upload a SAS Transport (.xpt) data file. This file is parsed using the &lt;code&gt;haven&lt;/code&gt; package and displayed as a table on the UI. There&amp;rsquo;s also an additional &lt;code&gt;textInput&lt;/code&gt; field where users can enter their name.&lt;/p&gt;
+&lt;p&gt;Now, when a user first approaches the app they can either:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Start by uploading a fresh file 📄&lt;/li&gt;
+&lt;li&gt;Start by restoring a previously saved session 💾&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This is accomplished through a &lt;code&gt;radioButtons&lt;/code&gt; control. When a choice is made, a corresponding &lt;code&gt;fileInput&lt;/code&gt; widget is displayed.&lt;/p&gt;
+&lt;p&gt;When a fresh file is uploaded 📤, it is read in as &lt;strong&gt;binary 👨‍💻&lt;/strong&gt; (using &lt;code&gt;readBin&lt;/code&gt; and &lt;code&gt;writeBin&lt;/code&gt;) in a &lt;code&gt;reactiveValues&lt;/code&gt; holder. I do some additional 🛠, such as implementing the &lt;code&gt;haven::read_xpt()&lt;/code&gt; to another value in the &lt;code&gt;reactiveValues&lt;/code&gt; so it&amp;rsquo;s immediately available for use in the app&amp;hellip;and for later. This all takes place inside an &lt;code&gt;observeEvent&lt;/code&gt; 🔍️&lt;/p&gt;
+&lt;p&gt;The &amp;ldquo;session saving&amp;rdquo; ✨ is handled by a &lt;code&gt;downloadHandler&lt;/code&gt; 📥, where the &lt;em&gt;content&lt;/em&gt; i populated by all the current values in the &lt;code&gt;reactiveValues&lt;/code&gt; via &lt;code&gt;reactiveValuesToList&lt;/code&gt; 💪 Remember, that includes our binary representation of the XPT, and perhaps the processed version! Additionally, I can arbitrary specify &lt;em&gt;other&lt;/em&gt; inputs 🎚 be stored in the file (remember the random &lt;code&gt;textInput&lt;/code&gt; asking for your name?)&lt;/p&gt;
+&lt;p&gt;So&amp;hellip;. what happens when you start the app by wanting to restore a previous session❓️ Well, using the &lt;code&gt;radioButton&lt;/code&gt; choice for that, the appropriate &lt;code&gt;fileInput&lt;/code&gt; widget is first made available. Once uploaded, the processing for that essentially boils down to re-assigning all values 📝 from the save file to the current values in the &lt;code&gt;reactiveValues&lt;/code&gt;. For other inputs, such as the &lt;code&gt;textInput&lt;/code&gt;, I make use of the corresponding &lt;code&gt;updateTextInput&lt;/code&gt; to restore that value directly. This all takes place inside an &lt;code&gt;observeEvent&lt;/code&gt; 🔍&lt;/p&gt;
+&lt;h2 id=&#34;tldr&#34;&gt;tl;dr&lt;/h2&gt;
+&lt;p&gt;A consequence of this approach is this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The save file retains a binary representation of your original file. As such you can recreate that file behind the scenes thus making &lt;strong&gt;your app no longer depend on remote access to it&lt;/strong&gt;. Consider that anything can be represented as binary including file types like CSVs, Docx, Images, etc. 😵&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;shinylive-app&#34;&gt;Shinylive App&lt;/h2&gt;
+&lt;p&gt;You can give this a try in the live app embedded below 👇👇👇&lt;/p&gt;
+&lt;p&gt;👉 Use this save file I generated:  &lt;a href=&#34;my_saved_session.RData&#34; download=&#34;my_saved_session.RData&#34;&gt;Download File&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;When you upload it, you&amp;rsquo;ll see my progress. You&amp;rsquo;ll also see the contents of the save file, which shows both the binary representation of the source file (which you don&amp;rsquo;t have).&lt;/p&gt;
+&lt;iframe src=&#34;https://mattkumar.github.io/shinysave&#34; width=&#34;100%&#34; height=&#34;600&#34;, style = &#34;border: none;&#34;&gt;&lt;/iframe&gt;
+&lt;h2 id=&#34;thoughts&#34;&gt;Thoughts&lt;/h2&gt;
+&lt;p&gt;I don&amp;rsquo;t know if I&amp;rsquo;m romanticizing 😍 finally having a solution to a long standing problem, but I&amp;rsquo;m excited 🤣. I&amp;rsquo;m not sure how this will scale, so of course it&amp;rsquo;s probably best implemented prospectively 🔜 rather than retro 🔙.&lt;/p&gt;
+&lt;p&gt;Another consideration is the source files themselves. In some cases, it might be against company policy to store a &amp;ldquo;copy&amp;rdquo; of the data anywhere outside from where it originates 🕵. I see some grey area for sure. &lt;em&gt;I mean in other roles, users already self-manage their own document files surely in a variety of ways &lt;/em&gt; 🤔 🤔 🤔&lt;/p&gt;
+&lt;p&gt;And what about file size 📈 ? In this example, the original XPT was 116 kb and the save file was 33.9 kb. Obviously some savings there, but where does that bottom out 🏋? It might depend on the format of the original file type.&lt;/p&gt;
+&lt;h2 id=&#34;shinylive&#34;&gt;Shinylive&lt;/h2&gt;
+&lt;p&gt;I mentioned earlier I also used this post as a 2-for-1. Because this app was relatively light-weight, I made use of &lt;code&gt;shinylive::export&lt;/code&gt; to convert it to a format I can host as static content (right now it&amp;rsquo;s on github pages) 🤑&lt;/p&gt;
+&lt;p&gt;It was pretty straight forward and looks promising. However, there are a few things to be mindful of ⚠️: Because all of the work 👷 is done in the browser it may take time for things to load ⌛. Another key consideration is whether your app package dependencies 📦 are compatible. Interactive documentation 📋 on the latter can be found &lt;a href=&#34;https://repo.r-wasm.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;p&gt;👉 &lt;a href=&#34;https://mattkumar.github.io/shinysave&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link to shinylive app&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;👉 &lt;a href=&#34;https://github.com/mattkumar/shinysave/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;github repository with code&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Till next time 🍻🙏 !&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>DevOps Bootcamp</title>

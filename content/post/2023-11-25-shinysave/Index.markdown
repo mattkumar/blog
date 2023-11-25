@@ -1,0 +1,97 @@
+---
+title: saving sessions (+ shinylive)
+author: Matthew Kumar
+date: '2023-11-25'
+slug: purrr
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+It pains me 😩 that most of the time I consider Shiny for a work-related project the <em>can users save and restore their progress</em> 💬🗨 inevitably surfaces. 
+
+While there are a variety of ways to do so in shiny (e.g. bookmarks), "work-related" apps aren't always so straight forward 🔀
+
+For example:
+1.  They are usually tied to remote raw data that must be accessed with a live connection 📲
+2.  They have intermediate calculations that don't lend themselves to just restoring input values on the UI 👨‍🔬
+
+Well, I finally took the time to 🔨 and I'm here to share what I've learned 👨‍🏫
+<br>
+
+<hr>
+
+⚡️<strong>Sidebar⚡️ </strong>Today is a bit of a 2 for 1. The demo app I've cooked up is using [shinylive](https://posit-dev.github.io/r-shinylive/)! In a nutshell, the app is ran serverless in the browser via [webR](https://docs.r-wasm.org/webr/latest/). More on that later.
+
+<hr>
+
+<br>
+
+## Approach
+
+For simplicity, I've coded a small app that allows users to upload a SAS Transport (.xpt) data file. This file is parsed using the `haven` package and displayed as a table on the UI. There's also an additional `textInput` field where users can enter their name.
+
+Now, when a user first approaches the app they can either:
+1.  Start by uploading a fresh file 📄
+2.  Start by restoring a previously saved session 💾
+
+This is accomplished through a `radioButtons` control. When a choice is made, a corresponding `fileInput` widget is displayed. 
+
+When a fresh file is uploaded 📤, it is read in as <strong>binary 👨‍💻</strong> (using `readBin` and `writeBin`) in a `reactiveValues` holder. I do some additional 🛠, such as implementing the `haven::read_xpt()` to another value in the `reactiveValues` so it's immediately available for use in the app...and for later. This all takes place inside an `observeEvent` 🔍️
+
+The "session saving" ✨ is handled by a `downloadHandler` 📥, where the <em>content</em> i populated by all the current values in the `reactiveValues` via `reactiveValuesToList` 💪 Remember, that includes our binary representation of the XPT, and perhaps the processed version! Additionally, I can arbitrary specify <em>other</em> inputs 🎚 be stored in the file (remember the random `textInput` asking for your name?)
+
+So.... what happens when you start the app by wanting to restore a previous session❓️ Well, using the `radioButton` choice for that, the appropriate `fileInput` widget is first made available. Once uploaded, the processing for that essentially boils down to re-assigning all values 📝 from the save file to the current values in the `reactiveValues`. For other inputs, such as the `textInput`, I make use of the corresponding `updateTextInput` to restore that value directly. This all takes place inside an `observeEvent` 🔍
+
+
+## tl;dr
+A consequence of this approach is this: 
+> The save file retains a binary representation of your original file. As such you can recreate that file behind the scenes thus making <strong>your app no longer depend on remote access to it</strong>. Consider that anything can be represented as binary including file types like CSVs, Docx, Images, etc. 😵 
+
+
+
+## Shinylive App
+
+You can give this a try in the live app embedded below 👇👇👇 
+
+👉 Use this save file I generated:  <a href="my_saved_session.RData" download="my_saved_session.RData">Download File</a>
+
+When you upload it, you'll see my progress. You'll also see the contents of the save file, which shows both the binary representation of the source file (which you don't have).
+
+<iframe src="https://mattkumar.github.io/shinysave" width="100%" height="600", style = "border: none;"></iframe>
+
+
+## Thoughts
+
+I don't know if I'm romanticizing 😍 finally having a solution to a long standing problem, but I'm excited 🤣. I'm not sure how this will scale, so of course it's probably best implemented prospectively 🔜 rather than retro 🔙. 
+
+Another consideration is the source files themselves. In some cases, it might be against company policy to store a "copy" of the data anywhere outside from where it originates 🕵. I see some grey area for sure. <em>I mean in other roles, users already self-manage their own document files surely in a variety of ways </em> 🤔 🤔 🤔
+
+And what about file size 📈 ? In this example, the original XPT was 116 kb and the save file was 33.9 kb. Obviously some savings there, but where does that bottom out 🏋? It might depend on the format of the original file type.
+
+
+## Shinylive
+
+I mentioned earlier I also used this post as a 2-for-1. Because this app was relatively light-weight, I made use of `shinylive::export` to convert it to a format I can host as static content (right now it's on github pages) 🤑
+
+It was pretty straight forward and looks promising. However, there are a few things to be mindful of ⚠️: Because all of the work 👷 is done in the browser it may take time for things to load ⌛. Another key consideration is whether your app package dependencies 📦 are compatible. Interactive documentation 📋 on the latter can be found [here](https://repo.r-wasm.org/)
+
+## Resources
+
+
+   👉 [link to shinylive app](https://mattkumar.github.io/shinysave) 
+   
+   👉 [github repository with code](https://github.com/mattkumar/shinysave/)  
+<br>
+<br>
+<br>
+<br>
+Till next time 🍻🙏 !
