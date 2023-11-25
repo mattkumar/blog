@@ -48,7 +48,7 @@
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;shinylive-app&#34;&gt;Shinylive App&lt;/h2&gt;
 &lt;p&gt;You can give this a try in the live app embedded below 👇👇👇&lt;/p&gt;
-&lt;p&gt;👉 Use this save file I generated:  &lt;a href=&#34;my_saved_session.RData&#34; download=&#34;my_saved_session.RData&#34;&gt;Download File&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;👉 Use this save file I generated: &lt;a href=&#34;https://raw.githubusercontent.com/mattkumar/blog/main/content/post/2023-11-25-shinysave/my_saved_session.RData&#34; download=&#34;my_saved_session.RData&#34;&gt;Download my_saved_session.RData&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;When you upload it, you&amp;rsquo;ll see my progress. You&amp;rsquo;ll also see the contents of the save file, which shows both the binary representation of the source file (which you don&amp;rsquo;t have).&lt;/p&gt;
 &lt;iframe src=&#34;https://mattkumar.github.io/shinysave&#34; width=&#34;100%&#34; height=&#34;600&#34;, style = &#34;border: none;&#34;&gt;&lt;/iframe&gt;
 &lt;h2 id=&#34;thoughts&#34;&gt;Thoughts&lt;/h2&gt;

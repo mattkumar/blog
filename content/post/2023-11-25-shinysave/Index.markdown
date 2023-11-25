@@ -62,7 +62,7 @@ A consequence of this approach is this:
 
 You can give this a try in the live app embedded below 👇👇👇 
 
-👉 Use this save file I generated:  <a href="my_saved_session.RData" download="my_saved_session.RData">Download File</a>
+👉 Use this save file I generated: <a href="https://raw.githubusercontent.com/mattkumar/blog/main/content/post/2023-11-25-shinysave/my_saved_session.RData" download="my_saved_session.RData">Download my_saved_session.RData</a>
 
 When you upload it, you'll see my progress. You'll also see the contents of the save file, which shows both the binary representation of the source file (which you don't have).
 
