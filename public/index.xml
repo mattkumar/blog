@@ -5,12 +5,25 @@
     <link>https://academic-demo.netlify.app/</link>
       <atom:link href="https://academic-demo.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <description>Matthew Kumar</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 25 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 30 Nov 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Matthew Kumar</title>
       <link>https://academic-demo.netlify.app/</link>
     </image>
+    
+    <item>
+      <title>shinyMeta</title>
+      <link>https://academic-demo.netlify.app/project/shinymeta/</link>
+      <pubDate>Thu, 30 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/shinymeta/</guid>
+      <description>&lt;h2&gt;...catching Up&lt;/h2&gt;
+&lt;p&gt;This is sort of an overdue post 😊&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m now sharing the supporting app to my talk on &lt;strong&gt;Reproducibility of Interactive Analyses&lt;/strong&gt;, which I presented at &lt;a href=&#34;https://phuse.global/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Phuse US Connect 2023&lt;/a&gt; earlier this year.&lt;/p&gt;
+&lt;p&gt;Links to the original slides and accompanying paper are found up above ☝&lt;/p&gt;
+&lt;p&gt;Till next time 🍻✌&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>saving sessions (&#43; shinylive)</title>
