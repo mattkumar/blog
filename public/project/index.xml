@@ -5,12 +5,50 @@
     <link>https://academic-demo.netlify.app/project/</link>
       <atom:link href="https://academic-demo.netlify.app/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 30 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 10 Dec 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Projects</title>
       <link>https://academic-demo.netlify.app/project/</link>
     </image>
+    
+    <item>
+      <title>story creator</title>
+      <link>https://academic-demo.netlify.app/project/react/</link>
+      <pubDate>Sun, 10 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/react/</guid>
+      <description>&lt;h2&gt;The App&lt;/h2&gt;
+This is a simple react app I wrote that has the following intention:  
+&lt;ul&gt;
+&lt;li&gt;A user provides 4 topic areas they want a funny, short story written about&lt;/li&gt;
+&lt;li&gt;A prompt is created in the background based on that input&lt;/li&gt;
+&lt;li&gt;The prompt is sent to Open AI via an API to request a story&lt;/li&gt;
+&lt;li&gt;The returned story is displayed to the user&lt;/li&gt;
+&lt;li&gt;The app is styled to give an &amp;lsquo;authors&amp;rsquo; feel via CSS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;It turns out my API usage hit it&amp;rsquo;s limit, so I&amp;rsquo;ve slightly altered the code to just display a static message. The ChatGPT part was secondary to actually learning and applying react, which was the real purpose of this. See below! &lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;The Journey&lt;/h2&gt;
+I&#39;ll start by saying I 😍 shiny. It&#39;s my 🔝. But this year has shown me a few things, namely, it&#39;s 😢 to need a Connect server to share apps. I&#39;ve also wanted to learn something a bit more broad strokes, and so I chose React.  
+&lt;br&gt;&lt;br&gt;
+This app, while simple, was a bit of a pain to get up and running. Here are the things I needed to learn:
+&lt;br&gt;&lt;br&gt;
+- &lt;strong&gt;🔨 fundamental react concepts and syntax 👨‍💻:&lt;/strong&gt; I mostly followed Youtube 🎥 and surprisingly... the official 📝. I tried &lt;strong&gt;not&lt;/strong&gt; to use GPT in generating any code as that would defeat the purpose 🎯
+&lt;br&gt;
+&lt;br&gt;
+- &lt;strong&gt;◀️adapting ideas▶️:&lt;/strong&gt; What I mean by this is pretty much everything UI and server-based in shiny. Integrating existing CSS, applying style to UI elements, translating my ideas couched Shiny&#39;s reactive framework to React. The UI stuff wasn&#39;t difficult since I use a lot of custom CSS and JS in my shiny apps 💅
+&lt;br&gt;
+&lt;br&gt;
+- &lt;strong&gt;👷 development environment setup:&lt;/strong&gt; I (begrudgingly) used VSCode to do the development. This involved setting up Node, using `npm` and getting familiar with testing and debugging in Chrome developer tools. `npm create-react-app` allowed me to hit the ground running 🏃💨
+&lt;br&gt;
+&lt;br&gt;
+- &lt;strong&gt;CI/CD:&lt;/strong&gt; kind of, I first setup a github repository in VSCode, which was a learning by itself 👨‍🏫. I then had to figure out how to actually `build` 🛠 a react app and deploy it somewhere! Here I setup a process to compile and push to gh-pages for hosting.
+&lt;br&gt;&lt;br&gt;
+I realize a lot of these things I take for granted using R Studio and I see the value in knowing how to do it through other means ✅. I&#39;ll  most likely continue working on my react skills next year, so keep an eye out!
+&lt;p&gt;Till next time 🍻✌&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>shinyMeta</title>
