@@ -23,21 +23,19 @@ AI, LLMs and ChatGPT have been all the 🌊 the last 12 months and I
 haven't  written about it here... until now. Today I want to write
 about an interesting problem that the [langchain](https://www.langchain.com/) can potentially solve. 
 
-I'll assume from here on in you haven't been living under a
-rock 🗿 for the past year and have heard and (hopefully) tried
-ChatGPT yourself 👨‍💻
+I'll assume from here on in you  have heard and (hopefully) tried
+"ChatGPT" yourself 👨‍💻
 
 ## The Problem
 
-"A picture is worth a thousand words." In this case, *a picture of words is
+"A picture is worth a thousand words." *In this case, a picture of words is
 worth saving me a thousand keystrokes:*
 
 ![problem](https://github.com/mattkumar/shinysave/blob/main/problem.png?raw=true)
 
 
-One of the reasons ChatGPT can't give
-responses based on real-time information because the underlying model
-was trained with data up to a certain point in time. You're interacting with something fixed.
+One of the reasons ChatGPT can't give responses based on real-time information because the underlying model
+was trained with data up to a certain point in time. Another is it doesn't know how to get that information; it's not hooked up to the internet.
 
 ## Langchain
 
@@ -48,13 +46,13 @@ Enter Langchain. Specifically Langchain Agents.
 I'm not going to go into an exposition on them ([read the docs 📗📘📙](https://python.langchain.com/docs/modules/agents/quick_start))
 but I want to show how we can leverage them to do things for us.
 
-At a high level, I'll create a "tool" 🔨 to do a task. I'll make this tool available to the LLM via Langchain to use (or not 🤔) based on my prompt 🗯
+At a high level, I'll create a "tool" 🔨 to do a task. I'll make this tool available to the LLM via Langchain. When the agent is invoked, it will reason whether to use my tool (or not 🤔) based on my prompt 🗯
 
-## My First Agent
+## My First Tool
 
 Let's call him Smith 👤
 
-Smith is a generic Python 🐍 function that will: 
+Smith is a Python 🐍 function that will: 
 
 - Access a public API that suggests activities to someone who is bored 📡
 - Return a random response 🔙
@@ -63,7 +61,6 @@ Smith is a generic Python 🐍 function that will:
 
 
 ```python
-# Define Smith
 def Smith():
     res = requests.get('https://www.boredapi.com/api/activity?participants=1')
     return res.json()['activity'] + ' Key:' + res.json()['key']
@@ -76,13 +73,13 @@ Here's an example of a return:
 'Bake pastries for you and your neighbor Key:8125168'
 ```
 
-We get a single recommendation, followed by a reference 🔑. I've included the 🔑 for so I can verify where the response came from 🎯: you can visit this [link](http://www.boredapi.com/api/activity?key=8125168) to verify yourself. 
+We get a single activity recommendation, followed by a reference 🔑  to verify the message came from the API. See here: [link](http://www.boredapi.com/api/activity?key=8125168)  
 
-Now, what if when you asked "ChatGPT" to suggest you an activity it used `Smith()` to get an answer? We need a way to make `Smith()` accessible to our LLM. That's precisely where Langchain comes in ⚡
+So our tool `Smith()` does what we want. The task at hand now is to make `Smith()` available to the LLM. And that's where Langchain comes in.
 
 ## LLMs and Smith
 
-In this section I'll show very briefly how to include `Smith()` inside of a Langchain agent call.
+In this section I'll show very briefly how to include `Smith()` inside of a Langchain agent call:
 
 
 ```python
@@ -107,7 +104,8 @@ agent = initialize_agent(llm = llm,
                          verbose = True)
 ```
 
-That's about it.  Lets try running it with the following prompt:
+That's about it.  Lets try running it with the following prompt and view the output:
+
 
 
 ```python
@@ -115,33 +113,11 @@ agent.run("I am bored, suggest me a few activities. Provide me a key for each ac
 ```
 
 
+![output1](https://github.com/mattkumar/shinysave/blob/main/eg1.png?raw=true)
 
-👇 👇 👇  Below is a log of the agent reasoning and final answer
+💥 Pretty neat, right? This output log shows the reasoning of the agent through `Action`, `Observation`, `Thoughts` steps until it arrives at a final answer. The point here is that it used `Smith()` to reply because it was determined the tool was the right fit 💯
 
-
-```
-> Entering new AgentExecutor chain...
-I should think about a variety of activities that can help alleviate boredom.
-Action: suggestions for boredom
-Action Input: 
-Observation: Do something nice for someone you care about Key:8321894
-Thought:I should also consider activities that I enjoy doing alone.
-Action: suggestions for boredom
-Action Input: 
-Observation: Start a daily journal Key:8779876
-Thought:I should also consider physical activities to help pass the time.
-Action: suggestions for boredom
-Action Input: 
-Observation: Study a foreign language Key:9765530
-Thought:I now know the final answer
-Final Answer: Do something nice for someone you care about (Key: 8321894), start a daily journal (Key: 8779876), and study a foreign language (Key: 9765530).
-
-> Finished chain.
-```
-
-💣💥 Pretty neat, right? This log shows the reasoning of the agent through `Action`, `Observation`, `Thoughts` sequences until it arrives at a final answer. The point here is that it used `Smith()` to reply because it was determined the tool was the right fit 💯
-
-## My Second Agent
+## My Second Tool
 
 Let's call him Johnson 👤
 
@@ -178,11 +154,13 @@ Johnson(query = "Toronto");
 -2°C Snow
 ```
 
-Cool, so what? So, our goal is similar to above where now we want to expose `Johnson()` to our LLM and answer the original problem statement 🤩. But why stop there?
+Cool, so learning what we did in the previous example, we can probably use `Johnson()` to get an answer to the question posed in the beginning of the article. 
+
+But why stop there? 🤔
 
 ## Agent Mania
 
-Let's see how we can utilize `Smith()` and `Johnson()` together 👥 to answer a more meaningful question :
+Let's see how we can utilize `Smith()` and `Johnson()` together 👥 to answer a more interesting question. Like before, we start with the prompt and view the output.
 
 
 ```python
@@ -190,28 +168,10 @@ agent.run("Suggest me a few activities to do today, I am bored. If the activitie
 ```
 
 
-```
-> Entering new AgentExecutor chain...
-I should suggest some activities and check the weather for Toronto to see if they are feasible.
-Action: get the current weather
-Action Input: Toronto
-Observation: -2°C Snow
-Thought:I should suggest some indoor activities to avoid the cold weather.
-Action: suggestions for boredom
-Action Input: indoor activities
-Observation: Repaint a room in your house Key:4877086
-Thought:I should also suggest some outdoor activities that are feasible in the current weather.
-Action: suggestions for boredom
-Action Input: outdoor activities
-Observation: Improve your touch typing Key:2526437
-Thought:I now know the final answer
+![output-2](https://github.com/mattkumar/shinysave/blob/main/eg2.png?raw=true)
 
-Final Answer: Some indoor activities you can do today are repainting a room in your house, and improving your touch typing skills. If you want to go outdoors, the current weather in Toronto is -2°C with snow, so it may not be ideal for outdoor activities.
 
-> Finished chain.
-```
-
-🤯 😱 🤯 Just take a few seconds and re-read that response log and digest what's happening 😱 🤯 😱
+🤯 😱 🤯 Just take a few seconds and re-read that response log and appreciate what's happening here 😱 🤯 😱
 
 🔥 Absolutely.  🔥 Positively.  🔥 Wild.
 
@@ -223,6 +183,6 @@ I hope this short demo of custom Langchain agents will be useful in your own wor
 
 Langchain already has a set of predefined "tools" for agentic modeling you can use including weather  ([OpenWeather](https://python.langchain.com/docs/integrations/tools/openweathermap)) and internet search ([SerpAPI](https://python.langchain.com/docs/integrations/providers/serpapi)). 
 
-The point here was to show how to do this yourself in case you have custom requirements in your work for which no off-the-shelf tool exists 💪💪🏻💪🏼
+The point here was to show how to do this yourself in case you have custom requirements for which no off-the-shelf tool exists 💪💪🏻💪🏼
 
 Till next time 🍻🙏 !

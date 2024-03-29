@@ -768,7 +768,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    5 min read
+    4 min read
   </span>
   
 
@@ -801,11 +801,10 @@
       <p>AI, LLMs and ChatGPT have been all the 🌊 the last 12 months and I
 haven&rsquo;t  written about it here&hellip; until now. Today I want to write
 about an interesting problem that the <a href="https://www.langchain.com/" target="_blank" rel="noopener">langchain</a> can potentially solve.</p>
-<p>I&rsquo;ll assume from here on in you haven&rsquo;t been living under a
-rock 🗿 for the past year and have heard and (hopefully) tried
-ChatGPT yourself 👨‍💻</p>
+<p>I&rsquo;ll assume from here on in you  have heard and (hopefully) tried
+&ldquo;ChatGPT&rdquo; yourself 👨‍💻</p>
 <h2 id="the-problem">The Problem</h2>
-<p>&ldquo;A picture is worth a thousand words.&rdquo; In this case, <em>a picture of words is
+<p>&ldquo;A picture is worth a thousand words.&rdquo; <em>In this case, a picture of words is
 worth saving me a thousand keystrokes:</em></p>
 <p>
 
@@ -828,9 +827,8 @@ worth saving me a thousand keystrokes:</em></p>
     <div class="w-100" ><img src="https://github.com/mattkumar/shinysave/blob/main/problem.png?raw=true" alt="problem" loading="lazy" data-zoomable /></div>
   </div></figure>
 </p>
-<p>One of the reasons ChatGPT can&rsquo;t give
-responses based on real-time information because the underlying model
-was trained with data up to a certain point in time. You&rsquo;re interacting with something fixed.</p>
+<p>One of the reasons ChatGPT can&rsquo;t give responses based on real-time information because the underlying model
+was trained with data up to a certain point in time. Another is it doesn&rsquo;t know how to get that information; it&rsquo;s not hooked up to the internet.</p>
 <h2 id="langchain">Langchain</h2>
 <p>Enter Langchain. Specifically Langchain Agents.</p>
 <p>
@@ -856,27 +854,26 @@ was trained with data up to a certain point in time. You&rsquo;re interacting wi
 </p>
 <p>I&rsquo;m not going to go into an exposition on them (<a href="https://python.langchain.com/docs/modules/agents/quick_start" target="_blank" rel="noopener">read the docs 📗📘📙</a>)
 but I want to show how we can leverage them to do things for us.</p>
-<p>At a high level, I&rsquo;ll create a &ldquo;tool&rdquo; 🔨 to do a task. I&rsquo;ll make this tool available to the LLM via Langchain to use (or not 🤔) based on my prompt 🗯</p>
-<h2 id="my-first-agent">My First Agent</h2>
+<p>At a high level, I&rsquo;ll create a &ldquo;tool&rdquo; 🔨 to do a task. I&rsquo;ll make this tool available to the LLM via Langchain. When the agent is invoked, it will reason whether to use my tool (or not 🤔) based on my prompt 🗯</p>
+<h2 id="my-first-tool">My First Tool</h2>
 <p>Let&rsquo;s call him Smith 👤</p>
-<p>Smith is a generic Python 🐍 function that will:</p>
+<p>Smith is a Python 🐍 function that will:</p>
 <ul>
 <li>Access a public API that suggests activities to someone who is bored 📡</li>
 <li>Return a random response 🔙</li>
 <li>Parse the response to a string 👷</li>
 </ul>
-<pre><code class="language-python"># Define Smith
-def Smith():
+<pre><code class="language-python">def Smith():
     res = requests.get('https://www.boredapi.com/api/activity?participants=1')
     return res.json()['activity'] + ' Key:' + res.json()['key']
 </code></pre>
 <p>Here&rsquo;s an example of a return:</p>
 <pre><code class="language-python">'Bake pastries for you and your neighbor Key:8125168'
 </code></pre>
-<p>We get a single recommendation, followed by a reference 🔑. I&rsquo;ve included the 🔑 for so I can verify where the response came from 🎯: you can visit this <a href="http://www.boredapi.com/api/activity?key=8125168" target="_blank" rel="noopener">link</a> to verify yourself.</p>
-<p>Now, what if when you asked &ldquo;ChatGPT&rdquo; to suggest you an activity it used <code>Smith()</code> to get an answer? We need a way to make <code>Smith()</code> accessible to our LLM. That&rsquo;s precisely where Langchain comes in ⚡</p>
+<p>We get a single activity recommendation, followed by a reference 🔑  to verify the message came from the API. See here: <a href="http://www.boredapi.com/api/activity?key=8125168" target="_blank" rel="noopener">link</a></p>
+<p>So our tool <code>Smith()</code> does what we want. The task at hand now is to make <code>Smith()</code> available to the LLM. And that&rsquo;s where Langchain comes in.</p>
 <h2 id="llms-and-smith">LLMs and Smith</h2>
-<p>In this section I&rsquo;ll show very briefly how to include <code>Smith()</code> inside of a Langchain agent call.</p>
+<p>In this section I&rsquo;ll show very briefly how to include <code>Smith()</code> inside of a Langchain agent call:</p>
 <pre><code class="language-python">from langchain_openai import ChatOpenAI
 from langchain.tools import BaseTool
 from langchain.agents import initialize_agent
@@ -897,30 +894,32 @@ agent = initialize_agent(llm = llm,
                          agent = &quot;zero-shot-react-description&quot;, 
                          verbose = True)
 </code></pre>
-<p>That&rsquo;s about it.  Lets try running it with the following prompt:</p>
+<p>That&rsquo;s about it.  Lets try running it with the following prompt and view the output:</p>
 <pre><code class="language-python">agent.run(&quot;I am bored, suggest me a few activities. Provide me a key for each activity so I can reference it later.&quot;)
 </code></pre>
-<p>👇 👇 👇  Below is a log of the agent reasoning and final answer</p>
-<pre><code>&gt; Entering new AgentExecutor chain...
-I should think about a variety of activities that can help alleviate boredom.
-Action: suggestions for boredom
-Action Input: 
-Observation: Do something nice for someone you care about Key:8321894
-Thought:I should also consider activities that I enjoy doing alone.
-Action: suggestions for boredom
-Action Input: 
-Observation: Start a daily journal Key:8779876
-Thought:I should also consider physical activities to help pass the time.
-Action: suggestions for boredom
-Action Input: 
-Observation: Study a foreign language Key:9765530
-Thought:I now know the final answer
-Final Answer: Do something nice for someone you care about (Key: 8321894), start a daily journal (Key: 8779876), and study a foreign language (Key: 9765530).
+<p>
 
-&gt; Finished chain.
-</code></pre>
-<p>💣💥 Pretty neat, right? This log shows the reasoning of the agent through <code>Action</code>, <code>Observation</code>, <code>Thoughts</code> sequences until it arrives at a final answer. The point here is that it used <code>Smith()</code> to reply because it was determined the tool was the right fit 💯</p>
-<h2 id="my-second-agent">My Second Agent</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="https://github.com/mattkumar/shinysave/blob/main/eg1.png?raw=true" alt="output1" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>💥 Pretty neat, right? This output log shows the reasoning of the agent through <code>Action</code>, <code>Observation</code>, <code>Thoughts</code> steps until it arrives at a final answer. The point here is that it used <code>Smith()</code> to reply because it was determined the tool was the right fit 💯</p>
+<h2 id="my-second-tool">My Second Tool</h2>
 <p>Let&rsquo;s call him Johnson 👤</p>
 <p>Johnson is also a Python 🐍 function. He&rsquo;s made with BeautifulSoup and his job is to scrape <code>google.ca</code> for the current weather for a location of my choosing.</p>
 <p>Here he is:</p>
@@ -944,31 +943,34 @@ def Johnson(query: str) -&gt; str:
 </code></pre>
 <pre><code class="language-python">-2°C Snow
 </code></pre>
-<p>Cool, so what? So, our goal is similar to above where now we want to expose <code>Johnson()</code> to our LLM and answer the original problem statement 🤩. But why stop there?</p>
+<p>Cool, so learning what we did in the previous example, we can probably use <code>Johnson()</code> to get an answer to the question posed in the beginning of the article.</p>
+<p>But why stop there? 🤔</p>
 <h2 id="agent-mania">Agent Mania</h2>
-<p>Let&rsquo;s see how we can utilize <code>Smith()</code> and <code>Johnson()</code> together 👥 to answer a more meaningful question :</p>
+<p>Let&rsquo;s see how we can utilize <code>Smith()</code> and <code>Johnson()</code> together 👥 to answer a more interesting question. Like before, we start with the prompt and view the output.</p>
 <pre><code class="language-python">agent.run(&quot;Suggest me a few activities to do today, I am bored. If the activities are outdoors, comment on the weather. I am located in Toronto. Comment on whether the weather will be an issue for each activity.&quot;)
 </code></pre>
-<pre><code>&gt; Entering new AgentExecutor chain...
-I should suggest some activities and check the weather for Toronto to see if they are feasible.
-Action: get the current weather
-Action Input: Toronto
-Observation: -2°C Snow
-Thought:I should suggest some indoor activities to avoid the cold weather.
-Action: suggestions for boredom
-Action Input: indoor activities
-Observation: Repaint a room in your house Key:4877086
-Thought:I should also suggest some outdoor activities that are feasible in the current weather.
-Action: suggestions for boredom
-Action Input: outdoor activities
-Observation: Improve your touch typing Key:2526437
-Thought:I now know the final answer
+<p>
 
-Final Answer: Some indoor activities you can do today are repainting a room in your house, and improving your touch typing skills. If you want to go outdoors, the current weather in Toronto is -2°C with snow, so it may not be ideal for outdoor activities.
 
-&gt; Finished chain.
-</code></pre>
-<p>🤯 😱 🤯 Just take a few seconds and re-read that response log and digest what&rsquo;s happening 😱 🤯 😱</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="https://github.com/mattkumar/shinysave/blob/main/eg2.png?raw=true" alt="output-2" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>🤯 😱 🤯 Just take a few seconds and re-read that response log and appreciate what&rsquo;s happening here 😱 🤯 😱</p>
 <p>🔥 Absolutely.  🔥 Positively.  🔥 Wild.</p>
 <h2 id="wrap-up">Wrap Up</h2>
 <p>I hope this short demo of custom Langchain agents will be useful in your own work, the skies the limit 🚀</p>
@@ -994,7 +996,7 @@ Final Answer: Some indoor activities you can do today are repainting a room in y
   </div></figure>
 </p>
 <p>Langchain already has a set of predefined &ldquo;tools&rdquo; for agentic modeling you can use including weather  (<a href="https://python.langchain.com/docs/integrations/tools/openweathermap" target="_blank" rel="noopener">OpenWeather</a>) and internet search (<a href="https://python.langchain.com/docs/integrations/providers/serpapi" target="_blank" rel="noopener">SerpAPI</a>).</p>
-<p>The point here was to show how to do this yourself in case you have custom requirements in your work for which no off-the-shelf tool exists 💪💪🏻💪🏼</p>
+<p>The point here was to show how to do this yourself in case you have custom requirements for which no off-the-shelf tool exists 💪💪🏻💪🏼</p>
 <p>Till next time 🍻🙏 !</p>
 
     </div>
