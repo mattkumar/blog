@@ -35,7 +35,7 @@ worth saving me a thousand keystrokes:*
 
 
 One of the reasons ChatGPT can't give responses based on real-time information because the underlying model
-was trained with data up to a certain point in time. Another is it doesn't know how to get that information; it's not hooked up to the internet.
+was trained with data up to a certain point in time.
 
 ## Langchain
 
