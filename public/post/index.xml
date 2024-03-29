@@ -5,12 +5,218 @@
     <link>https://academic-demo.netlify.app/post/</link>
       <atom:link href="https://academic-demo.netlify.app/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 25 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Posts</title>
       <link>https://academic-demo.netlify.app/post/</link>
     </image>
+    
+    <item>
+      <title>custom langchain agents</title>
+      <link>https://academic-demo.netlify.app/post/2024-03-28-langagents/purrr/</link>
+      <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/post/2024-03-28-langagents/purrr/</guid>
+      <description>&lt;p&gt;AI, LLMs and ChatGPT have been all the 🌊 the last 12 months and I
+haven&amp;rsquo;t  written about it here&amp;hellip; until now. Today I want to write
+about an interesting problem that the &lt;a href=&#34;https://www.langchain.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;langchain&lt;/a&gt; can potentially solve.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll assume from here on in you haven&amp;rsquo;t been living under a
+rock 🗿 for the past year and have heard and (hopefully) tried
+ChatGPT yourself 👨‍💻&lt;/p&gt;
+&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;&amp;ldquo;A picture is worth a thousand words.&amp;rdquo; In this case, &lt;em&gt;a picture of words is
+worth saving me a thousand keystrokes:&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://github.com/mattkumar/shinysave/blob/main/problem.png?raw=true&#34; alt=&#34;problem&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;One of the reasons ChatGPT can&amp;rsquo;t give
+responses based on real-time information because the underlying model
+was trained with data up to a certain point in time. You&amp;rsquo;re interacting with something fixed.&lt;/p&gt;
+&lt;h2 id=&#34;langchain&#34;&gt;Langchain&lt;/h2&gt;
+&lt;p&gt;Enter Langchain. Specifically Langchain Agents.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://qph.cf2.quoracdn.net/main-qimg-9935661f2ef938ba6a60d4e0c4447a09-lq&#34; alt=&#34;matrix-agents&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m not going to go into an exposition on them (&lt;a href=&#34;https://python.langchain.com/docs/modules/agents/quick_start&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;read the docs 📗📘📙&lt;/a&gt;)
+but I want to show how we can leverage them to do things for us.&lt;/p&gt;
+&lt;p&gt;At a high level, I&amp;rsquo;ll create a &amp;ldquo;tool&amp;rdquo; 🔨 to do a task. I&amp;rsquo;ll make this tool available to the LLM via Langchain to use (or not 🤔) based on my prompt 🗯&lt;/p&gt;
+&lt;h2 id=&#34;my-first-agent&#34;&gt;My First Agent&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s call him Smith 👤&lt;/p&gt;
+&lt;p&gt;Smith is a generic Python 🐍 function that will:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Access a public API that suggests activities to someone who is bored 📡&lt;/li&gt;
+&lt;li&gt;Return a random response 🔙&lt;/li&gt;
+&lt;li&gt;Parse the response to a string 👷&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Define Smith
+def Smith():
+    res = requests.get(&#39;https://www.boredapi.com/api/activity?participants=1&#39;)
+    return res.json()[&#39;activity&#39;] + &#39; Key:&#39; + res.json()[&#39;key&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here&amp;rsquo;s an example of a return:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&#39;Bake pastries for you and your neighbor Key:8125168&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We get a single recommendation, followed by a reference 🔑. I&amp;rsquo;ve included the 🔑 for so I can verify where the response came from 🎯: you can visit this &lt;a href=&#34;http://www.boredapi.com/api/activity?key=8125168&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link&lt;/a&gt; to verify yourself.&lt;/p&gt;
+&lt;p&gt;Now, what if when you asked &amp;ldquo;ChatGPT&amp;rdquo; to suggest you an activity it used &lt;code&gt;Smith()&lt;/code&gt; to get an answer? We need a way to make &lt;code&gt;Smith()&lt;/code&gt; accessible to our LLM. That&amp;rsquo;s precisely where Langchain comes in ⚡&lt;/p&gt;
+&lt;h2 id=&#34;llms-and-smith&#34;&gt;LLMs and Smith&lt;/h2&gt;
+&lt;p&gt;In this section I&amp;rsquo;ll show very briefly how to include &lt;code&gt;Smith()&lt;/code&gt; inside of a Langchain agent call.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from langchain_openai import ChatOpenAI
+from langchain.tools import BaseTool
+from langchain.agents import initialize_agent
+import requests
+
+llm = ChatOpenAI()
+
+class Smith(BaseTool):
+    name = &amp;quot;suggestions for boredom&amp;quot;
+    description = &amp;quot;useful for when you need to give suggestions for boredom.&amp;quot;
+
+    def _run(self, query: str) -&amp;gt; str:
+        res = requests.get(&#39;https://www.boredapi.com/api/activity?participants=1&#39;)
+        return res.json()[&#39;activity&#39;] + &#39; Key:&#39; + res.json()[&#39;key&#39;]
+
+agent = initialize_agent(llm = llm, 
+                         tools = [Smith()], 
+                         agent = &amp;quot;zero-shot-react-description&amp;quot;, 
+                         verbose = True)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That&amp;rsquo;s about it.  Lets try running it with the following prompt:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;agent.run(&amp;quot;I am bored, suggest me a few activities. Provide me a key for each activity so I can reference it later.&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;👇 👇 👇  Below is a log of the agent reasoning and final answer&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; Entering new AgentExecutor chain...
+I should think about a variety of activities that can help alleviate boredom.
+Action: suggestions for boredom
+Action Input: 
+Observation: Do something nice for someone you care about Key:8321894
+Thought:I should also consider activities that I enjoy doing alone.
+Action: suggestions for boredom
+Action Input: 
+Observation: Start a daily journal Key:8779876
+Thought:I should also consider physical activities to help pass the time.
+Action: suggestions for boredom
+Action Input: 
+Observation: Study a foreign language Key:9765530
+Thought:I now know the final answer
+Final Answer: Do something nice for someone you care about (Key: 8321894), start a daily journal (Key: 8779876), and study a foreign language (Key: 9765530).
+
+&amp;gt; Finished chain.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;💣💥 Pretty neat, right? This log shows the reasoning of the agent through &lt;code&gt;Action&lt;/code&gt;, &lt;code&gt;Observation&lt;/code&gt;, &lt;code&gt;Thoughts&lt;/code&gt; sequences until it arrives at a final answer. The point here is that it used &lt;code&gt;Smith()&lt;/code&gt; to reply because it was determined the tool was the right fit 💯&lt;/p&gt;
+&lt;h2 id=&#34;my-second-agent&#34;&gt;My Second Agent&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s call him Johnson 👤&lt;/p&gt;
+&lt;p&gt;Johnson is also a Python 🐍 function. He&amp;rsquo;s made with BeautifulSoup and his job is to scrape &lt;code&gt;google.ca&lt;/code&gt; for the current weather for a location of my choosing.&lt;/p&gt;
+&lt;p&gt;Here he is:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from bs4 import BeautifulSoup
+import requests
+
+def Johnson(query: str) -&amp;gt; str:
+    url = f&#39;https://google.ca/search?q=weather+{query}&#39;
+    headers = {&#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36&#39;}
+    response = requests.get(url, headers=headers)
+    soup = BeautifulSoup(response.text, &#39;html.parser&#39;)
+    
+    temp_elem = soup.find(&#39;span&#39;, id=&#39;wob_tm&#39;)
+    unit_elem = soup.find(&#39;div&#39;, class_=&#39;vk_bk wob-unit&#39;)
+    desc_elem = soup.find(&#39;div&#39;, class_=&#39;VQF4g&#39;)
+    
+    return print( temp + unit + &#39; &#39; + desc)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let&amp;rsquo;s see what he returns:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;Johnson(query = &amp;quot;Toronto&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;-2°C Snow
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Cool, so what? So, our goal is similar to above where now we want to expose &lt;code&gt;Johnson()&lt;/code&gt; to our LLM and answer the original problem statement 🤩. But why stop there?&lt;/p&gt;
+&lt;h2 id=&#34;agent-mania&#34;&gt;Agent Mania&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s see how we can utilize &lt;code&gt;Smith()&lt;/code&gt; and &lt;code&gt;Johnson()&lt;/code&gt; together 👥 to answer a more meaningful question :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;agent.run(&amp;quot;Suggest me a few activities to do today, I am bored. If the activities are outdoors, comment on the weather. I am located in Toronto. Comment on whether the weather will be an issue for each activity.&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; Entering new AgentExecutor chain...
+I should suggest some activities and check the weather for Toronto to see if they are feasible.
+Action: get the current weather
+Action Input: Toronto
+Observation: -2°C Snow
+Thought:I should suggest some indoor activities to avoid the cold weather.
+Action: suggestions for boredom
+Action Input: indoor activities
+Observation: Repaint a room in your house Key:4877086
+Thought:I should also suggest some outdoor activities that are feasible in the current weather.
+Action: suggestions for boredom
+Action Input: outdoor activities
+Observation: Improve your touch typing Key:2526437
+Thought:I now know the final answer
+
+Final Answer: Some indoor activities you can do today are repainting a room in your house, and improving your touch typing skills. If you want to go outdoors, the current weather in Toronto is -2°C with snow, so it may not be ideal for outdoor activities.
+
+&amp;gt; Finished chain.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;🤯 😱 🤯 Just take a few seconds and re-read that response log and digest what&amp;rsquo;s happening 😱 🤯 😱&lt;/p&gt;
+&lt;p&gt;🔥 Absolutely.  🔥 Positively.  🔥 Wild.&lt;/p&gt;
+&lt;h2 id=&#34;wrap-up&#34;&gt;Wrap Up&lt;/h2&gt;
+&lt;p&gt;I hope this short demo of custom Langchain agents will be useful in your own work, the skies the limit 🚀&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://github.com/mattkumar/shinysave/blob/main/smithflex.jpg?raw=true&#34; alt=&#34;power&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Langchain already has a set of predefined &amp;ldquo;tools&amp;rdquo; for agentic modeling you can use including weather  (&lt;a href=&#34;https://python.langchain.com/docs/integrations/tools/openweathermap&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OpenWeather&lt;/a&gt;) and internet search (&lt;a href=&#34;https://python.langchain.com/docs/integrations/providers/serpapi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SerpAPI&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;The point here was to show how to do this yourself in case you have custom requirements in your work for which no off-the-shelf tool exists 💪💪🏻💪🏼&lt;/p&gt;
+&lt;p&gt;Till next time 🍻🙏 !&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>saving sessions (&#43; shinylive)</title>

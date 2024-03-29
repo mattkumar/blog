@@ -1,0 +1,1408 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.4.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Matthew Kumar" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="AI, LLMs and ChatGPT have been all the 🌊 the last 12 months and I haven&rsquo;t written about it here&hellip; until now. Today I want to write about an interesting problem that the langchain can potentially solve." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://academic-demo.netlify.app/post/2024-03-28-langagents/purrr/" />
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.f1ecf783c14edc00c9320c205831ad8e.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.css" integrity="" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.512574799414e7d36471486881070b0f.css" />
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="https://academic-demo.netlify.app/post/2024-03-28-langagents/purrr/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary" />
+  
+  <meta property="og:site_name" content="Matthew Kumar" />
+  <meta property="og:url" content="https://academic-demo.netlify.app/post/2024-03-28-langagents/purrr/" />
+  <meta property="og:title" content="custom langchain agents | Matthew Kumar" />
+  <meta property="og:description" content="AI, LLMs and ChatGPT have been all the 🌊 the last 12 months and I haven&rsquo;t written about it here&hellip; until now. Today I want to write about an interesting problem that the langchain can potentially solve." /><meta property="og:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2024-03-28T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2024-03-28T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://academic-demo.netlify.app/post/2024-03-28-langagents/purrr/"
+  },
+  "headline": "custom langchain agents",
+  
+  "datePublished": "2024-03-28T00:00:00Z",
+  "dateModified": "2024-03-28T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Matthew Kumar"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Matthew Kumar",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "AI, LLMs and ChatGPT have been all the 🌊 the last 12 months and I haven\u0026rsquo;t written about it here\u0026hellip; until now. Today I want to write about an interesting problem that the langchain can potentially solve."
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>custom langchain agents | Matthew Kumar</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="e2f380f003c2e157443b3beecf13f064" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.13d3c1ccc66961c64e937f4e854fdd1e.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header--fixed">
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Matthew Kumar</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Matthew Kumar</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#about"><span>About</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#projects"><span>Projects</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#posts"><span>Blog</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#talks"><span>Talks</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#publications"><span>Publications</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+            
+            <li class="nav-item d-none d-lg-inline-flex">
+              <a class="nav-link" href="https://twitter.com/mattkumar_" data-toggle="tooltip" data-placement="bottom" title="Follow me on Twitter" target="_blank" rel="noopener" aria-label="Follow me on Twitter">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>custom langchain agents</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Mar 28, 2024
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>AI, LLMs and ChatGPT have been all the 🌊 the last 12 months and I
+haven&rsquo;t  written about it here&hellip; until now. Today I want to write
+about an interesting problem that the <a href="https://www.langchain.com/" target="_blank" rel="noopener">langchain</a> can potentially solve.</p>
+<p>I&rsquo;ll assume from here on in you haven&rsquo;t been living under a
+rock 🗿 for the past year and have heard and (hopefully) tried
+ChatGPT yourself 👨‍💻</p>
+<h2 id="the-problem">The Problem</h2>
+<p>&ldquo;A picture is worth a thousand words.&rdquo; In this case, <em>a picture of words is
+worth saving me a thousand keystrokes:</em></p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="https://github.com/mattkumar/shinysave/blob/main/problem.png?raw=true" alt="problem" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>One of the reasons ChatGPT can&rsquo;t give
+responses based on real-time information because the underlying model
+was trained with data up to a certain point in time. You&rsquo;re interacting with something fixed.</p>
+<h2 id="langchain">Langchain</h2>
+<p>Enter Langchain. Specifically Langchain Agents.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="https://qph.cf2.quoracdn.net/main-qimg-9935661f2ef938ba6a60d4e0c4447a09-lq" alt="matrix-agents" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>I&rsquo;m not going to go into an exposition on them (<a href="https://python.langchain.com/docs/modules/agents/quick_start" target="_blank" rel="noopener">read the docs 📗📘📙</a>)
+but I want to show how we can leverage them to do things for us.</p>
+<p>At a high level, I&rsquo;ll create a &ldquo;tool&rdquo; 🔨 to do a task. I&rsquo;ll make this tool available to the LLM via Langchain to use (or not 🤔) based on my prompt 🗯</p>
+<h2 id="my-first-agent">My First Agent</h2>
+<p>Let&rsquo;s call him Smith 👤</p>
+<p>Smith is a generic Python 🐍 function that will:</p>
+<ul>
+<li>Access a public API that suggests activities to someone who is bored 📡</li>
+<li>Return a random response 🔙</li>
+<li>Parse the response to a string 👷</li>
+</ul>
+<pre><code class="language-python"># Define Smith
+def Smith():
+    res = requests.get('https://www.boredapi.com/api/activity?participants=1')
+    return res.json()['activity'] + ' Key:' + res.json()['key']
+</code></pre>
+<p>Here&rsquo;s an example of a return:</p>
+<pre><code class="language-python">'Bake pastries for you and your neighbor Key:8125168'
+</code></pre>
+<p>We get a single recommendation, followed by a reference 🔑. I&rsquo;ve included the 🔑 for so I can verify where the response came from 🎯: you can visit this <a href="http://www.boredapi.com/api/activity?key=8125168" target="_blank" rel="noopener">link</a> to verify yourself.</p>
+<p>Now, what if when you asked &ldquo;ChatGPT&rdquo; to suggest you an activity it used <code>Smith()</code> to get an answer? We need a way to make <code>Smith()</code> accessible to our LLM. That&rsquo;s precisely where Langchain comes in ⚡</p>
+<h2 id="llms-and-smith">LLMs and Smith</h2>
+<p>In this section I&rsquo;ll show very briefly how to include <code>Smith()</code> inside of a Langchain agent call.</p>
+<pre><code class="language-python">from langchain_openai import ChatOpenAI
+from langchain.tools import BaseTool
+from langchain.agents import initialize_agent
+import requests
+
+llm = ChatOpenAI()
+
+class Smith(BaseTool):
+    name = &quot;suggestions for boredom&quot;
+    description = &quot;useful for when you need to give suggestions for boredom.&quot;
+
+    def _run(self, query: str) -&gt; str:
+        res = requests.get('https://www.boredapi.com/api/activity?participants=1')
+        return res.json()['activity'] + ' Key:' + res.json()['key']
+
+agent = initialize_agent(llm = llm, 
+                         tools = [Smith()], 
+                         agent = &quot;zero-shot-react-description&quot;, 
+                         verbose = True)
+</code></pre>
+<p>That&rsquo;s about it.  Lets try running it with the following prompt:</p>
+<pre><code class="language-python">agent.run(&quot;I am bored, suggest me a few activities. Provide me a key for each activity so I can reference it later.&quot;)
+</code></pre>
+<p>👇 👇 👇  Below is a log of the agent reasoning and final answer</p>
+<pre><code>&gt; Entering new AgentExecutor chain...
+I should think about a variety of activities that can help alleviate boredom.
+Action: suggestions for boredom
+Action Input: 
+Observation: Do something nice for someone you care about Key:8321894
+Thought:I should also consider activities that I enjoy doing alone.
+Action: suggestions for boredom
+Action Input: 
+Observation: Start a daily journal Key:8779876
+Thought:I should also consider physical activities to help pass the time.
+Action: suggestions for boredom
+Action Input: 
+Observation: Study a foreign language Key:9765530
+Thought:I now know the final answer
+Final Answer: Do something nice for someone you care about (Key: 8321894), start a daily journal (Key: 8779876), and study a foreign language (Key: 9765530).
+
+&gt; Finished chain.
+</code></pre>
+<p>💣💥 Pretty neat, right? This log shows the reasoning of the agent through <code>Action</code>, <code>Observation</code>, <code>Thoughts</code> sequences until it arrives at a final answer. The point here is that it used <code>Smith()</code> to reply because it was determined the tool was the right fit 💯</p>
+<h2 id="my-second-agent">My Second Agent</h2>
+<p>Let&rsquo;s call him Johnson 👤</p>
+<p>Johnson is also a Python 🐍 function. He&rsquo;s made with BeautifulSoup and his job is to scrape <code>google.ca</code> for the current weather for a location of my choosing.</p>
+<p>Here he is:</p>
+<pre><code class="language-python">from bs4 import BeautifulSoup
+import requests
+
+def Johnson(query: str) -&gt; str:
+    url = f'https://google.ca/search?q=weather+{query}'
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'}
+    response = requests.get(url, headers=headers)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    
+    temp_elem = soup.find('span', id='wob_tm')
+    unit_elem = soup.find('div', class_='vk_bk wob-unit')
+    desc_elem = soup.find('div', class_='VQF4g')
+    
+    return print( temp + unit + ' ' + desc)
+</code></pre>
+<p>Let&rsquo;s see what he returns:</p>
+<pre><code class="language-python">Johnson(query = &quot;Toronto&quot;);
+</code></pre>
+<pre><code class="language-python">-2°C Snow
+</code></pre>
+<p>Cool, so what? So, our goal is similar to above where now we want to expose <code>Johnson()</code> to our LLM and answer the original problem statement 🤩. But why stop there?</p>
+<h2 id="agent-mania">Agent Mania</h2>
+<p>Let&rsquo;s see how we can utilize <code>Smith()</code> and <code>Johnson()</code> together 👥 to answer a more meaningful question :</p>
+<pre><code class="language-python">agent.run(&quot;Suggest me a few activities to do today, I am bored. If the activities are outdoors, comment on the weather. I am located in Toronto. Comment on whether the weather will be an issue for each activity.&quot;)
+</code></pre>
+<pre><code>&gt; Entering new AgentExecutor chain...
+I should suggest some activities and check the weather for Toronto to see if they are feasible.
+Action: get the current weather
+Action Input: Toronto
+Observation: -2°C Snow
+Thought:I should suggest some indoor activities to avoid the cold weather.
+Action: suggestions for boredom
+Action Input: indoor activities
+Observation: Repaint a room in your house Key:4877086
+Thought:I should also suggest some outdoor activities that are feasible in the current weather.
+Action: suggestions for boredom
+Action Input: outdoor activities
+Observation: Improve your touch typing Key:2526437
+Thought:I now know the final answer
+
+Final Answer: Some indoor activities you can do today are repainting a room in your house, and improving your touch typing skills. If you want to go outdoors, the current weather in Toronto is -2°C with snow, so it may not be ideal for outdoor activities.
+
+&gt; Finished chain.
+</code></pre>
+<p>🤯 😱 🤯 Just take a few seconds and re-read that response log and digest what&rsquo;s happening 😱 🤯 😱</p>
+<p>🔥 Absolutely.  🔥 Positively.  🔥 Wild.</p>
+<h2 id="wrap-up">Wrap Up</h2>
+<p>I hope this short demo of custom Langchain agents will be useful in your own work, the skies the limit 🚀</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="https://github.com/mattkumar/shinysave/blob/main/smithflex.jpg?raw=true" alt="power" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>Langchain already has a set of predefined &ldquo;tools&rdquo; for agentic modeling you can use including weather  (<a href="https://python.langchain.com/docs/integrations/tools/openweathermap" target="_blank" rel="noopener">OpenWeather</a>) and internet search (<a href="https://python.langchain.com/docs/integrations/providers/serpapi" target="_blank" rel="noopener">SerpAPI</a>).</p>
+<p>The point here was to show how to do this yourself in case you have custom requirements in your work for which no off-the-shelf tool exists 💪💪🏻💪🏼</p>
+<p>Till next time 🍻🙏 !</p>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://academic-demo.netlify.app/post/2024-03-28-langagents/purrr/&amp;text=custom%20langchain%20agents" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://academic-demo.netlify.app/post/2024-03-28-langagents/purrr/&amp;t=custom%20langchain%20agents" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=custom%20langchain%20agents&amp;body=https://academic-demo.netlify.app/post/2024-03-28-langagents/purrr/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://academic-demo.netlify.app/post/2024-03-28-langagents/purrr/&amp;title=custom%20langchain%20agents" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=custom%20langchain%20agents%20https://academic-demo.netlify.app/post/2024-03-28-langagents/purrr/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://academic-demo.netlify.app/post/2024-03-28-langagents/purrr/&amp;title=custom%20langchain%20agents" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://academic-demo.netlify.app/"><img class="avatar mr-3 avatar-circle" src="/author/matthew-kumar/avatar_hu4f54313eb19ae7d3d941aca70eb36a3f_29108_270x270_fill_q75_lanczos_center.jpg" alt="Matthew Kumar"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://academic-demo.netlify.app/">Matthew Kumar</a></h5>
+      <h6 class="card-subtitle">Associate Director, Lead Computational Scientist</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto::mattkumar@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/mattkumar_" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/mattkumar" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://ca.linkedin.com/in/matthew-kumar-24910629" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    <script src="/js/vendor-bundle.min.3d946de2e8784a477845261d87025092.js"></script>
+
+    
+    
+    
+      
+      
+        <script src="https://cdn.jsdelivr.net/gh/desandro/imagesloaded@v4.1.4/imagesloaded.pkgd.min.js" integrity="sha512-S5PZ9GxJZO16tT9r3WJp/Safn31eu8uWrzglMahDT4dsmgqWonRY9grk3j+3tfuPr9WJNsfooOR7Gi7HL5W2jw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/metafizzy/isotope@v3.0.6/dist/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/python.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+      <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.js" integrity="" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+
+    
+    
+    
+    <script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+    
+    
+      <script src="/js/wowchemy-headroom.208bf5db800f4a4e5a38cf3b67a99a51.js" type="module"></script>
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.63639926e24ecfb8040ea052c1077969.js"></script>
+
+    
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+
+</body>
+</html>
