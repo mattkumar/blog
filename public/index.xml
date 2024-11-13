@@ -5,12 +5,72 @@
     <link>https://academic-demo.netlify.app/</link>
       <atom:link href="https://academic-demo.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <description>Matthew Kumar</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 11 Nov 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Matthew Kumar</title>
       <link>https://academic-demo.netlify.app/</link>
     </image>
+    
+    <item>
+      <title>Athena</title>
+      <link>https://academic-demo.netlify.app/project/athena/</link>
+      <pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/athena/</guid>
+      <description>&lt;h2&gt;The App&lt;/h2&gt;
+&lt;hr&gt;
+Athena is a simple web app with a single purpose: allow users to easily obtain AI-assisted descriptions of their images. A lot of thought went into the user interface and experience, though not necessarily effort 😜. More on that later.
+&lt;p&gt;At it&amp;rsquo;s core, Athena allows:&lt;/p&gt;
+&lt;p&gt;👉 Easy upload of your images - drag and drop into the file drop area
+👉 You can also paste  files or drag  most images from the web too (e.g. google images)
+🌿 Each time a file is uploaded, a (maximizable) dialogue box is created on the right as a card. Each card contains the image, prompt, trigger button and a area where the response is generated.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s really that simple.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_13f2268fc3bc719e0ce09c4f0a1eddda.webp 400w,
+               /project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_486b38decf015e27ff5d8f274a9cfc4c.webp 760w,
+               /project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://academic-demo.netlify.app/project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_13f2268fc3bc719e0ce09c4f0a1eddda.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;414&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>NarromaticAI</title>
+      <link>https://academic-demo.netlify.app/talk/narromaticai/</link>
+      <pubDate>Tue, 17 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/talk/narromaticai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Insight Generation</title>
+      <link>https://academic-demo.netlify.app/talk/data-insight-generation/</link>
+      <pubDate>Mon, 17 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/talk/data-insight-generation/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>custom langchain agents</title>
