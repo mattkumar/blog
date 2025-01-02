@@ -19,12 +19,13 @@
       <guid>https://academic-demo.netlify.app/project/athena/</guid>
       <description>&lt;h2&gt;The App&lt;/h2&gt;
 &lt;hr&gt;
-Athena is a simple web app with a single purpose: allow users to easily obtain AI-assisted descriptions of their images. A lot of thought went into the user interface and experience, though not necessarily effort 😜. More on that later.
+Athena is a simple web app with a single purpose: allow users to easily obtain AI-assisted descriptions of their images. A lot of thought went into the user interface and experience, though not necessarily effort 😜. More on that later.  
+&lt;br&gt;
+&lt;br&gt;
 &lt;p&gt;At it&amp;rsquo;s core, Athena allows:&lt;/p&gt;
-&lt;p&gt;👉 Easy upload of your images - drag and drop into the file drop area
-👉 You can also paste  files or drag  most images from the web too (e.g. google images)
-🌿 Each time a file is uploaded, a (maximizable) dialogue box is created on the right as a card. Each card contains the image, prompt, trigger button and a area where the response is generated.&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s really that simple.&lt;/p&gt;
+&lt;p&gt;👉 Easy upload of your images - drag and drop into the file drop area&lt;/p&gt;
+&lt;p&gt;👉 You can also paste  files or drag  most images from the web too (e.g. google images)&lt;/p&gt;
+&lt;p&gt;🌿 Each time a file is uploaded, a card is created. Each card contains the image thumbnail, editable prompt, trigger button and a response area.&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -44,15 +45,61 @@ Athena is a simple web app with a single purpose: allow users to easily obtain A
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_13f2268fc3bc719e0ce09c4f0a1eddda.webp 400w,
+               /project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_f0e44d6b8d595a4e44c1a16b79848fc7.webp 400w,
                /project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_486b38decf015e27ff5d8f274a9cfc4c.webp 760w,
                /project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://academic-demo.netlify.app/project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_13f2268fc3bc719e0ce09c4f0a1eddda.webp&#34;
+               src=&#34;https://academic-demo.netlify.app/project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_f0e44d6b8d595a4e44c1a16b79848fc7.webp&#34;
                width=&#34;760&#34;
                height=&#34;414&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s really that simple. Give it a try!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ The app deployed on ghp is inert; you&amp;rsquo;ll need to clone the repo and adjust &lt;em&gt;utils.js&lt;/em&gt; to point to your LLM api end point along with your api key 🔐&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;h2&gt;Why make this?&lt;/h2&gt;
+&lt;hr&gt;
+Well, UI has always been a passion of mine, but UX too. In our internal platforms for LLMs, it can be a bit cumbersome to perform image interpretation. I wanted a streamlined way to do a task I perform frequently at the drop of a hat 🏃🏻‍♂💨️   
+&lt;br&gt;
+&lt;br&gt;
+&lt;p&gt;I also chose to do this as a static webpage because I thought a shiny app would be overkill for this 😅.&lt;/p&gt;
+&lt;h2&gt;Assurance&lt;/h2&gt;
+&lt;hr&gt;
+I didn&#39;t do the majority of the programming for Athena. GPT-4O and GPT-4O-mini &lt;i&gt;did&lt;/i&gt;. As a secondary objective, I was curious whether:  
+&lt;br&gt;
+&lt;br&gt;
+❓ This app  could be generated completely by AI itself?    
+&lt;br&gt;
+❓ Will I have a job in a few years 😂   ?
+&lt;br&gt;
+&lt;br&gt;
+&lt;p&gt;I&amp;rsquo;m happy to share that generative AI, at the least the models I employed, were not enough to generate this completely. Even with several attempts and strategies of prompting 📝, it still required quite a bit of human-in-the-loop to get it right 👫. Here&amp;rsquo;s a few points on my experience:
+&lt;br&gt;
+&lt;br&gt;
+✔️ AI was helpful in getting started from scratch. Everything from scaffolding files in a structured way that made working on the app easier
+&lt;br&gt;
+&lt;br&gt;
+✔️ Basic CSS, HTML tasks were do-able with ease
+&lt;br&gt;
+&lt;br&gt;
+⚠️ Advanced CSS and JS required frequent iteration and testing 🔄. This was frustrating and time ⌛ consuming.
+&lt;br&gt;
+&lt;br&gt;
+✔️ Common tasks like using fetch API to access openai&amp;rsquo;s end point are well understood
+&lt;br&gt;
+&lt;br&gt;
+⚠️ Specifying named JS libraries were amenable, but only after I specifically prompted it&amp;rsquo;s use. It was really hard to get the file-area-upload from first principles. However, I knew about &lt;a href=&#34;https://www.dropzone.dev/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;dropzone.js&lt;/a&gt;, so I asked it to use it instead. It didn&amp;rsquo;t work 100% out of the box, so I still had to read the documentation and alter the generated code.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;In the end, I probably could have coded this myself more quickly than ask AI to generate it. I realize there&amp;rsquo;s a lot of things that you need to be deeply aware of before you can ask AI to generate you something as complex as a web app. For example, JS libraries, CSS frameworks (Bootstrap 5 class names), Names (HTML elements, CSS selectors, function names), and even coding approaches for efficiency. 
+&lt;br&gt;
+&lt;br&gt;
+It&amp;rsquo;s not push start. At least not with these models. I wonder how Strawberry would do 🤔&lt;/p&gt;
+&lt;p&gt;In sum, my job is at least safe for the next bit 🙆&lt;/p&gt;
+&lt;p&gt;Till next time!&lt;/p&gt;
+&lt;p&gt;🍻🌴&lt;/p&gt;
 </description>
     </item>
     

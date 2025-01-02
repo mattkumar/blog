@@ -5,12 +5,87 @@
     <link>https://academic-demo.netlify.app/post/</link>
       <atom:link href="https://academic-demo.netlify.app/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 02 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Posts</title>
       <link>https://academic-demo.netlify.app/post/</link>
     </image>
+    
+    <item>
+      <title>LLM monitoring</title>
+      <link>https://academic-demo.netlify.app/post/2025-01-02-llmlogging/llmlogging/</link>
+      <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/post/2025-01-02-llmlogging/llmlogging/</guid>
+      <description>&lt;h1 id=&#34;forward&#34;&gt;Forward&lt;/h1&gt;
+&lt;p&gt;To kick off the new year, I wanted to share a development in an AI-enabled R Shiny application I’ve been working on. 🍾 ✨&lt;/p&gt;
+&lt;p&gt;If you’re curious about the application, you can check out the video and slides from the presentation at R/Pharma Gen AI Day last year:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?app=desktop&amp;amp;v=0XDVYdyuNGc&amp;amp;ab_channel=RinPharma&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;video&lt;/a&gt; - &lt;a href=&#34;https://github.com/mattkumar/blog/raw/main/content/event/rpharma/NarromaticAI.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;taking-stock-r-and-gen-ai&#34;&gt;Taking Stock: R and Gen AI&lt;/h1&gt;
+&lt;p&gt;Compared to languages like Python 🐍 or JS, R has seen relatively little official support for LLM-based SDKs, frameworks, and tools from platforms like OpenAI and LangChain. These tools have become essential for building feature-rich generative AI applications, but R users, myself included, aren’t holding our breath for parity anytime soon.&lt;/p&gt;
+&lt;p&gt;Fortunately, the R community has stepped up, building innovative solutions to bridge the gap. Simply search CRAN for examples. Posit has also made strides with packages like &lt;a href=&#34;https://httr2.r-lib.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;httr2&lt;/code&gt;&lt;/a&gt;, &lt;a href=&#34;https://ellmer.tidyverse.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;elmer&lt;/code&gt;&lt;/a&gt;, and &lt;a href=&#34;https://posit-dev.github.io/shinychat/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;shinychat&lt;/code&gt;&lt;/a&gt;, which streamline LLM integration for R users. Their work in the Python 🐍 ecosystem has further improved the experience for Shiny Python developers too.&lt;/p&gt;
+&lt;h1 id=&#34;llm-logging&#34;&gt;LLM Logging&lt;/h1&gt;
+&lt;p&gt;One challenge I tackled was building a logging system to monitor the utilization and costs 🤑 of my app, which relies on LLMs for text generation and figure interpretation.&lt;/p&gt;
+&lt;p&gt;With a growing user base 👥, tracking this data is crucial for planning and requesting additional resources. Beyond cost management, this system provides insights into user behavior, helping us refine the app’s performance and user experience.&lt;/p&gt;
+&lt;p&gt;While tools like &lt;a href=&#34;https://www.langchain.com/langsmith&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;LangSmith&lt;/a&gt; offer similar functionality, integration with R or Shiny isn’t straightforward—so I decided to roll my own solution.👷 🔨 ⚒&lt;/p&gt;
+&lt;h1 id=&#34;building-a-recipe&#34;&gt;Building a Recipe&lt;/h1&gt;
+&lt;p&gt;To begin, I needed persistent storage ⬆️ for logging. Since &lt;strong&gt;our&lt;/strong&gt; Posit Connect lacks persistent storage, I opted for AWS S3 buckets due to their ease of setup over alternatives like PostgreSQL.&lt;/p&gt;
+&lt;p&gt;Next, I determined what to log and how to capture it 🤔. My app uses custom JavaScript for API requests to internal LLM instances. This is something that I had the unpleasant task with figuring out how to pull out relevant pieces of information responses and relaying it back to R 🔄.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Alright, it wasn&amp;rsquo;t &lt;em&gt;that&lt;/em&gt; bad, but I feel unnecessary. Remember the lack of R support? We went with a custom JS implementation because streaming was vital to our UX, and at the time there was no easy way to do it. I just needed to modify it further.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;From the JS side, I logged:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ Cost (in dollars)&lt;/li&gt;
+&lt;li&gt;✅ Token usage (completion, prompt, total)&lt;/li&gt;
+&lt;li&gt;✅ Latency (response time: end-time - start-time)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;On the R side, I logged:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;☑️ User ID&lt;/li&gt;
+&lt;li&gt;☑️ A unique session ID (generated using &lt;code&gt;{uuid}&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;☑️ Date&lt;/li&gt;
+&lt;li&gt;☑️ Order ID (tracks order in which LLMs are called)&lt;/li&gt;
+&lt;li&gt;☑️ Module used&lt;/li&gt;
+&lt;li&gt;☑️ LLM model name used&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With these metrics, I created a data frame to hold this information which would become the foundation of a session log 📝.&lt;/p&gt;
+&lt;h1 id=&#34;integration&#34;&gt;Integration&lt;/h1&gt;
+&lt;p&gt;Using the &lt;code&gt;{aws.s3}&lt;/code&gt; 📦, I configured secure access to our S3 buckets. In the app’s global server, I initialized a reactive data frame to store log data of a users session. Each time a user interacted with an LLM in a module, that log was updated via &lt;code&gt;bind_rows()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To persist logs when sessions ended (often abruptly when users closed their browsers), I used &lt;code&gt;session$onSessionEnded&lt;/code&gt; to write the log to an S3 bucket as a CSV file 📤. A consistent naming convention ensured easier future retrieval 📥.&lt;/p&gt;
+&lt;p&gt;The key functions here were &lt;code&gt;shiny::isolate&lt;/code&gt;, &lt;code&gt;write.csv&lt;/code&gt;, and &lt;code&gt;aws.s3::put_object&lt;/code&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;retrieval&#34;&gt;Retrieval&lt;/h1&gt;
+&lt;p&gt;After local testing, I deployed this solution to a test instance. To my surprise, it worked flawlessly 🤩.&lt;/p&gt;
+&lt;p&gt;Here’s an example of retrieving a log in R for inspection:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://github.com/mattkumar/shinysave/blob/main/snapshot.jpg?raw=true&#34; alt=&#34;problem&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;I also wrote helper functions to pull logs (by date range or all at once), concatenate them, and prepare them for analysis.&lt;/p&gt;
+&lt;h1 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h1&gt;
+&lt;p&gt;Further testing and optimization are needed, but the system is functional. My next goal is to build a Shiny dashboard for aggregating, slicing and visualizing metrics 📉 📊. This will provide data-driven insights and strengthen my case for additional funding if and when required.&lt;/p&gt;
+&lt;p&gt;Till next time 🍻🙏 !&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>custom langchain agents</title>

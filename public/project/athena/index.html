@@ -60,7 +60,7 @@
   
     
   
-  <meta name="description" content="A simple web app for AI-assisted figure interpretation" />
+  <meta name="description" content="A simple web app for AI-assisted figure interpretation using GPT-4O" />
 
   
   <link rel="alternate" hreflang="en-us" href="https://academic-demo.netlify.app/project/athena/" />
@@ -300,7 +300,7 @@
   <meta property="og:site_name" content="Matthew Kumar" />
   <meta property="og:url" content="https://academic-demo.netlify.app/project/athena/" />
   <meta property="og:title" content="Athena | Matthew Kumar" />
-  <meta property="og:description" content="A simple web app for AI-assisted figure interpretation" /><meta property="og:image" content="https://academic-demo.netlify.app/project/athena/featured.jpg" />
+  <meta property="og:description" content="A simple web app for AI-assisted figure interpretation using GPT-4O" /><meta property="og:image" content="https://academic-demo.netlify.app/project/athena/featured.jpg" />
     <meta property="twitter:image" content="https://academic-demo.netlify.app/project/athena/featured.jpg" /><meta property="og:locale" content="en-us" />
   
     
@@ -355,7 +355,7 @@
       "url": "https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "A simple web app for AI-assisted figure interpretation"
+  "description": "A simple web app for AI-assisted figure interpretation using GPT-4O"
 }
 </script>
 
@@ -871,12 +871,13 @@
     <div class="article-style">
       <h2>The App</h2>
 <hr>
-Athena is a simple web app with a single purpose: allow users to easily obtain AI-assisted descriptions of their images. A lot of thought went into the user interface and experience, though not necessarily effort 😜. More on that later.
+Athena is a simple web app with a single purpose: allow users to easily obtain AI-assisted descriptions of their images. A lot of thought went into the user interface and experience, though not necessarily effort 😜. More on that later.  
+<br>
+<br>
 <p>At it&rsquo;s core, Athena allows:</p>
-<p>👉 Easy upload of your images - drag and drop into the file drop area
-👉 You can also paste  files or drag  most images from the web too (e.g. google images)
-🌿 Each time a file is uploaded, a (maximizable) dialogue box is created on the right as a card. Each card contains the image, prompt, trigger button and a area where the response is generated.</p>
-<p>It&rsquo;s really that simple.</p>
+<p>👉 Easy upload of your images - drag and drop into the file drop area</p>
+<p>👉 You can also paste  files or drag  most images from the web too (e.g. google images)</p>
+<p>🌿 Each time a file is uploaded, a card is created. Each card contains the image thumbnail, editable prompt, trigger button and a response area.</p>
 <p>
 
 
@@ -896,15 +897,61 @@ Athena is a simple web app with a single purpose: allow users to easily obtain A
 <figure  >
   <div class="d-flex justify-content-center">
     <div class="w-100" ><img alt="" srcset="
-               /project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_13f2268fc3bc719e0ce09c4f0a1eddda.webp 400w,
+               /project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_f0e44d6b8d595a4e44c1a16b79848fc7.webp 400w,
                /project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_486b38decf015e27ff5d8f274a9cfc4c.webp 760w,
                /project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
-               src="/project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_13f2268fc3bc719e0ce09c4f0a1eddda.webp"
+               src="/project/athena/athena_hu0af283eeca3a03fbf9a631392d47c4fd_779253_f0e44d6b8d595a4e44c1a16b79848fc7.webp"
                width="760"
                height="414"
                loading="lazy" data-zoomable /></div>
   </div></figure>
 </p>
+<p>It&rsquo;s really that simple. Give it a try!</p>
+<blockquote>
+<p>⚠️ The app deployed on ghp is inert; you&rsquo;ll need to clone the repo and adjust <em>utils.js</em> to point to your LLM api end point along with your api key 🔐</p>
+</blockquote>
+<br>
+<h2>Why make this?</h2>
+<hr>
+Well, UI has always been a passion of mine, but UX too. In our internal platforms for LLMs, it can be a bit cumbersome to perform image interpretation. I wanted a streamlined way to do a task I perform frequently at the drop of a hat 🏃🏻‍♂💨️   
+<br>
+<br>
+<p>I also chose to do this as a static webpage because I thought a shiny app would be overkill for this 😅.</p>
+<h2>Assurance</h2>
+<hr>
+I didn't do the majority of the programming for Athena. GPT-4O and GPT-4O-mini <i>did</i>. As a secondary objective, I was curious whether:  
+<br>
+<br>
+❓ This app  could be generated completely by AI itself?    
+<br>
+❓ Will I have a job in a few years 😂   ?
+<br>
+<br>
+<p>I&rsquo;m happy to share that generative AI, at the least the models I employed, were not enough to generate this completely. Even with several attempts and strategies of prompting 📝, it still required quite a bit of human-in-the-loop to get it right 👫. Here&rsquo;s a few points on my experience:
+<br>
+<br>
+✔️ AI was helpful in getting started from scratch. Everything from scaffolding files in a structured way that made working on the app easier
+<br>
+<br>
+✔️ Basic CSS, HTML tasks were do-able with ease
+<br>
+<br>
+⚠️ Advanced CSS and JS required frequent iteration and testing 🔄. This was frustrating and time ⌛ consuming.
+<br>
+<br>
+✔️ Common tasks like using fetch API to access openai&rsquo;s end point are well understood
+<br>
+<br>
+⚠️ Specifying named JS libraries were amenable, but only after I specifically prompted it&rsquo;s use. It was really hard to get the file-area-upload from first principles. However, I knew about <a href="https://www.dropzone.dev/" target="_blank" rel="noopener">dropzone.js</a>, so I asked it to use it instead. It didn&rsquo;t work 100% out of the box, so I still had to read the documentation and alter the generated code.
+<br>
+<br></p>
+<p>In the end, I probably could have coded this myself more quickly than ask AI to generate it. I realize there&rsquo;s a lot of things that you need to be deeply aware of before you can ask AI to generate you something as complex as a web app. For example, JS libraries, CSS frameworks (Bootstrap 5 class names), Names (HTML elements, CSS selectors, function names), and even coding approaches for efficiency. 
+<br>
+<br>
+It&rsquo;s not push start. At least not with these models. I wonder how Strawberry would do 🤔</p>
+<p>In sum, my job is at least safe for the next bit 🙆</p>
+<p>Till next time!</p>
+<p>🍻🌴</p>
 
     </div>
 
