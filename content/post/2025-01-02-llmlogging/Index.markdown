@@ -75,6 +75,9 @@ To persist logs when sessions ended (often abruptly when users closed their brow
 
 The key functions here were `shiny::isolate`, `write.csv`, and `aws.s3::put_object`.
 
+Here's a diagram of it's final implementation:
+
+![problem](https://github.com/mattkumar/shinysave/blob/main/map.png?raw=true)
 # Retrieval 
 
 After local testing, I deployed this solution to a test instance. To my surprise, it worked flawlessly 🤩.
