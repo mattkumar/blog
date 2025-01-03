@@ -807,25 +807,26 @@ If you’re curious about the application, you can check out the video and slide
 <li><a href="https://www.youtube.com/watch?app=desktop&amp;v=0XDVYdyuNGc&amp;ab_channel=RinPharma" target="_blank" rel="noopener">video</a> - <a href="https://github.com/mattkumar/blog/raw/main/content/event/rpharma/NarromaticAI.pdf" target="_blank" rel="noopener">slides</a></li>
 </ul>
 <h1 id="taking-stock-r-and-gen-ai">Taking Stock: R and Gen AI</h1>
-<p>Compared to languages like Python 🐍 or JS, R has seen relatively little official support for LLM-based SDKs, frameworks, and tools from platforms like OpenAI and LangChain. These tools have become essential for building feature-rich generative AI applications, but R users, myself included, aren’t holding our breath for parity anytime soon.</p>
-<p>Fortunately, the R community has stepped up, building innovative solutions to bridge the gap. Simply search CRAN for examples. Posit has also made strides with packages like <a href="https://httr2.r-lib.org/" target="_blank" rel="noopener"><code>httr2</code></a>, <a href="https://ellmer.tidyverse.org/" target="_blank" rel="noopener"><code>elmer</code></a>, and <a href="https://posit-dev.github.io/shinychat/" target="_blank" rel="noopener"><code>shinychat</code></a>, which streamline LLM integration for R users. Their work in the Python 🐍 ecosystem has further improved the experience for Shiny Python developers too.</p>
+<p>Unlike languages such as Python 🐍 or JS, R has received comparatively limited official support for SDKs and frameworks that enable the use of LLMs from platforms like OpenAI and LangChain. These tools have become essential for building feature-rich generative AI applications, but as an R user, I&rsquo;m not expecting parity anytime soon.</p>
+<p>Fortunately, the R community has stepped up, building innovative solutions to bridge the gap. Simply search CRAN for examples. Posit has also made strides with packages like <a href="https://httr2.r-lib.org/" target="_blank" rel="noopener"><code>httr2</code></a>, <a href="https://ellmer.tidyverse.org/" target="_blank" rel="noopener"><code>elmer</code></a>, and <a href="https://posit-dev.github.io/shinychat/" target="_blank" rel="noopener"><code>shinychat</code></a>, which streamline LLM integration for R users. Their parallel work in the Python 🐍 ecosystem has further improved the experience for Shiny Python developers too.</p>
 <h1 id="llm-logging">LLM Logging</h1>
 <p>One challenge I tackled was building a logging system to monitor the utilization and costs 🤑 of my app, which relies on LLMs for text generation and figure interpretation.</p>
-<p>With a growing user base 👥, tracking this data is crucial for planning and requesting additional resources. Beyond cost management, this system provides insights into user behavior, helping us refine the app’s performance and user experience 🕵.</p>
-<p>While tools like <a href="https://www.langchain.com/langsmith" target="_blank" rel="noopener">LangSmith</a> offer similar functionality, integration with R or Shiny isn’t straightforward—so I decided to roll my own solution.👷 🔨 👨‍🔧</p>
+<p>With a growing user base 👥, tracking this data is crucial for planning and forecasting future resources. Beyond cost management, this system provides insights into user behavior, helping me refine the app’s performance and user experience 🕵.</p>
+<p>While tools like <a href="https://www.langchain.com/langsmith" target="_blank" rel="noopener">LangSmith</a> do these tasks natively, integration with R or Shiny isn’t straightforward — so I decided to roll my own solution.👷 🔨 👨‍🔧</p>
 <h1 id="building-a-recipe">Building a Recipe</h1>
-<p>To begin, I needed persistent storage ⬆️ for logging. Since <strong>our</strong> Posit Connect lacks persistent storage, I opted for AWS S3 buckets due to their ease of setup over alternatives like PostgreSQL.</p>
-<p>Next, I determined what to log and how to capture it 🤔. My app uses custom JavaScript for API requests to internal LLM instances. This is something that I had the unpleasant task with figuring out how to pull out relevant pieces of information responses and relaying it back to R 🔄.</p>
+<p>To begin, I needed persistent storage ⬆️ for logging. Since <strong>our</strong> Posit Connect lacks persistent storage, I opted for AWS S3 buckets due to their ease of setup.</p>
+<p>Next, I determined what to log and how to capture it 🤔. My app uses custom JavaScript for API requests to internal LLM instances. This is something that I had the unpleasant task of figuring out how to do - namely - pulling out relevant pieces of information from responses and relaying it back to R 🔄.</p>
 <blockquote>
-<p>Alright, it wasn&rsquo;t <em>that</em> bad, but I feel unnecessary. Remember the lack of R support? We went with a custom JS early in implementation because streaming was vital to our UX, and at the time there was no easy way to do it. I just needed to modify it further.</p>
+<p>Alright, it wasn&rsquo;t <em>that</em> bad, but I feel unnecessary. Remember the lack of R support? We went with a custom JS early in development because streaming was vital to our UX. At the time there was no other (easy) way to do it.</p>
 </blockquote>
-<p>From the JS side, I logged:</p>
+<p>Each time a user clicks a &ldquo;submit to LLM&rdquo; button on a shiny module, I log:</p>
+<p>From the JS side:</p>
 <ul>
 <li>✅ Cost (in dollars) 💲</li>
 <li>✅ Token usage (completion, prompt, total) 🌔</li>
 <li>✅ Latency (⌚️ start and completion time)</li>
 </ul>
-<p>On the R side, I logged:</p>
+<p>From the R side:</p>
 <ul>
 <li>☑️ User ID 👤</li>
 <li>☑️ A unique session ID (generated using <code>{uuid}</code>) 🐾🐾</li>
@@ -834,11 +835,11 @@ If you’re curious about the application, you can check out the video and slide
 <li>☑️ Module used 📗📘📙</li>
 <li>☑️ LLM model name used</li>
 </ul>
-<p>With these metrics, I created a data frame to hold this information which would become the foundation of a session log 📝.</p>
+<p>I simply collect this information into a data frame which begins to build the foundation of a session log 📝.</p>
 <h1 id="integration">Integration</h1>
 <p>Using the <code>{aws.s3}</code> 📦, I configured secure access to our S3 buckets. In the app’s global server, I initialized a reactive data frame to store log data of a users session. Each time a user interacted with an LLM in a module, that information was added to the log via <code>bind_rows()</code>.</p>
-<p>To persist logs when sessions ended (often abruptly when users closed their browsers), I used <code>session$onSessionEnded</code> to write the log to an S3 bucket as a CSV file 📤. A consistent naming convention ensured easier future retrieval 📥.</p>
-<p>The key functions here were <code>shiny::isolate</code>, <code>write.csv</code>, and <code>aws.s3::put_object</code>.</p>
+<p>To persist logs when sessions ended (often when users closed their browsers), I used <code>session$onSessionEnded</code> to <strong>automatically</strong> write the log to an S3 bucket as a CSV file 📤. A consistent naming convention ensured easier future retrieval 📥.</p>
+<p>The key functions here were <code>shiny::isolate</code>, <code>utils::write.csv</code>, and <code>aws.s3::put_object</code>.</p>
 <p>Here&rsquo;s a diagram of it&rsquo;s final implementation:</p>
 <p>
 
@@ -888,8 +889,8 @@ If you’re curious about the application, you can check out the video and slide
 <p>I also wrote helper functions to pull logs (by date range or all at once), concatenate them, and prepare them for analysis.</p>
 <h1 id="next-steps">Next Steps</h1>
 <p>Further testing and optimization are needed, but the system is functional. My next goal is to build a Shiny dashboard for aggregating, slicing and visualizing metrics 📉 📊. This will provide data-driven insights and strengthen my case for additional funding if and when required.</p>
-<h1 id="takeaway">Takeaway</h1>
-<p>We didn&rsquo;t have something fancy out of the box like <code>LangSmith</code>, but we were able to build what we required using available tools, possibly adding more control and utility.</p>
+<h1 id="takeaways">Takeaways</h1>
+<p>I didn&rsquo;t have access to something fancy and out of the box like <code>LangSmith</code>. However, I was able to still build the functionality I required using available tools which has the benefit of adding further customization, control and utility.</p>
 <p>Till next time 🍻🙏 !</p>
 
     </div>

@@ -29,34 +29,36 @@ If you’re curious about the application, you can check out the video and slide
 
 # Taking Stock: R and Gen AI
 
-Compared to languages like Python 🐍 or JS, R has seen relatively little official support for LLM-based SDKs, frameworks, and tools from platforms like OpenAI and LangChain. These tools have become essential for building feature-rich generative AI applications, but R users, myself included, aren’t holding our breath for parity anytime soon.
+Unlike languages such as Python 🐍 or JS, R has received comparatively limited official support for SDKs and frameworks that enable the use of LLMs from platforms like OpenAI and LangChain. These tools have become essential for building feature-rich generative AI applications, but as an R user, I'm not expecting parity anytime soon.
 
-Fortunately, the R community has stepped up, building innovative solutions to bridge the gap. Simply search CRAN for examples. Posit has also made strides with packages like [`httr2`](https://httr2.r-lib.org/), [`elmer`](https://ellmer.tidyverse.org/), and [`shinychat`](https://posit-dev.github.io/shinychat/), which streamline LLM integration for R users. Their work in the Python 🐍 ecosystem has further improved the experience for Shiny Python developers too.
+Fortunately, the R community has stepped up, building innovative solutions to bridge the gap. Simply search CRAN for examples. Posit has also made strides with packages like [`httr2`](https://httr2.r-lib.org/), [`elmer`](https://ellmer.tidyverse.org/), and [`shinychat`](https://posit-dev.github.io/shinychat/), which streamline LLM integration for R users. Their parallel work in the Python 🐍 ecosystem has further improved the experience for Shiny Python developers too.
 
 # LLM Logging
 
 One challenge I tackled was building a logging system to monitor the utilization and costs 🤑 of my app, which relies on LLMs for text generation and figure interpretation. 
 
-With a growing user base 👥, tracking this data is crucial for planning and requesting additional resources. Beyond cost management, this system provides insights into user behavior, helping us refine the app’s performance and user experience 🕵.
+With a growing user base 👥, tracking this data is crucial for planning and forecasting future resources. Beyond cost management, this system provides insights into user behavior, helping me refine the app’s performance and user experience 🕵.
 
-While tools like [LangSmith](https://www.langchain.com/langsmith) offer similar functionality, integration with R or Shiny isn’t straightforward—so I decided to roll my own solution.👷 🔨 👨‍🔧
+While tools like [LangSmith](https://www.langchain.com/langsmith) do these tasks natively, integration with R or Shiny isn’t straightforward — so I decided to roll my own solution.👷 🔨 👨‍🔧
 
 
 # Building a Recipe
 
-To begin, I needed persistent storage ⬆️ for logging. Since **our** Posit Connect lacks persistent storage, I opted for AWS S3 buckets due to their ease of setup over alternatives like PostgreSQL.
+To begin, I needed persistent storage ⬆️ for logging. Since **our** Posit Connect lacks persistent storage, I opted for AWS S3 buckets due to their ease of setup.
 
-Next, I determined what to log and how to capture it 🤔. My app uses custom JavaScript for API requests to internal LLM instances. This is something that I had the unpleasant task with figuring out how to pull out relevant pieces of information responses and relaying it back to R 🔄. 
+Next, I determined what to log and how to capture it 🤔. My app uses custom JavaScript for API requests to internal LLM instances. This is something that I had the unpleasant task of figuring out how to do - namely - pulling out relevant pieces of information from responses and relaying it back to R 🔄. 
 
-> Alright, it wasn't *that* bad, but I feel unnecessary. Remember the lack of R support? We went with a custom JS early in implementation because streaming was vital to our UX, and at the time there was no easy way to do it. I just needed to modify it further.
+> Alright, it wasn't *that* bad, but I feel unnecessary. Remember the lack of R support? We went with a custom JS early in development because streaming was vital to our UX. At the time there was no other (easy) way to do it. 
 
-From the JS side, I logged:
+Each time a user clicks a "submit to LLM" button on a shiny module, I log:
+
+From the JS side:
 
 - ✅ Cost (in dollars) 💲
 - ✅ Token usage (completion, prompt, total) 🌔
 - ✅ Latency (⌚️ start and completion time)
 
-On the R side, I logged:
+From the R side:
 
 - ☑️ User ID 👤
 - ☑️ A unique session ID (generated using `{uuid}`) 🐾🐾
@@ -65,15 +67,15 @@ On the R side, I logged:
 - ☑️ Module used 📗📘📙
 - ☑️ LLM model name used
 
-With these metrics, I created a data frame to hold this information which would become the foundation of a session log 📝.
+I simply collect this information into a data frame which begins to build the foundation of a session log 📝.
 
 # Integration
 
 Using the `{aws.s3}` 📦, I configured secure access to our S3 buckets. In the app’s global server, I initialized a reactive data frame to store log data of a users session. Each time a user interacted with an LLM in a module, that information was added to the log via `bind_rows()`.
 
-To persist logs when sessions ended (often abruptly when users closed their browsers), I used `session$onSessionEnded` to write the log to an S3 bucket as a CSV file 📤. A consistent naming convention ensured easier future retrieval 📥. 
+To persist logs when sessions ended (often when users closed their browsers), I used `session$onSessionEnded` to **automatically** write the log to an S3 bucket as a CSV file 📤. A consistent naming convention ensured easier future retrieval 📥. 
 
-The key functions here were `shiny::isolate`, `write.csv`, and `aws.s3::put_object`.
+The key functions here were `shiny::isolate`, `utils::write.csv`, and `aws.s3::put_object`.
 
 Here's a diagram of it's final implementation:
 
@@ -92,9 +94,9 @@ I also wrote helper functions to pull logs (by date range or all at once), conca
 
 Further testing and optimization are needed, but the system is functional. My next goal is to build a Shiny dashboard for aggregating, slicing and visualizing metrics 📉 📊. This will provide data-driven insights and strengthen my case for additional funding if and when required.
 
-# Takeaway
+# Takeaways
 
-We didn't have something fancy out of the box like `LangSmith`, but we were able to build what we required using available tools, possibly adding more control and utility. 
+I didn't have access to something fancy and out of the box like `LangSmith`. However, I was able to still build the functionality I required using available tools which has the benefit of adding further customization, control and utility.
 
 Till next time 🍻🙏 !
 
