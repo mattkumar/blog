@@ -100,6 +100,8 @@ QR codes are super flexible — you can insert them into:
 
 🖥️ Directly inside your Shiny app’s UI
 
+<br>
+
 ## 🔗 Resources
 <hr>
 <br>

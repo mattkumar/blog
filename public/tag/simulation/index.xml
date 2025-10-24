@@ -69,6 +69,7 @@ If your app generates outputs — say, plots or reports — you can encode conte
 &lt;p&gt;📈 Plots via {ggplot2} or {patchwork} (e.g. inset, or adjacent)&lt;/p&gt;
 &lt;p&gt;📄 Documents (PDF, DOCX, PPTX) using {officer}&lt;/p&gt;
 &lt;p&gt;🖥️ Directly inside your Shiny app’s UI&lt;/p&gt;
+&lt;br&gt;
 &lt;h2 id=&#34;-resources&#34;&gt;🔗 Resources&lt;/h2&gt;
 &lt;hr&gt;
 &lt;br&gt;
