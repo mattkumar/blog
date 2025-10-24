@@ -4,7 +4,21 @@
   
   
   <url>
-    <loc>https://academic-demo.netlify.app/</loc><lastmod>2025-01-02T00:00:00+00:00</lastmod></url>
+    <loc>https://academic-demo.netlify.app/</loc><lastmod>2025-10-24T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/tag/animation/</loc><lastmod>2025-10-24T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/tag/data-visualization/</loc><lastmod>2025-10-24T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/project/</loc><lastmod>2025-10-24T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/project/qr/</loc><lastmod>2025-10-24T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/tag/simulation/</loc><lastmod>2025-10-24T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/tag/statistical/</loc><lastmod>2025-10-24T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://academic-demo.netlify.app/tags/</loc><lastmod>2025-10-24T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/post/2025-01-02-llmlogging/llmlogging/</loc><lastmod>2025-01-02T00:00:00+00:00</lastmod></url>
   <url>
@@ -13,10 +27,6 @@
     <loc>https://academic-demo.netlify.app/tag/ai/</loc><lastmod>2024-11-11T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/project/athena/</loc><lastmod>2024-11-11T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://academic-demo.netlify.app/project/</loc><lastmod>2024-11-11T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://academic-demo.netlify.app/tags/</loc><lastmod>2024-11-11T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/authors/</loc><lastmod>2024-09-17T00:00:00+00:00</lastmod></url>
   <url>
@@ -72,15 +82,11 @@
   <url>
     <loc>https://academic-demo.netlify.app/tag/cdisc/</loc><lastmod>2022-12-29T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://academic-demo.netlify.app/tag/data-visualization/</loc><lastmod>2022-12-29T00:00:00+00:00</lastmod></url>
-  <url>
     <loc>https://academic-demo.netlify.app/project/dynamic-tlf/</loc><lastmod>2022-12-29T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/post/year-end/</loc><lastmod>2022-12-29T12:47:04-04:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/tag/quarto/</loc><lastmod>2022-12-29T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://academic-demo.netlify.app/tag/statistical/</loc><lastmod>2022-12-29T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/tag/table/</loc><lastmod>2022-12-29T00:00:00+00:00</lastmod></url>
   <url>
@@ -147,10 +153,6 @@
     <loc>https://academic-demo.netlify.app/author/saxena-fe/</loc><lastmod>2022-03-02T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/author/schwartz/</loc><lastmod>2022-03-02T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://academic-demo.netlify.app/tag/animation/</loc><lastmod>2021-11-14T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://academic-demo.netlify.app/tag/simulation/</loc><lastmod>2021-11-14T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://academic-demo.netlify.app/project/mcmc/</loc><lastmod>2021-11-14T00:00:00+00:00</lastmod></url>
   <url>

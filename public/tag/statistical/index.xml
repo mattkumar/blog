@@ -5,12 +5,76 @@
     <link>https://academic-demo.netlify.app/tag/statistical/</link>
       <atom:link href="https://academic-demo.netlify.app/tag/statistical/index.xml" rel="self" type="application/rss+xml" />
     <description>Statistical</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 29 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 24 Oct 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Statistical</title>
       <link>https://academic-demo.netlify.app/tag/statistical/</link>
     </image>
+    
+    <item>
+      <title>QR Codes</title>
+      <link>https://academic-demo.netlify.app/project/qr/</link>
+      <pubDate>Fri, 24 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/qr/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;p&gt;This application is a small example that highlights how to integrate the &lt;code&gt;{qrcode}&lt;/code&gt; package 📦 into shiny.&lt;/p&gt;
+&lt;p&gt;This might at first seem trivial — “just generating a QR code?” — but when paired with the right information, QR codes can actually become a powerful way to communicate data and metadata 📦&lt;/p&gt;
+&lt;p&gt;For example, imagine embedding metadata about how a figure was generated — the selected Shiny inputs, slider values, and filters applied. That’s instant context.
+String interpolation is your friend here 🎯&lt;/p&gt;
+&lt;p&gt;Try it yourself 👇&lt;/p&gt;
+&lt;div class=&#34;centered-wide-iframe&#34;&gt;
+  &lt;iframe
+    src=&#34;https://mattkumar.github.io/sl-qr/&#34;
+    style=&#34;border:none; width:100%; height:600px;&#34;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.centered-wide-iframe {
+  /* Base width slightly wider than article content */
+  width: 120%;              /* 20% wider than the text column */
+  max-width: 1200px;        /* optional cap for huge monitors */
+  margin-left: -10%;        /* shift left by half of the extra width */
+  margin-right: -10%;       /* shift right symmetrically */
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+}
+
+.article-container,
+.article-style {
+  overflow: visible !important;
+}
+&lt;/style&gt;
+&lt;h2 id=&#34;-data-and-metadata-examples&#34;&gt;🧩 Data and Metadata Examples&lt;/h2&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;p&gt;You can easily enrich your QR codes with:&lt;/p&gt;
+&lt;p&gt;🕒 System information: date, time, session ID&lt;/p&gt;
+&lt;p&gt;👤 User info: pulled automatically (e.g., session$user in Posit Connect)&lt;/p&gt;
+&lt;p&gt;📊 Data provenance: source files, query timestamps, or version numbers&lt;/p&gt;
+&lt;p&gt;When your app runs on Posit Connect, this becomes even more useful — you can automatically tag content with who generated it and when via the session object.&lt;/p&gt;
+&lt;h2 id=&#34;-why-it-matters&#34;&gt;💡 Why It Matters&lt;/h2&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;p&gt;On a more thematic level, QR codes offer a new layer of tractability in your analytics workflow.
+If your app generates outputs — say, plots or reports — you can encode contextual details about the data source or analysis parameters directly into a QR code.&lt;/p&gt;
+&lt;p&gt;It’s like leaving a digital breadcrumb trail for reproducibility 🧵&lt;/p&gt;
+&lt;h2 id=&#34;-where-to-use-them&#34;&gt;🧱 Where to Use Them&lt;/h2&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;p&gt;QR codes are super flexible — you can insert them into:&lt;/p&gt;
+&lt;p&gt;📈 Plots via {ggplot2} or {patchwork} (e.g. inset, or adjacent)&lt;/p&gt;
+&lt;p&gt;📄 Documents (PDF, DOCX, PPTX) using {officer}&lt;/p&gt;
+&lt;p&gt;🖥️ Directly inside your Shiny app’s UI&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Till next time,
+🍻🌴</description>
+    </item>
     
     <item>
       <title>Dynamic TLFs</title>
