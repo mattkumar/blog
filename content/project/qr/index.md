@@ -37,7 +37,7 @@ This might at first seem trivial — “just generating a QR code?” — but wh
 For example, imagine embedding metadata about how a figure was generated — the selected Shiny inputs, slider values, and filters applied. That’s instant context.
 String interpolation is your friend here 🎯
 
-Try it yourself 👇
+Try it yourself 👇 by scanning the QR with your 📞
 
 <div class="centered-wide-iframe">
   <iframe
@@ -100,7 +100,15 @@ QR codes are super flexible — you can insert them into:
 
 🖥️ Directly inside your Shiny app’s UI
 
- 
+## 🔗 Resources
+<hr>
+<br>
+
+If you find creative uses ️💡 for them, I'd love to know about it. Be sure to also check out the other features of the `{qrcode}` package:
+
+- 🌐 [`Package Website`](https://thierryo.github.io/qrcode/)  
+- 💻 [`Github Repository`](https://github.com/ThierryO/qrcode/)  
+
 <br>
 <br>
 <br>

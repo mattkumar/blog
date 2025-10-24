@@ -24,7 +24,7 @@
 &lt;p&gt;This might at first seem trivial — “just generating a QR code?” — but when paired with the right information, QR codes can actually become a powerful way to communicate data and metadata 📦&lt;/p&gt;
 &lt;p&gt;For example, imagine embedding metadata about how a figure was generated — the selected Shiny inputs, slider values, and filters applied. That’s instant context.
 String interpolation is your friend here 🎯&lt;/p&gt;
-&lt;p&gt;Try it yourself 👇&lt;/p&gt;
+&lt;p&gt;Try it yourself 👇 by scanning the QR with your 📞&lt;/p&gt;
 &lt;div class=&#34;centered-wide-iframe&#34;&gt;
   &lt;iframe
     src=&#34;https://mattkumar.github.io/sl-qr/&#34;
@@ -69,6 +69,14 @@ If your app generates outputs — say, plots or reports — you can encode conte
 &lt;p&gt;📈 Plots via {ggplot2} or {patchwork} (e.g. inset, or adjacent)&lt;/p&gt;
 &lt;p&gt;📄 Documents (PDF, DOCX, PPTX) using {officer}&lt;/p&gt;
 &lt;p&gt;🖥️ Directly inside your Shiny app’s UI&lt;/p&gt;
+&lt;h2 id=&#34;-resources&#34;&gt;🔗 Resources&lt;/h2&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;p&gt;If you find creative uses ️💡 for them, I&amp;rsquo;d love to know about it. Be sure to also check out the other features of the &lt;code&gt;{qrcode}&lt;/code&gt; package:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🌐 &lt;a href=&#34;https://thierryo.github.io/qrcode/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;Package Website&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;💻 &lt;a href=&#34;https://github.com/ThierryO/qrcode/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;Github Repository&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
