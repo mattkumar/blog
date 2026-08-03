@@ -2,7 +2,7 @@
 abstract: Clinical Review Tools via R, Shiny
 authors: [Matthew Kumar; Srinivas Veeragoni]
 date: "2025-09-05T00:00:00Z"
-featured: false
+featured: true
 links:
 - icon: link
   icon_pack: fas
