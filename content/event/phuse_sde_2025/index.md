@@ -1,5 +1,5 @@
 ---
-abstract: Clinical Review Tools via R, Shiny
+abstract: Clinical Science Leads benefit from data review methods that are quicker and more adaptable than static reports or BI tools. To address this gap, we developed an R Shiny application for the real-time review of early phase oncology data. Our platform empowers users to interactively filter patient populations and generate key interactive visualizations of critical baseline factors and study treatment effects, with downloadable Quarto reports and R code ensuring reproducibility. The application is designed for seamless configuration of new studies and data sources, enhancing scalability.  An integrated Large Language Model (LLM) enables powerful self-service exploratory analytics. Reviewers can use natural language for ad-hoc (e.g., subgroup) analyses and novel visualization requests, decreasing the time-consuming programming cycles typically required for study-specific needs. This pilot-tested tool offers an intuitive solution that saves significant time, empowers clinical teams with greater analytical autonomy, and accelerates critical clinical trial decision-making. 
 authors: [Matthew Kumar; Srinivas Veeragoni]
 date: "2025-09-05T00:00:00Z"
 featured: true
