@@ -9,7 +9,7 @@ links:
   name: View Presentation
   url: https://phuse.s3.eu-central-1.amazonaws.com/Archive/2025/SDE/US/Tarrytown/PRE_Tarrytown04.pdf
 location: PhUSE SDE - TarryTown 2025
-publishDate: "2026-09-05T00:00:00Z"
+publishDate: "2025-09-05T00:00:00Z"
 slides: example
 summary: Clinical Review Tools via R, Shiny
 tags: []
