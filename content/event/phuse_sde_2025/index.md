@@ -16,5 +16,5 @@ tags: []
 title: Accelerating Oncology Data Review - An R Shiny application for insights
 url_code: ""
 url_slides: "https://phuse.s3.eu-central-1.amazonaws.com/Archive/2025/SDE/US/Tarrytown/PRE_Tarrytown04.pdf"
-url_video: ""
+url_video: "https://github.com/mattkumar/zzz/raw/refs/heads/main/DN%20-%20Custom%20Tools.mp4"
 ---
