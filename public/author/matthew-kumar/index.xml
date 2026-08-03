@@ -5,12 +5,20 @@
     <link>https://academic-demo.netlify.app/author/matthew-kumar/</link>
       <atom:link href="https://academic-demo.netlify.app/author/matthew-kumar/index.xml" rel="self" type="application/rss+xml" />
     <description>Matthew Kumar</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 08 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 24 Mar 2026 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/author/matthew-kumar/avatar_hu4f54313eb19ae7d3d941aca70eb36a3f_29108_270x270_fill_q75_lanczos_center.jpg</url>
       <title>Matthew Kumar</title>
       <link>https://academic-demo.netlify.app/author/matthew-kumar/</link>
     </image>
+    
+    <item>
+      <title>Deterministic Foundations, AI Acceleration - Lessons from Developing Hybrid Clinical Review Tools</title>
+      <link>https://academic-demo.netlify.app/publication/llm/</link>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/publication/llm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Reproducibility of Interactive Analyses</title>
