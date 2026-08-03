@@ -18,3 +18,19 @@ url_code: ""
 url_slides: "https://phuse.s3.eu-central-1.amazonaws.com/Archive/2025/SDE/US/Tarrytown/PRE_Tarrytown04.pdf"
 url_video: "https://github.com/mattkumar/zzz/raw/refs/heads/main/DN%20-%20Custom%20Tools.mp4"
 ---
+
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+  <iframe
+    src="https://www.youtube.com/embed/jQz3WzYBRIQ"
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+    allowfullscreen>
+  </iframe>
+</div>
+<br>
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+  <iframe
+    src="https://www.youtube.com/embed/7Z-3EctKQQM"
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+    allowfullscreen>
+  </iframe>
+</div>

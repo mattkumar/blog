@@ -20,4 +20,18 @@ url_slides: "https://phuse.s3.eu-central-1.amazonaws.com/Archive/2026/Connect/US
 url_video: ""
 ---
 
- 
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+  <iframe
+    src="https://www.youtube.com/embed/RB0G7hncM4s"
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+    allowfullscreen>
+  </iframe>
+</div>
+<br>
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+  <iframe
+    src="https://www.youtube.com/embed/ESomjuJPL8s"
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+    allowfullscreen>
+  </iframe>
+</div>
