@@ -7,7 +7,7 @@ links:
 - icon: link
   icon_pack: fas
   name: View Presentation
-  url: https://phuse.s3.eu-central-1.amazonaws.com/Archive/2025/SDE/US/Tarrytown/PRE_Tarrytown04.pdf
+  url: https://mattkumar.github.io/genai_day_2026/
 location: R/Pharma Generative AI Day - 2026 - Virtual
 publishDate: "2026-06-15T00:00:00Z"
 slides: example
